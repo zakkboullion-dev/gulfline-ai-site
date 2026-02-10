@@ -189,6 +189,14 @@ export default function ContactPage() {
                   Request an Automation Audit
                 </Button>
               </form>
+
+              <div className="mt-8 rounded-lg border border-border bg-card p-6">
+                <h3 className="font-semibold text-foreground">What happens next</h3>
+                <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                  After you submit the form, our team will review your information and reach out
+                  by email or phone to schedule your automation audit.
+                </p>
+              </div>
             </div>
           </div>
         </section>
