@@ -26,13 +26,11 @@ export default function HomePage() {
               <div className="flex flex-col justify-center">
                 {/* Logo */}
                 <div className="mb-8 flex justify-center lg:justify-start">
-                  <div className="rounded-xl bg-[#0F1829] p-4">
-                    <img 
-                      src="/images/logo-light.png" 
-                      alt="Gulfline AI" 
-                      className="h-auto w-[120px] md:w-[160px]"
-                    />
-                  </div>
+                  <img 
+                    src="/images/logo-stacked.png" 
+                    alt="Gulfline AI" 
+                    className="h-auto w-[120px] md:w-[160px]"
+                  />
                 </div>
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
                   Engineering Internal AI Infrastructure.
