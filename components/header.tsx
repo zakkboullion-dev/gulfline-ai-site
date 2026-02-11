@@ -20,7 +20,7 @@ export function Header() {
       <div className="container mx-auto flex h-[72px] items-center justify-between px-4 lg:px-8">
         <Link href="/" className="flex items-center">
           <img 
-            src="/images/logo-horizontal.png" 
+            src="/images/logo-header.png" 
             alt="Gulfline AI" 
             className="h-8 w-auto"
           />
