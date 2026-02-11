@@ -16,35 +16,35 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1220] backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-semibold tracking-tight text-foreground">
+          <span className="text-xl font-bold tracking-tight text-white">
             Gulfline AI
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
+                'text-sm font-medium transition-colors hover:text-white',
                 pathname === item.href
-                  ? 'text-foreground'
-                  : 'text-muted-foreground'
+                  ? 'text-white'
+                  : 'text-white/70'
               )}
             >
               {item.label}
             </Link>
           ))}
-          <Button asChild>
+          <Button asChild className="rounded-lg bg-[#1D4ED8] hover:bg-[#1D4ED8]/90">
             <Link href="/contact">Request Audit</Link>
           </Button>
         </nav>
 
-        <Button asChild className="md:hidden">
+        <Button asChild className="rounded-lg bg-[#1D4ED8] hover:bg-[#1D4ED8]/90 md:hidden">
           <Link href="/contact">Request Audit</Link>
         </Button>
       </div>
