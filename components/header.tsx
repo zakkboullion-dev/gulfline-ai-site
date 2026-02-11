@@ -22,7 +22,8 @@ export function Header() {
           <img 
             src="/images/logo-header-white.png" 
             alt="Gulfline AI" 
-            className="h-10 w-auto md:h-12"
+            className="h-10 w-auto mix-blend-mode-screen md:h-12"
+            style={{ mixBlendMode: 'screen' }}
           />
         </Link>
 
