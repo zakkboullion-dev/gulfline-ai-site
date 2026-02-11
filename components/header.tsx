@@ -18,10 +18,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1220] backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight text-white">
-            Gulfline AI
-          </span>
+        <Link href="/" className="flex items-center gap-3">
+          <img 
+            src="/images/unnamed.png" 
+            alt="Gulfline AI" 
+            className="h-10 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

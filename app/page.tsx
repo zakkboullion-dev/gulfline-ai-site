@@ -25,18 +25,17 @@ export default function HomePage() {
               {/* Left Column */}
               <div className="flex flex-col justify-center">
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                  AI Systems Built for How Your Business Actually Operates.
+                  Engineering Internal AI Infrastructure.
                 </h1>
                 <p className="mt-6 text-pretty text-lg leading-relaxed text-white/80 sm:text-xl">
-                  We design and deploy custom AI workflows that improve internal operations,
-                  reduce manual work, and streamline how your team executes.
+                  We design and deploy custom AI workflow systems that integrate into your internal operations — reducing manual work and increasing execution clarity.
                 </p>
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1D4ED8]/90">
-                    <Link href="/contact">Request an Audit</Link>
+                    <Link href="/contact">Start an AI Infrastructure Audit</Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="rounded-lg border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                    <Link href="/solutions">View Solutions</Link>
+                    <Link href="/solutions">Explore Solutions</Link>
                   </Button>
                 </div>
               </div>
@@ -45,9 +44,9 @@ export default function HomePage() {
               <div className="flex items-center justify-center">
                 <div className="w-full max-w-lg space-y-4">
                   {/* Main Dashboard Card */}
-                  <div className="rounded-xl border border-white/10 bg-gradient-to-br from-[#1D4ED8]/20 to-[#22D3EE]/10 p-6 shadow-2xl backdrop-blur">
+                  <div className="rounded-xl border border-white/10 bg-gradient-to-br from-[#0B1220]/90 to-[#1D4ED8]/20 p-6 shadow-2xl backdrop-blur">
                     <div className="mb-4 flex items-center justify-between">
-                      <h3 className="text-sm font-semibold text-white/90">System Activity</h3>
+                      <h3 className="text-sm font-semibold tracking-tight text-white/90">Workflow Layer</h3>
                       <span className="rounded-full bg-[#22D3EE]/20 px-3 py-1 text-xs font-medium text-[#22D3EE]">
                         Live
                       </span>
@@ -55,17 +54,17 @@ export default function HomePage() {
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                      <div className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur">
                         <div className="mb-2 flex items-center gap-2">
                           <Activity className="h-4 w-4 text-[#22D3EE]" />
-                          <span className="text-xs text-white/60">Active Tasks</span>
+                          <span className="text-xs tracking-tight text-white/60">Execution Engine</span>
                         </div>
-                        <p className="text-2xl font-bold text-white">127</p>
+                        <p className="text-2xl font-bold text-white">Active</p>
                       </div>
-                      <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                      <div className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur">
                         <div className="mb-2 flex items-center gap-2">
                           <Zap className="h-4 w-4 text-[#1D4ED8]" />
-                          <span className="text-xs text-white/60">Automated</span>
+                          <span className="text-xs tracking-tight text-white/60">AI Processing</span>
                         </div>
                         <p className="text-2xl font-bold text-white">94%</p>
                       </div>
@@ -115,6 +114,54 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Built for Operational Scale Section */}
+        <section className="border-b border-[#0F172A]/10 bg-white py-20 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+                Built for Operational Scale.
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-[#0F172A]/70">
+                Gulfline AI builds internal systems that support real business operations — not surface-level automations. Each system is designed around your existing workflows, tools, and decision structures.
+              </p>
+            </div>
+            <div className="mx-auto mt-16 grid max-w-6xl gap-8 md:grid-cols-3">
+              <div className="group relative">
+                <div className="rounded-xl border border-[#0F172A]/10 bg-white p-8 transition-all hover:border-[#1D4ED8]/30 hover:shadow-lg">
+                  <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
+                    Workflow Architecture
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
+                    Structured AI pipelines mapped to your internal processes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="group relative">
+                <div className="rounded-xl border border-[#0F172A]/10 bg-white p-8 transition-all hover:border-[#1D4ED8]/30 hover:shadow-lg">
+                  <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
+                    Execution Layer Integration
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
+                    AI systems embedded into your real operational stack.
+                  </p>
+                </div>
+              </div>
+
+              <div className="group relative">
+                <div className="rounded-xl border border-[#0F172A]/10 bg-white p-8 transition-all hover:border-[#1D4ED8]/30 hover:shadow-lg">
+                  <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
+                    Continuous Optimization
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
+                    Ongoing refinement based on performance and data.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What We Build Section */}
         <section className="bg-[#F8FAFC] py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
@@ -128,17 +175,17 @@ export default function HomePage() {
             </div>
             <div className="mx-auto mt-16 grid max-w-6xl gap-6 md:grid-cols-2">
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
-                <h3 className="text-xl font-semibold text-[#0F172A]">
-                  Custom AI Workflow Systems
+                <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
+                  Architected AI Workflow Systems
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                  Bespoke automation systems built around how your team actually works.
+                  Structured automation designed around operational requirements.
                 </p>
               </Card>
 
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
-                <h3 className="text-xl font-semibold text-[#0F172A]">
-                  Backend Process Automation
+                <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
+                  Internal Execution Automation
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
                   Reduce repetitive internal tasks and increase operational consistency.
@@ -146,7 +193,7 @@ export default function HomePage() {
               </Card>
 
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
-                <h3 className="text-xl font-semibold text-[#0F172A]">
+                <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
                   Intelligent Data Handling
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
@@ -155,12 +202,11 @@ export default function HomePage() {
               </Card>
 
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
-                <h3 className="text-xl font-semibold text-[#0F172A]">
-                  Operational AI Tools
+                <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
+                  Operational AI Interfaces
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                  Internal AI assistants and workflow interfaces built specifically for your
-                  organization.
+                  Internal AI assistants and workflow tools engineered for your organization.
                 </p>
               </Card>
             </div>
@@ -180,9 +226,9 @@ export default function HomePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8] text-lg font-bold text-white">
                   1
                 </div>
-                <h3 className="text-xl font-semibold text-white">Audit</h3>
+                <h3 className="text-xl font-semibold tracking-tight text-white">Audit</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We analyze your existing workflows.
+                  We map your operational workflows and identify execution gaps.
                 </p>
                 <div className="absolute -right-4 top-6 hidden h-0.5 w-8 bg-white/20 lg:block" />
               </div>
@@ -191,9 +237,9 @@ export default function HomePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8] text-lg font-bold text-white">
                   2
                 </div>
-                <h3 className="text-xl font-semibold text-white">Design</h3>
+                <h3 className="text-xl font-semibold tracking-tight text-white">Architect</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We architect a custom AI system.
+                  We design a structured AI system around your internal logic.
                 </p>
                 <div className="absolute -right-4 top-6 hidden h-0.5 w-8 bg-white/20 lg:block" />
               </div>
@@ -202,9 +248,9 @@ export default function HomePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8] text-lg font-bold text-white">
                   3
                 </div>
-                <h3 className="text-xl font-semibold text-white">Deploy</h3>
+                <h3 className="text-xl font-semibold tracking-tight text-white">Deploy</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We integrate it into your operations.
+                  We integrate directly into your operational environment.
                 </p>
                 <div className="absolute -right-4 top-6 hidden h-0.5 w-8 bg-white/20 lg:block" />
               </div>
@@ -213,9 +259,9 @@ export default function HomePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8] text-lg font-bold text-white">
                   4
                 </div>
-                <h3 className="text-xl font-semibold text-white">Optimize</h3>
+                <h3 className="text-xl font-semibold tracking-tight text-white">Optimize</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We refine and monitor performance.
+                  We monitor performance and refine continuously.
                 </p>
               </div>
             </div>
