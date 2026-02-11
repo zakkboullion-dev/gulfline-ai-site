@@ -22,7 +22,7 @@ export function Header() {
           <img 
             src="/images/unnamed.png" 
             alt="Gulfline AI" 
-            className="h-10 w-auto"
+            className="h-16 w-auto md:h-20"
           />
         </Link>
 
