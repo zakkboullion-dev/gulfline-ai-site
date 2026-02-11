@@ -19,11 +19,9 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-white/[0.05] bg-[#0B1220] backdrop-blur">
       <div className="container mx-auto flex h-[72px] items-center justify-between px-4 lg:px-8">
         <Link href="/" className="flex items-center">
-          <img 
-            src="/images/logo-light.png" 
-            alt="Gulfline AI" 
-            className="h-7 w-auto drop-shadow-[0_0_8px_rgba(59,130,246,0.3)] md:h-8"
-          />
+          <span className="text-[21px] font-semibold tracking-tight text-white">
+            Gulfline <span className="text-[#1D4ED8]">AI</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
