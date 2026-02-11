@@ -16,13 +16,13 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1220] backdrop-blur">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
+    <header className="sticky top-0 z-50 border-b border-white/[0.05] bg-[#0B1220] backdrop-blur">
+      <div className="container mx-auto flex h-[72px] items-center justify-between px-4 lg:px-8">
+        <Link href="/" className="flex items-center">
           <img 
-            src="/images/unnamed.png" 
+            src="/images/logo-light.png" 
             alt="Gulfline AI" 
-            className="h-16 w-auto md:h-20"
+            className="h-7 w-auto drop-shadow-[0_0_8px_rgba(59,130,246,0.3)] md:h-8"
           />
         </Link>
 
@@ -35,18 +35,24 @@ export function Header() {
                 'text-sm font-medium transition-colors hover:text-white',
                 pathname === item.href
                   ? 'text-white'
-                  : 'text-white/70'
+                  : 'text-[#CBD5E1]'
               )}
             >
               {item.label}
             </Link>
           ))}
-          <Button asChild className="rounded-lg bg-[#1D4ED8] hover:bg-[#1D4ED8]/90">
+          <Button 
+            asChild 
+            className="rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8]"
+          >
             <Link href="/contact">Request Audit</Link>
           </Button>
         </nav>
 
-        <Button asChild className="rounded-lg bg-[#1D4ED8] hover:bg-[#1D4ED8]/90 md:hidden">
+        <Button 
+          asChild 
+          className="rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8] md:hidden"
+        >
           <Link href="/contact">Request Audit</Link>
         </Button>
       </div>
