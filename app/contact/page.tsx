@@ -1,8 +1,7 @@
 'use client'
 
-import React from "react"
+import React, { useState } from "react"
 
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -28,11 +27,47 @@ const industries = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // In a real application, you would send the form data to your backend here
-    setSubmitted(true)
+    setIsSubmitting(true)
+    setError(null)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const payload = {
+      name: String(formData.get("name") || ""),
+      email: String(formData.get("email") || ""),
+      phone: String(formData.get("phone") || ""),
+      businessName: String(formData.get("business-name") || ""),
+      location: String(formData.get("location") || ""),
+      industry: String(formData.get("industry") || ""),
+      website: String(formData.get("website") || ""),
+      message: String(formData.get("message") || ""),
+      companyWebsite: String(formData.get("companyWebsite") || ""),
+    }
+
+    try {
+      const res = await fetch("/api/audit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      const data = await res.json().catch(() => ({}))
+
+      if (!res.ok) throw new Error(data?.error || "Submit failed")
+
+      setSubmitted(true)
+      form.reset()
+    } catch (err: any) {
+      setError(err?.message || "Failed to submit. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -50,8 +85,10 @@ export default function ContactPage() {
                   Request Received
                 </h1>
                 <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                  Thank you for your interest in Gulfline AI. We'll review your automation audit
-                  request and get back to you shortly.
+                  Thank you for your interest in Gulfline AI.
+                </p>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                  Our team will review your information and reach out by email or phone to schedule your automation audit.
                 </p>
               </div>
             </div>
@@ -66,91 +103,72 @@ export default function ContactPage() {
     <>
       <Header />
       <main className="min-h-[calc(100vh-4rem)]">
-        {/* Hero Section */}
         <section className="border-b border-border bg-background py-20 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 Request an Automation Audit
               </h1>
-              <div className="mx-auto mt-8 max-w-2xl space-y-3">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <p className="text-left text-base leading-relaxed text-muted-foreground">
-                    Identify automation opportunities
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <p className="text-left text-base leading-relaxed text-muted-foreground">
-                    Review realistic use cases
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <p className="text-left text-base leading-relaxed text-muted-foreground">
-                    See a demo tailored to your business
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Form Section */}
         <section className="bg-secondary/30 py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-2xl">
               <form onSubmit={handleSubmit} className="space-y-6">
+
+                {/* Honeypot */}
+                <div className="hidden">
+                  <Label htmlFor="companyWebsite">Company Website</Label>
+                  <Input id="companyWebsite" name="companyWebsite" autoComplete="off" tabIndex={-1} />
+                </div>
+
+                {error && (
+                  <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
+                    {error}
+                  </div>
+                )}
+
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="name">
-                      Name <span className="text-destructive">*</span>
-                    </Label>
+                    <Label htmlFor="name">Name *</Label>
                     <Input id="name" name="name" required />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">
-                      Email <span className="text-destructive">*</span>
-                    </Label>
+                    <Label htmlFor="email">Email *</Label>
                     <Input id="email" name="email" type="email" required />
                   </div>
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">
-                      Phone <span className="text-destructive">*</span>
-                    </Label>
-                    <Input id="phone" name="phone" type="tel" required />
+                    <Label htmlFor="phone">Phone *</Label>
+                    <Input id="phone" name="phone" required />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="business-name">
-                      Business Name <span className="text-destructive">*</span>
-                    </Label>
+                    <Label htmlFor="business-name">Business Name *</Label>
                     <Input id="business-name" name="business-name" required />
                   </div>
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="location">
-                      Location <span className="text-destructive">*</span>
-                    </Label>
+                    <Label htmlFor="location">Location *</Label>
                     <Input id="location" name="location" required />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="industry">Industry</Label>
                     <Select name="industry">
-                      <SelectTrigger id="industry">
+                      <SelectTrigger>
                         <SelectValue placeholder="Select an industry" />
                       </SelectTrigger>
                       <SelectContent>
                         {industries.map((industry) => (
-                          <SelectItem key={industry} value={industry.toLowerCase()}>
+                          <SelectItem key={industry} value={industry}>
                             {industry}
                           </SelectItem>
                         ))}
@@ -160,43 +178,20 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="website">
-                    Website <span className="text-destructive">*</span>
-                  </Label>
-                  <Input
-                    id="website"
-                    name="website"
-                    type="url"
-                    placeholder="https://example.com or 'No website'"
-                    required
-                  />
+                  <Label htmlFor="website">Website *</Label>
+                  <Input id="website" name="website" required />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">What would you like to improve or automate?</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Tell us about your automation needs..."
-                  />
-                  <p className="text-sm text-muted-foreground">
-                    If you're not sure what to automate — we'll help you find it.
-                  </p>
+                  <Textarea id="message" name="message" rows={5} />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  Request an Automation Audit
+                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Request an Automation Audit"}
                 </Button>
-              </form>
 
-              <div className="mt-8 rounded-lg border border-border bg-card p-6">
-                <h3 className="font-semibold text-foreground">What happens next</h3>
-                <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-                  After you submit the form, our team will review your information and reach out
-                  by email or phone to schedule your automation audit.
-                </p>
-              </div>
+              </form>
             </div>
           </div>
         </section>
