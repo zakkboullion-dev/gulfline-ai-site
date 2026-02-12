@@ -29,6 +29,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [industry, setIndustry] = useState<string>("")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -44,7 +45,7 @@ export default function ContactPage() {
       phone: String(formData.get("phone") || ""),
       businessName: String(formData.get("business-name") || ""),
       location: String(formData.get("location") || ""),
-      industry: String(formData.get("industry") || ""),
+      industry: industry || "",
       website: String(formData.get("website") || ""),
       message: String(formData.get("message") || ""),
       companyWebsite: String(formData.get("companyWebsite") || ""),
@@ -63,6 +64,7 @@ export default function ContactPage() {
 
       setSubmitted(true)
       form.reset()
+      setIndustry("")
     } catch (err: any) {
       setError(err?.message || "Failed to submit. Please try again.")
     } finally {
@@ -162,14 +164,14 @@ export default function ContactPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="industry">Industry</Label>
-                    <Select name="industry">
+                    <Select value={industry} onValueChange={setIndustry}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select an industry" />
                       </SelectTrigger>
                       <SelectContent>
-                        {industries.map((industry) => (
-                          <SelectItem key={industry} value={industry}>
-                            {industry}
+                        {industries.map((ind) => (
+                          <SelectItem key={ind} value={ind}>
+                            {ind}
                           </SelectItem>
                         ))}
                       </SelectContent>

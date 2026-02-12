@@ -33,17 +33,17 @@ export default function HomePage() {
                   />
                 </div>
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                  Engineering Internal AI Infrastructure.
+                  We Build Internal AI Workflows That Run Your Operations.
                 </h1>
                 <p className="mt-6 text-pretty text-lg leading-relaxed text-white/80 sm:text-xl">
-                  We design and deploy custom AI workflow systems that integrate into your internal operations — reducing manual work and increasing execution clarity.
+                  Custom automation systems designed for real business processes — lead routing, scheduling, document handling, reporting, and follow-ups. Built to integrate with your existing tools and deliver measurable outcomes.
                 </p>
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1D4ED8]/90">
-                    <Link href="/contact">Start an AI Infrastructure Audit</Link>
+                    <Link href="/contact">Request an Automation Audit</Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="rounded-lg border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                    <Link href="/solutions">Explore Solutions</Link>
+                    <Link href="/solutions">See What We Build</Link>
                   </Button>
                 </div>
               </div>
@@ -122,50 +122,71 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Built for Operational Scale Section */}
+        {/* Examples of What We Automate */}
         <section className="border-b border-[#0F172A]/10 bg-white py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-                Built for Operational Scale.
+                Examples of What We Automate
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-[#0F172A]/70">
-                Gulfline AI builds internal systems that support real business operations — not surface-level automations. Each system is designed around your existing workflows, tools, and decision structures.
+              <p className="mt-4 text-lg leading-relaxed text-[#0F172A]/70">
+                Real workflows that run your operations.
               </p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-6xl gap-8 md:grid-cols-3">
-              <div className="group relative">
-                <div className="rounded-xl border border-[#0F172A]/10 bg-white p-8 transition-all hover:border-[#1D4ED8]/30 hover:shadow-lg">
-                  <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
-                    Workflow Architecture
-                  </h3>
-                  <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                    Structured AI pipelines mapped to your internal processes.
-                  </p>
-                </div>
-              </div>
+            <div className="mx-auto mt-16 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <Card className="rounded-xl border border-[#0F172A]/10 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <h3 className="text-lg font-semibold tracking-tight text-[#0F172A]">
+                  Lead Intake → Routing → CRM
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#0F172A]/70">
+                  Capture leads, qualify them, route to the right team, and log everything to your CRM automatically.
+                </p>
+              </Card>
 
-              <div className="group relative">
-                <div className="rounded-xl border border-[#0F172A]/10 bg-white p-8 transition-all hover:border-[#1D4ED8]/30 hover:shadow-lg">
-                  <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
-                    Execution Layer Integration
-                  </h3>
-                  <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                    AI systems embedded into your real operational stack.
-                  </p>
-                </div>
-              </div>
+              <Card className="rounded-xl border border-[#0F172A]/10 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <h3 className="text-lg font-semibold tracking-tight text-[#0F172A]">
+                  Document Processing + Extraction
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#0F172A]/70">
+                  Extract data from PDFs, emails, and forms, then route for approval or action.
+                </p>
+              </Card>
 
-              <div className="group relative">
-                <div className="rounded-xl border border-[#0F172A]/10 bg-white p-8 transition-all hover:border-[#1D4ED8]/30 hover:shadow-lg">
-                  <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
-                    Continuous Optimization
-                  </h3>
-                  <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                    Ongoing refinement based on performance and data.
-                  </p>
-                </div>
-              </div>
+              <Card className="rounded-xl border border-[#0F172A]/10 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <h3 className="text-lg font-semibold tracking-tight text-[#0F172A]">
+                  Scheduling + Reminders + Updates
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#0F172A]/70">
+                  Automated booking, confirmation emails, reminders, and real-time status updates.
+                </p>
+              </Card>
+
+              <Card className="rounded-xl border border-[#0F172A]/10 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <h3 className="text-lg font-semibold tracking-tight text-[#0F172A]">
+                  Follow-up Sequences
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#0F172A]/70">
+                  Intelligent follow-up emails and SMS based on customer behavior and timeline.
+                </p>
+              </Card>
+
+              <Card className="rounded-xl border border-[#0F172A]/10 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <h3 className="text-lg font-semibold tracking-tight text-[#0F172A]">
+                  Reporting + KPI Summaries
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#0F172A]/70">
+                  Daily, weekly, or monthly reports generated and delivered to your team automatically.
+                </p>
+              </Card>
+
+              <Card className="rounded-xl border border-[#0F172A]/10 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <h3 className="text-lg font-semibold tracking-tight text-[#0F172A]">
+                  Internal Alerts + Notifications
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#0F172A]/70">
+                  Slack, email, or SMS alerts when key events happen in your systems.
+                </p>
+              </Card>
             </div>
           </div>
         </section>
@@ -178,43 +199,43 @@ export default function HomePage() {
                 What We Build
               </h2>
               <p className="mt-4 text-lg text-[#0F172A]/70">
-                AI infrastructure tailored to your internal processes.
+                Custom automation systems for internal operations.
               </p>
             </div>
             <div className="mx-auto mt-16 grid max-w-6xl gap-6 md:grid-cols-2">
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
-                  Architected AI Workflow Systems
+                  Internal Workflow Automation
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                  Structured automation designed around operational requirements.
+                  AI-powered systems that handle lead routing, data entry, scheduling, follow-ups, and status updates — designed around your specific processes.
                 </p>
               </Card>
 
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
-                  Internal Execution Automation
+                  AI Assistants for Operations
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                  Reduce repetitive internal tasks and increase operational consistency.
+                  Custom chatbots and AI agents that capture information, answer questions, and route requests to the right team member or system.
                 </p>
               </Card>
 
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
-                  Intelligent Data Handling
+                  Data Handling + Routing
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                  AI-powered routing, decision support, and structured internal data flows.
+                  Extract data from documents, emails, and forms, then intelligently route it to CRMs, project management tools, or approval workflows.
                 </p>
               </Card>
 
               <Card className="rounded-xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[#0F172A]">
-                  Operational AI Interfaces
+                  Reporting + Monitoring
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-[#0F172A]/70">
-                  Internal AI assistants and workflow tools engineered for your organization.
+                  Automated reports, KPI summaries, and real-time alerts delivered to Slack, email, or dashboards based on your business logic.
                 </p>
               </Card>
             </div>
@@ -226,8 +247,11 @@ export default function HomePage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                How It Works
+                How We Work
               </h2>
+              <p className="mt-4 text-lg text-white/70">
+                A structured process that gets you from audit to deployment.
+              </p>
             </div>
             <div className="mx-auto mt-16 grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-4">
               <div className="relative space-y-4">
@@ -236,7 +260,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold tracking-tight text-white">Audit</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We map your operational workflows and identify execution gaps.
+                  We walk through your current workflows, tools, and pain points. No sales pitch — just a real conversation about what slows you down.
                 </p>
                 <div className="absolute -right-4 top-6 hidden h-0.5 w-8 bg-white/20 lg:block" />
               </div>
@@ -247,7 +271,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold tracking-tight text-white">Architect</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We design a structured AI system around your internal logic.
+                  We design the automation system based on your processes, tools, and team. You approve the plan before we build anything.
                 </p>
                 <div className="absolute -right-4 top-6 hidden h-0.5 w-8 bg-white/20 lg:block" />
               </div>
@@ -258,7 +282,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold tracking-tight text-white">Deploy</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We integrate directly into your operational environment.
+                  We build and integrate the system into your real environment. You test it, we refine it, and it goes live when you're ready.
                 </p>
                 <div className="absolute -right-4 top-6 hidden h-0.5 w-8 bg-white/20 lg:block" />
               </div>
@@ -269,9 +293,38 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold tracking-tight text-white">Optimize</h3>
                 <p className="text-base leading-relaxed text-white/70">
-                  We monitor performance and refine continuously.
+                  We monitor performance, fix issues, and adjust based on real usage. Your system improves over time.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Integrations / Stack Section */}
+        <section className="border-b border-[#0F172A]/10 bg-white py-16 lg:py-20">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-wider text-[#0F172A]/60">
+                Integrates With Your Existing Stack
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-[#0F172A]/70">
+                <span>Google Workspace</span>
+                <span className="text-[#0F172A]/30">•</span>
+                <span>Salesforce</span>
+                <span className="text-[#0F172A]/30">•</span>
+                <span>HubSpot</span>
+                <span className="text-[#0F172A]/30">•</span>
+                <span>Slack</span>
+                <span className="text-[#0F172A]/30">•</span>
+                <span>Microsoft 365</span>
+                <span className="text-[#0F172A]/30">•</span>
+                <span>Zapier</span>
+                <span className="text-[#0F172A]/30">•</span>
+                <span>Make</span>
+              </div>
+              <p className="mt-6 text-sm text-[#0F172A]/60">
+                + Custom APIs and internal systems
+              </p>
             </div>
           </div>
         </section>
@@ -364,14 +417,14 @@ export default function HomePage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                {"Let's"} Engineer Your Internal AI System.
+                Ready to Automate Your Operations?
               </h2>
               <p className="mt-6 text-pretty text-lg leading-relaxed text-white/80">
-                Start with a structured automation audit.
+                Request a free automation audit. We'll walk through your workflows and show you what's possible — no commitment, no pressure.
               </p>
               <div className="mt-10">
                 <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1D4ED8]/90">
-                  <Link href="/contact">Request an Audit</Link>
+                  <Link href="/contact">Request an Automation Audit</Link>
                 </Button>
               </div>
             </div>

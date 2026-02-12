@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { CheckCircle2 } from 'lucide-react'
@@ -15,10 +16,10 @@ export default function SolutionsPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Solutions Designed to Scale
+                Solutions Built for Real Operations
               </h1>
               <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Start with one automation. Expand into a fully integrated AI system.
+                Custom automation systems designed around your workflows, tools, and team — not generic templates.
               </p>
             </div>
           </div>
@@ -28,14 +29,15 @@ export default function SolutionsPage() {
         <section className="bg-secondary/30 py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-5xl space-y-16">
-              {/* Solution 1 */}
+              {/* Solution 1: Internal Workflow Automation */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Website AI Chat Agents</CardTitle>
+                  <div className="mb-2">
+                    <Badge variant="secondary">Best for: Operations Teams</Badge>
+                  </div>
+                  <CardTitle className="text-2xl">Internal Workflow Automation</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    Custom AI agents that operate as the first point of contact for your
-                    business — capturing information, routing requests, and escalating when
-                    needed.
+                    Automate the repetitive tasks that slow your team down — lead routing, data entry, scheduling, follow-ups, and status updates.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -43,25 +45,71 @@ export default function SolutionsPage() {
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Business-specific knowledge
+                        Lead capture and routing to the right team member
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Structured data collection
+                        Automated scheduling with calendar integrations
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Smart routing and escalation
+                        Follow-up sequences based on customer behavior
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Guardrails for pricing, claims, and policies
+                        Real-time notifications and status updates
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <Button asChild>
+                      <Link href="/contact">Request an Audit</Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Solution 2: AI Assistants */}
+              <Card>
+                <CardHeader>
+                  <div className="mb-2">
+                    <Badge variant="secondary">Best for: Customer-Facing Teams</Badge>
+                  </div>
+                  <CardTitle className="text-2xl">AI Assistants for Operations</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
+                    Custom AI chatbots and agents that operate as the first point of contact — capturing information, answering questions, and routing requests intelligently.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <p className="text-base leading-relaxed text-muted-foreground">
+                        Business-specific knowledge and context
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <p className="text-base leading-relaxed text-muted-foreground">
+                        Structured data collection and qualification
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <p className="text-base leading-relaxed text-muted-foreground">
+                        Smart escalation to human team members
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <p className="text-base leading-relaxed text-muted-foreground">
+                        Guardrails for pricing, policies, and compliance
                       </p>
                     </div>
                   </div>
@@ -73,13 +121,15 @@ export default function SolutionsPage() {
                 </CardContent>
               </Card>
 
-              {/* Solution 2 */}
+              {/* Solution 3: Data Handling */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Scheduling & Intake Automation</CardTitle>
+                  <div className="mb-2">
+                    <Badge variant="secondary">Best for: Document-Heavy Businesses</Badge>
+                  </div>
+                  <CardTitle className="text-2xl">Data Handling + Routing</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    Automated scheduling and intake that reduces manual effort and improves
-                    conversion quality.
+                    Extract data from PDFs, emails, and forms, then route it to the right system or team member — no more manual data entry.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -87,25 +137,25 @@ export default function SolutionsPage() {
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Calendar integrations
+                        AI-powered document extraction and parsing
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Custom intake logic
+                        Intelligent routing to CRMs, databases, or approval workflows
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Automated confirmations and reminders
+                        Validation and error handling
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        CRM and internal system logging
+                        Integration with existing systems
                       </p>
                     </div>
                   </div>
@@ -117,13 +167,15 @@ export default function SolutionsPage() {
                 </CardContent>
               </Card>
 
-              {/* Solution 3 */}
+              {/* Solution 4: Reporting + Monitoring */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Advanced Business Automation</CardTitle>
+                  <div className="mb-2">
+                    <Badge variant="secondary">Best for: Leadership Teams</Badge>
+                  </div>
+                  <CardTitle className="text-2xl">Reporting + Monitoring</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    Custom-built automation systems that connect AI agents to your internal
-                    operations.
+                    Automated reports, KPI summaries, and real-time alerts delivered to your team — no more manual report generation.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -131,25 +183,25 @@ export default function SolutionsPage() {
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        CRM pipelines
+                        Daily, weekly, or monthly automated reports
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Notifications and alerts
+                        Real-time alerts via Slack, email, or SMS
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Follow-up workflows
+                        Custom dashboards and visualizations
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Custom operational logic
+                        Integration with your data sources
                       </p>
                     </div>
                   </div>
@@ -161,13 +213,15 @@ export default function SolutionsPage() {
                 </CardContent>
               </Card>
 
-              {/* Solution 4 */}
+              {/* Solution 5: Integrations + Systems */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Custom Website Development</CardTitle>
+                  <div className="mb-2">
+                    <Badge variant="secondary">Best for: Complex Tech Stacks</Badge>
+                  </div>
+                  <CardTitle className="text-2xl">Integrations + Systems</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    Enterprise-grade websites engineered to support AI agents, automation, and
-                    conversion workflows. This is a consultative service, not a template product.
+                    Connect your tools together — CRMs, project management software, communication platforms, and custom internal systems.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -175,31 +229,31 @@ export default function SolutionsPage() {
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Discovery & planning sessions
+                        API integrations with major platforms
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Conversion-focused architecture
+                        Custom webhook and automation workflows
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        AI-ready infrastructure
+                        Data sync and transformation logic
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        Custom integrations and automations
+                        Error handling and monitoring
                       </p>
                     </div>
                   </div>
                   <div>
                     <Button asChild>
-                      <Link href="/contact">Discuss Website Development</Link>
+                      <Link href="/contact">Request an Audit</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -213,11 +267,10 @@ export default function SolutionsPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Ready to Get Started?
+                Not Sure What You Need?
               </h2>
               <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-                Every solution starts with understanding your business. Let's discuss what you
-                need.
+                Request an automation audit. We'll walk through your workflows and recommend the best approach for your business.
               </p>
               <div className="mt-10">
                 <Button asChild size="lg">
