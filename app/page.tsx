@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { WorkflowVisual } from '@/components/workflow-visual'
 import { Activity, Zap, TrendingUp, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export default function HomePage() {
@@ -48,75 +49,9 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Column - Mock Dashboard */}
-              <div className="flex items-center justify-center">
-                <div className="w-full max-w-lg space-y-4">
-                  {/* Main Dashboard Card */}
-                  <div className="rounded-xl border border-white/10 bg-gradient-to-br from-[#0B1220]/90 to-[#1D4ED8]/20 p-6 shadow-2xl backdrop-blur">
-                    <div className="mb-4 flex items-center justify-between">
-                      <h3 className="text-sm font-semibold tracking-tight text-white/90">Workflow Layer</h3>
-                      <span className="rounded-full bg-[#22D3EE]/20 px-3 py-1 text-xs font-medium text-[#22D3EE]">
-                        Live
-                      </span>
-                    </div>
-
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur">
-                        <div className="mb-2 flex items-center gap-2">
-                          <Activity className="h-4 w-4 text-[#22D3EE]" />
-                          <span className="text-xs tracking-tight text-white/60">Execution Engine</span>
-                        </div>
-                        <p className="text-2xl font-bold text-white">Active</p>
-                      </div>
-                      <div className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur">
-                        <div className="mb-2 flex items-center gap-2">
-                          <Zap className="h-4 w-4 text-[#1D4ED8]" />
-                          <span className="text-xs tracking-tight text-white/60">AI Processing</span>
-                        </div>
-                        <p className="text-2xl font-bold text-white">94%</p>
-                      </div>
-                    </div>
-
-                    {/* Workflow Steps */}
-                    <div className="mt-4 space-y-2">
-                      <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-3">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1D4ED8]/20">
-                          <TrendingUp className="h-4 w-4 text-[#1D4ED8]" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-sm font-medium text-white">Data Processing</p>
-                          <p className="text-xs text-white/50">Step 2 of 4</p>
-                        </div>
-                        <div className="h-2 w-16 overflow-hidden rounded-full bg-white/10">
-                          <div className="h-full w-1/2 bg-[#1D4ED8]" />
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-3">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#22D3EE]/20">
-                          <Clock className="h-4 w-4 text-[#22D3EE]" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-sm font-medium text-white">Scheduling</p>
-                          <p className="text-xs text-white/50">Queued</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Stat Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur">
-                      <p className="text-xs text-white/60">Response Time</p>
-                      <p className="mt-1 text-xl font-bold text-white">{'<'}2s</p>
-                    </div>
-                    <div className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur">
-                      <p className="text-xs text-white/60">Success Rate</p>
-                      <p className="mt-1 text-xl font-bold text-white">99.8%</p>
-                    </div>
-                  </div>
-                </div>
+              {/* Right Column - Workflow Visual */}
+              <div className="flex items-center justify-center lg:justify-end">
+                <WorkflowVisual />
               </div>
             </div>
           </div>
