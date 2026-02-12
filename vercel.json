@@ -1,5 +1,4 @@
 {
   "installCommand": "rm -rf node_modules .next && npm install --legacy-peer-deps",
-  "buildCommand": "npm run build",
-  "cacheMaxAge": 0
+  "buildCommand": "npm run build"
 }
