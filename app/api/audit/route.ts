@@ -41,7 +41,7 @@ export async function POST(req: Request) {
           <div style="max-width:640px; margin:0 auto;">
             <div style="background:#0b1220; border-radius:14px 14px 0 0; padding:18px 20px;">
               <div style="display:flex; align-items:center; gap:12px;">
-                <img src="https://gulflineai.vercel.app/images/logo-email.png" alt="Gulfline AI" style="width:36px; height:36px; border-radius:6px;" />
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2011%2C%202026%2C%2010_19_11%20PM-KlXEnpo5vr6ZnUp9TeHMVMKAOtU2RQ.png" alt="Gulfline AI" style="width:36px; height:36px; border-radius:6px;" />
                 <div>
                   <div style="color:#ffffff; font-weight:700; font-size:16px; line-height:1;">Gulfline AI</div>
                   <div style="color:#cbd5e1; font-size:12px; margin-top:4px;">New Automation Audit Submission</div>
@@ -128,7 +128,7 @@ export async function POST(req: Request) {
           <div style="max-width:640px; margin:0 auto;">
             <div style="background:#0b1220; border-radius:14px 14px 0 0; padding:18px 20px;">
               <div style="display:flex; align-items:center; gap:12px;">
-                <img src="https://gulflineai.vercel.app/images/logo-email.png" alt="Gulfline AI" style="width:36px; height:36px; border-radius:6px;" />
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Feb%2011%2C%202026%2C%2010_19_11%20PM-KlXEnpo5vr6ZnUp9TeHMVMKAOtU2RQ.png" alt="Gulfline AI" style="width:36px; height:36px; border-radius:6px;" />
                 <div>
                   <div style="color:#ffffff; font-weight:700; font-size:16px; line-height:1;">Gulfline AI</div>
                   <div style="color:#cbd5e1; font-size:12px; margin-top:4px;">Automation Audit Request Confirmed</div>
