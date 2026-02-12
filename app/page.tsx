@@ -11,8 +11,8 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { WorkflowVisualClean } from '@/components/workflow-visual-clean'
-// import { WorkflowVisualEnhanced } from '@/components/workflow-visual-enhanced' // Swap to use enhanced version
+//import { WorkflowVisualClean } from '@/components/workflow-visual-clean'
+import { WorkflowVisualEnhanced } from '@/components/workflow-visual-enhanced' // Swap to use enhanced version
 import { Activity, Zap, TrendingUp, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export default function HomePage() {
@@ -28,9 +28,9 @@ export default function HomePage() {
               <div className="flex flex-col justify-center">
                 {/* Logo */}
                 <div className="mb-10 flex justify-center lg:justify-start">
-                  <img 
-                    src="/images/logo-hero-final.png" 
-                    alt="Gulfline AI" 
+                  <img
+                    src="/images/logo-hero-final.png"
+                    alt="Gulfline AI"
                     className="h-auto w-[360px] sm:w-[420px] md:w-[480px] lg:w-[540px]"
                   />
                 </div>
@@ -52,7 +52,7 @@ export default function HomePage() {
 
               {/* Right Column - Workflow Visual */}
               <div className="flex items-center justify-center lg:justify-end">
-                <WorkflowVisualClean />
+                <WorkflowVisualEnhanced />
               </div>
             </div>
           </div>
