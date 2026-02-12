@@ -27,7 +27,7 @@ export default function HomePage() {
                 {/* Logo */}
                 <div className="mb-8 flex justify-center lg:justify-start">
                   <img 
-                    src="/images/logo-stacked.png" 
+                    src="/images/logo-hero-final.png" 
                     alt="Gulfline AI" 
                     className="h-auto w-[120px] md:w-[160px]"
                   />
