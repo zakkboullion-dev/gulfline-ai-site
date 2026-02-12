@@ -20,12 +20,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.05] bg-[#0B1220] backdrop-blur">
-      <div className="container mx-auto flex h-24 items-center justify-between px-6 md:h-32 lg:px-8">
+      <div className="container mx-auto flex h-28 items-center justify-between px-6 md:h-36 lg:px-8">
         <Link href="/" className="flex items-center">
           <img 
             src="/images/logo-header-tight.png" 
             alt="Gulfline AI" 
-            className="h-20 w-auto md:h-40"
+            className="h-24 w-auto md:h-45"
           />
         </Link>
 
