@@ -11,7 +11,8 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { WorkflowVisual } from '@/components/workflow-visual'
+import { WorkflowVisualClean } from '@/components/workflow-visual-clean'
+// import { WorkflowVisualEnhanced } from '@/components/workflow-visual-enhanced' // Swap to use enhanced version
 import { Activity, Zap, TrendingUp, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export default function HomePage() {
@@ -51,7 +52,7 @@ export default function HomePage() {
 
               {/* Right Column - Workflow Visual */}
               <div className="flex items-center justify-center lg:justify-end">
-                <WorkflowVisual />
+                <WorkflowVisualClean />
               </div>
             </div>
           </div>
