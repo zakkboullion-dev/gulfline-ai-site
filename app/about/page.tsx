@@ -44,18 +44,23 @@ export default function AboutPage() {
               <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 Why Gulfline AI Exists
               </h2>
-              <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
-                <p>Most businesses don't need "more AI."</p>
-                <p>They need structure.</p>
-                <p className="mt-6">
-                  They need intake handled consistently.<br />
-                  They need scheduling without back-and-forth.<br />
-                  They need visibility into what's happening inside their operations.
-                </p>
-                <p className="mt-6 font-medium text-foreground">
-                  Gulfline AI was built to remove operational friction — not to sell tools.
-                </p>
-              </div>
+              <blockquote className="mt-8 border-l-4 border-[#22D3EE] pl-6">
+                <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+                  <p>"Most businesses don't need 'more AI.'</p>
+                  <p>They need structure.</p>
+                  <p className="mt-6">
+                    They need intake handled consistently.<br />
+                    They need scheduling without back-and-forth.<br />
+                    They need visibility into what's happening inside their operations.
+                  </p>
+                  <p className="mt-6">
+                    Gulfline AI was built to remove operational friction — not to sell tools."
+                  </p>
+                </div>
+                <footer className="mt-6 text-base font-medium text-foreground">
+                  — Zakk Boullion, Founder
+                </footer>
+              </blockquote>
             </div>
           </div>
         </section>
@@ -177,6 +182,27 @@ export default function AboutPage() {
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Gulfline AI was founded with a focus on operational clarity and structured execution. Our approach combines hands-on system architecture with real-world business understanding.
               </p>
+              
+              {/* Founders Card */}
+              <Card className="mt-10 border border-white/10 bg-white/5 p-8">
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                    Founded By
+                  </h3>
+                  <div className="mt-6 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-16">
+                    <div>
+                      <p className="text-lg font-medium text-white">Jay Joseph</p>
+                      <p className="mt-1 text-sm text-muted-foreground">Co-Founder</p>
+                    </div>
+                    <div className="hidden h-12 w-px bg-white/10 sm:block" />
+                    <div>
+                      <p className="text-lg font-medium text-white">Zakk Boullion</p>
+                      <p className="mt-1 text-sm text-muted-foreground">Co-Founder</p>
+                    </div>
+                  </div>
+                  <p className="mt-6 text-sm text-muted-foreground">Lake Charles, Louisiana</p>
+                </div>
+              </Card>
             </div>
           </div>
         </section>
