@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { CaseStudyWorkflow } from '@/components/case-study-workflow'
+import { DashboardMockup } from '@/components/dashboard-mockup'
 import { X } from 'lucide-react'
 
 export default function CaseStudyPage() {
@@ -64,15 +64,15 @@ export default function CaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 3 - System Architecture */}
+        {/* Section 3 - System Dashboard */}
         <section className="border-b border-white/[0.05] bg-[#0B1220] py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-5xl">
               <h2 className="mb-12 text-center text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                AI Workflow Architecture Deployed
+                System Dashboard
               </h2>
               <div className="flex justify-center">
-                <CaseStudyWorkflow />
+                <DashboardMockup />
               </div>
             </div>
           </div>
