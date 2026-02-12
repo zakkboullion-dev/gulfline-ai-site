@@ -29,7 +29,7 @@ export default function HomePage() {
                   <img 
                     src="/images/logo-hero-final.png" 
                     alt="Gulfline AI" 
-                    className="h-auto w-[200px] sm:w-[240px] md:w-[280px] lg:w-[320px]"
+                    className="h-auto w-[360px] sm:w-[420px] md:w-[480px] lg:w-[540px]"
                   />
                 </div>
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
