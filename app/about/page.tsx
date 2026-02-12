@@ -26,74 +26,123 @@ export default function AboutPage() {
         {/* Hero Section */}
         <section className="border-b border-border bg-background py-20 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-3xl text-center">
               <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                About Gulfline AI
+                Built for Businesses That Want Systems — Not Just Software.
               </h1>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                We design and deploy custom AI automation systems that handle real business workflows — lead routing, scheduling, document processing, reporting, and follow-ups.
+              <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                Gulfline AI designs and deploys practical automation systems that integrate directly into your operations — reducing manual work, improving response time, and increasing execution clarity.
               </p>
             </div>
           </div>
         </section>
 
-        {/* What We Believe */}
+        {/* Why We Exist */}
         <section className="border-b border-border bg-secondary/30 py-20 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mx-auto max-w-2xl">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Why Gulfline AI Exists
+              </h2>
+              <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
+                <p>Most businesses don't need "more AI."</p>
+                <p>They need structure.</p>
+                <p className="mt-6">
+                  They need intake handled consistently.<br />
+                  They need scheduling without back-and-forth.<br />
+                  They need visibility into what's happening inside their operations.
+                </p>
+                <p className="mt-6 font-medium text-foreground">
+                  Gulfline AI was built to remove operational friction — not to sell tools.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What Makes Us Different */}
+        <section className="border-b border-border bg-background py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-4xl">
               <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                What We Believe
+                We Build Systems, Not Experiments.
               </h2>
-              <div className="mt-8 space-y-6">
-                <p className="text-lg leading-relaxed text-muted-foreground">
-                  AI automation should solve operational problems, not create new ones. We build systems that integrate with your existing tools, follow your business rules, and deliver measurable improvements in efficiency.
-                </p>
-                <p className="text-lg leading-relaxed text-muted-foreground">
-                  Every business has repetitive tasks that slow teams down. Our approach is to audit your workflows, architect the right solution, deploy it into your environment, and optimize based on real usage.
-                </p>
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <Card className="border-white/10 bg-white/5 p-6">
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                    Workflow First
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                    We map your operational process before introducing automation.
+                  </p>
+                </Card>
+                <Card className="border-white/10 bg-white/5 p-6">
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                    Tool Integration
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                    We connect directly into your existing stack — CRM, calendar, intake forms, and reporting tools.
+                  </p>
+                </Card>
+                <Card className="border-white/10 bg-white/5 p-6">
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                    Outcome Focused
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                    Every system is built around measurable operational improvement.
+                  </p>
+                </Card>
+                <Card className="border-white/10 bg-white/5 p-6">
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                    Long-Term Stability
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                    We design for reliability and refinement — not one-time deployment.
+                  </p>
+                </Card>
               </div>
             </div>
           </div>
         </section>
 
         {/* How We Work */}
-        <section className="border-b border-border bg-background py-20 lg:py-24">
+        <section className="border-b border-border bg-secondary/30 py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-4xl">
               <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 How We Work
               </h2>
               <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <Card className="p-6">
+                <Card className="border-white/10 bg-white/5 p-6">
                   <h3 className="text-lg font-semibold tracking-tight text-foreground">
                     1. Audit
                   </h3>
                   <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                    We walk through your current workflows, tools, and pain points to identify what can be automated.
+                    We evaluate your current intake and execution flow.
                   </p>
                 </Card>
-                <Card className="p-6">
+                <Card className="border-white/10 bg-white/5 p-6">
                   <h3 className="text-lg font-semibold tracking-tight text-foreground">
                     2. Architect
                   </h3>
                   <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                    We design the automation system based on your processes and get your approval before building.
+                    We design a structured automation framework aligned to your business logic.
                   </p>
                 </Card>
-                <Card className="p-6">
+                <Card className="border-white/10 bg-white/5 p-6">
                   <h3 className="text-lg font-semibold tracking-tight text-foreground">
                     3. Deploy
                   </h3>
                   <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                    We build and integrate the system into your environment, then test and refine it with your team.
+                    We implement, integrate, and test the system inside your environment.
                   </p>
                 </Card>
-                <Card className="p-6">
+                <Card className="border-white/10 bg-white/5 p-6">
                   <h3 className="text-lg font-semibold tracking-tight text-foreground">
                     4. Optimize
                   </h3>
                   <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                    We monitor performance, fix issues, and adjust based on real usage data.
+                    We monitor performance and refine based on real operational data.
                   </p>
                 </Card>
               </div>
@@ -101,34 +150,33 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Who We're For */}
-        <section className="border-b border-border bg-secondary/30 py-20 lg:py-24">
+        {/* Who We Work With */}
+        <section className="border-b border-border bg-background py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-3xl">
               <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                Who We're For
+                Who We Work With
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                We work with small to mid-market businesses that have operational complexity — multiple team members, customer touchpoints, and workflows that involve manual coordination. If your team is spending time on repetitive tasks instead of higher-value work, we can help.
-              </p>
+              <div className="mt-8 space-y-3 text-lg leading-relaxed text-muted-foreground">
+                <p>• Service-based businesses</p>
+                <p>• Contractors and local operators</p>
+                <p>• Growing SMB teams</p>
+                <p>• Organizations scaling operations</p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Founders Section */}
-        <section className="border-b border-border bg-background py-20 lg:py-24">
+        {/* Leadership */}
+        <section className="border-b border-border bg-secondary/30 py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-4xl">
-              <div className="space-y-6">
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                    Founded by Jay Joseph & Zakk Boullion
-                  </h2>
-                  <p className="mt-4 text-lg text-muted-foreground">
-                    Lake Charles, Louisiana
-                  </p>
-                </div>
-              </div>
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Leadership
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                Gulfline AI was founded with a focus on operational clarity and structured execution. Our approach combines hands-on system architecture with real-world business understanding.
+              </p>
             </div>
           </div>
         </section>
