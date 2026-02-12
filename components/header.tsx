@@ -20,12 +20,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.05] bg-[#0B1220] backdrop-blur">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 lg:px-8">
+      <div className="container mx-auto flex h-16 items-center justify-between px-6 md:h-[72px] lg:px-8">
         <Link href="/" className="flex items-center">
           <img 
             src="/images/logo-header-final.png" 
             alt="Gulfline AI" 
-            className="h-14 w-auto md:h-16"
+            className="h-8 w-auto md:h-10"
           />
         </Link>
 
@@ -36,7 +36,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-white',
+                'text-sm font-medium tracking-wide transition-colors hover:text-white',
                 pathname === item.href
                   ? 'text-white'
                   : 'text-[#CBD5E1]'
@@ -47,7 +47,8 @@ export function Header() {
           ))}
           <Button 
             asChild 
-            className="rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8]"
+            size="sm"
+            className="h-9 rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8]"
           >
             <Link href="/contact">Request Audit</Link>
           </Button>
