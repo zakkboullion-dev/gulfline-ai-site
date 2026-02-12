@@ -1,280 +1,308 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { CheckCircle2 } from 'lucide-react'
+import { Network, Database, GitBranch, LayoutDashboard, X } from 'lucide-react'
 
 export default function SolutionsPage() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="border-b border-border bg-background py-20 lg:py-32">
+        {/* Section 1: Page Header */}
+        <section className="border-b border-white/5 bg-[#0B1220] py-20 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Solutions Built for Real Operations
+            <div className="mx-auto max-w-3xl">
+              <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                AI Systems Built for Operational Execution
               </h1>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Custom automation systems designed around your workflows, tools, and team — not generic templates.
+              <p className="mt-6 text-pretty text-lg leading-relaxed text-white/70 sm:text-xl">
+                We design structured AI workflow systems that integrate into real business processes — not surface-level automations.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Solutions Grid */}
-        <section className="bg-secondary/30 py-20 lg:py-24">
+        {/* Section 2: AI Systems We Build */}
+        <section className="border-b border-white/5 bg-[#0F1829] py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-5xl space-y-16">
-              {/* Solution 1: Internal Workflow Automation */}
-              <Card>
-                <CardHeader>
-                  <div className="mb-2">
-                    <Badge variant="secondary">Best for: Operations Teams</Badge>
+            <div className="mx-auto max-w-6xl">
+              <h2 className="mb-12 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                AI Systems We Build
+              </h2>
+              <div className="grid gap-6 md:grid-cols-2">
+                {/* Card 1 */}
+                <Card className="group border-white/10 bg-white/5 p-6 backdrop-blur transition-all hover:border-[#22D3EE]/40 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8]/10">
+                    <Network className="h-6 w-6 text-[#22D3EE]" />
                   </div>
-                  <CardTitle className="text-2xl">Internal Workflow Automation</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
-                    Automate the repetitive tasks that slow your team down — lead routing, data entry, scheduling, follow-ups, and status updates.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Lead capture and routing to the right team member
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Automated scheduling with calendar integrations
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Follow-up sequences based on customer behavior
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Real-time notifications and status updates
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <Button asChild>
-                      <Link href="/contact">Request an Audit</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="mb-3 text-xl font-semibold text-white">
+                    AI Workflow Systems
+                  </h3>
+                  <p className="leading-relaxed text-white/60">
+                    Structured internal pipelines mapped directly to your operational processes.
+                  </p>
+                </Card>
 
-              {/* Solution 2: AI Assistants */}
-              <Card>
-                <CardHeader>
-                  <div className="mb-2">
-                    <Badge variant="secondary">Best for: Customer-Facing Teams</Badge>
+                {/* Card 2 */}
+                <Card className="group border-white/10 bg-white/5 p-6 backdrop-blur transition-all hover:border-[#22D3EE]/40 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8]/10">
+                    <GitBranch className="h-6 w-6 text-[#22D3EE]" />
                   </div>
-                  <CardTitle className="text-2xl">AI Assistants for Operations</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
-                    Custom AI chatbots and agents that operate as the first point of contact — capturing information, answering questions, and routing requests intelligently.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Business-specific knowledge and context
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Structured data collection and qualification
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Smart escalation to human team members
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Guardrails for pricing, policies, and compliance
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <Button asChild>
-                      <Link href="/contact">Request a Demo</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="mb-3 text-xl font-semibold text-white">
+                    Execution Layer Automation
+                  </h3>
+                  <p className="leading-relaxed text-white/60">
+                    Reduce manual internal tasks and enforce consistent operational logic.
+                  </p>
+                </Card>
 
-              {/* Solution 3: Data Handling */}
-              <Card>
-                <CardHeader>
-                  <div className="mb-2">
-                    <Badge variant="secondary">Best for: Document-Heavy Businesses</Badge>
+                {/* Card 3 */}
+                <Card className="group border-white/10 bg-white/5 p-6 backdrop-blur transition-all hover:border-[#22D3EE]/40 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8]/10">
+                    <Database className="h-6 w-6 text-[#22D3EE]" />
                   </div>
-                  <CardTitle className="text-2xl">Data Handling + Routing</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
-                    Extract data from PDFs, emails, and forms, then route it to the right system or team member — no more manual data entry.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        AI-powered document extraction and parsing
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Intelligent routing to CRMs, databases, or approval workflows
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Validation and error handling
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Integration with existing systems
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <Button asChild>
-                      <Link href="/contact">Request an Audit</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="mb-3 text-xl font-semibold text-white">
+                    Data & Decision Infrastructure
+                  </h3>
+                  <p className="leading-relaxed text-white/60">
+                    AI-powered routing, qualification logic, CRM updates, document handling, and reporting flows.
+                  </p>
+                </Card>
 
-              {/* Solution 4: Reporting + Monitoring */}
-              <Card>
-                <CardHeader>
-                  <div className="mb-2">
-                    <Badge variant="secondary">Best for: Leadership Teams</Badge>
+                {/* Card 4 */}
+                <Card className="group border-white/10 bg-white/5 p-6 backdrop-blur transition-all hover:border-[#22D3EE]/40 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8]/10">
+                    <LayoutDashboard className="h-6 w-6 text-[#22D3EE]" />
                   </div>
-                  <CardTitle className="text-2xl">Reporting + Monitoring</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
-                    Automated reports, KPI summaries, and real-time alerts delivered to your team — no more manual report generation.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Daily, weekly, or monthly automated reports
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Real-time alerts via Slack, email, or SMS
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Custom dashboards and visualizations
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Integration with your data sources
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <Button asChild>
-                      <Link href="/contact">Request an Audit</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Solution 5: Integrations + Systems */}
-              <Card>
-                <CardHeader>
-                  <div className="mb-2">
-                    <Badge variant="secondary">Best for: Complex Tech Stacks</Badge>
-                  </div>
-                  <CardTitle className="text-2xl">Integrations + Systems</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
-                    Connect your tools together — CRMs, project management software, communication platforms, and custom internal systems.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        API integrations with major platforms
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Custom webhook and automation workflows
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Data sync and transformation logic
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <p className="text-base leading-relaxed text-muted-foreground">
-                        Error handling and monitoring
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <Button asChild>
-                      <Link href="/contact">Request an Audit</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="mb-3 text-xl font-semibold text-white">
+                    Operational AI Interfaces
+                  </h3>
+                  <p className="leading-relaxed text-white/60">
+                    Internal dashboards, AI agents, and workflow tools built specifically for your team.
+                  </p>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Bottom CTA */}
-        <section className="border-t border-border bg-background py-20 lg:py-32">
+        {/* Section 3: Problems We Eliminate */}
+        <section className="border-b border-white/5 bg-[#0B1220] py-20 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-12 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                Operational Bottlenecks We Remove
+              </h2>
+              <div className="space-y-6">
+                {/* Problem 1 */}
+                <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <div className="mb-3 flex items-start gap-3">
+                    <X className="mt-0.5 h-5 w-5 shrink-0 text-red-400" />
+                    <h3 className="text-lg font-semibold text-white">
+                      Manual lead routing across inboxes
+                    </h3>
+                  </div>
+                  <p className="ml-8 leading-relaxed text-white/60">
+                    Leads get lost, delayed, or assigned to the wrong team member. Automation ensures every lead is captured, qualified, and routed to the right person instantly based on defined business logic.
+                  </p>
+                </div>
+
+                {/* Problem 2 */}
+                <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <div className="mb-3 flex items-start gap-3">
+                    <X className="mt-0.5 h-5 w-5 shrink-0 text-red-400" />
+                    <h3 className="text-lg font-semibold text-white">
+                      Disconnected scheduling and calendar workflows
+                    </h3>
+                  </div>
+                  <p className="ml-8 leading-relaxed text-white/60">
+                    Manual back-and-forth scheduling wastes time and creates friction. Structured automation integrates directly with calendars to handle availability checks, booking confirmations, and reminders without human intervention.
+                  </p>
+                </div>
+
+                {/* Problem 3 */}
+                <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <div className="mb-3 flex items-start gap-3">
+                    <X className="mt-0.5 h-5 w-5 shrink-0 text-red-400" />
+                    <h3 className="text-lg font-semibold text-white">
+                      Inconsistent qualification or CRM updates
+                    </h3>
+                  </div>
+                  <p className="ml-8 leading-relaxed text-white/60">
+                    Data entry errors and inconsistent qualification standards create unreliable reporting. AI-powered systems enforce standardized qualification criteria and update CRMs with structured, validated data automatically.
+                  </p>
+                </div>
+
+                {/* Problem 4 */}
+                <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <div className="mb-3 flex items-start gap-3">
+                    <X className="mt-0.5 h-5 w-5 shrink-0 text-red-400" />
+                    <h3 className="text-lg font-semibold text-white">
+                      Delayed reporting and lack of operational visibility
+                    </h3>
+                  </div>
+                  <p className="ml-8 leading-relaxed text-white/60">
+                    Manual report generation delays decision-making and hides operational inefficiencies. Automated reporting systems provide real-time performance data and alert leadership to issues before they compound.
+                  </p>
+                </div>
+
+                {/* Problem 5 */}
+                <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <div className="mb-3 flex items-start gap-3">
+                    <X className="mt-0.5 h-5 w-5 shrink-0 text-red-400" />
+                    <h3 className="text-lg font-semibold text-white">
+                      Internal processes dependent on tribal knowledge
+                    </h3>
+                  </div>
+                  <p className="ml-8 leading-relaxed text-white/60">
+                    Undocumented processes create operational risk when key team members are unavailable. Structured automation codifies business logic into systems that execute consistently regardless of who is working.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Example System Architecture */}
+        <section className="border-b border-white/5 bg-[#0F1829] py-20 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mx-auto max-w-5xl">
+              <h2 className="mb-8 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                Example AI Workflow Architecture
+              </h2>
+              
+              {/* Architecture Visual */}
+              <div className="relative overflow-hidden rounded-xl border border-white/5 bg-gradient-to-br from-[#0B1220] to-[#0F172A] p-12 shadow-2xl">
+                {/* Central AI Agent */}
+                <div className="mb-12 flex justify-center">
+                  <div className="relative rounded-xl border border-[#22D3EE]/40 bg-[#1D4ED8]/10 px-8 py-4 shadow-lg shadow-[#22D3EE]/20 backdrop-blur">
+                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#1D4ED8]/20 to-[#22D3EE]/20 blur-sm" />
+                    <div className="relative">
+                      <p className="text-center text-sm font-semibold text-white">AI Workflow Engine</p>
+                      <p className="text-center text-xs text-[#22D3EE]">gemini-2.5-flash</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Workflow Steps */}
+                <div className="relative grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
+                  {/* SVG connections */}
+                  <svg className="absolute inset-0 h-full w-full" style={{ pointerEvents: 'none', zIndex: 0 }}>
+                    <defs>
+                      <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.6" />
+                        <stop offset="100%" stopColor="#22D3EE" stopOpacity="0.8" />
+                      </linearGradient>
+                    </defs>
+                    {/* Connection lines - simplified horizontal flow */}
+                    <line x1="16%" y1="50%" x2="30%" y2="50%" stroke="url(#flowGradient)" strokeWidth="2" opacity="0.6" />
+                    <line x1="36%" y1="50%" x2="47%" y2="50%" stroke="url(#flowGradient)" strokeWidth="2" opacity="0.6" />
+                    <line x1="53%" y1="50%" x2="64%" y2="50%" stroke="url(#flowGradient)" strokeWidth="2" opacity="0.6" />
+                    <line x1="70%" y1="50%" x2="81%" y2="50%" stroke="url(#flowGradient)" strokeWidth="2" opacity="0.6" />
+                    <line x1="87%" y1="50%" x2="98%" y2="50%" stroke="url(#flowGradient)" strokeWidth="2" opacity="0.6" />
+                  </svg>
+
+                  {/* Step nodes */}
+                  {[
+                    'Lead Intake',
+                    'Qualification',
+                    'Routing',
+                    'Scheduling',
+                    'CRM Update',
+                    'Reporting'
+                  ].map((step, i) => (
+                    <div key={i} className="relative z-10 flex flex-col items-center">
+                      <div className="rounded-lg border border-white/20 bg-white/5 px-3 py-2 backdrop-blur">
+                        <p className="whitespace-nowrap text-xs font-medium text-white/80">
+                          {step}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom label */}
+                <div className="mt-8 flex items-center justify-center gap-2">
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#22D3EE]" />
+                  <p className="text-xs font-medium text-white/40">
+                    Structured execution pipeline
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 5: What This Means for Your Business */}
+        <section className="border-b border-white/5 bg-[#0B1220] py-20 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-8 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                Built for Operational Scale
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur">
+                  <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-[#22D3EE]" />
+                  <p className="text-base leading-relaxed text-white/70">
+                    Reduced manual administrative work
+                  </p>
+                </div>
+                <div className="flex items-start gap-4 rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur">
+                  <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-[#22D3EE]" />
+                  <p className="text-base leading-relaxed text-white/70">
+                    Faster internal execution
+                  </p>
+                </div>
+                <div className="flex items-start gap-4 rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur">
+                  <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-[#22D3EE]" />
+                  <p className="text-base leading-relaxed text-white/70">
+                    Structured, consistent processes
+                  </p>
+                </div>
+                <div className="flex items-start gap-4 rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur">
+                  <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-[#22D3EE]" />
+                  <p className="text-base leading-relaxed text-white/70">
+                    Clear performance visibility
+                  </p>
+                </div>
+                <div className="flex items-start gap-4 rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur">
+                  <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-[#22D3EE]" />
+                  <p className="text-base leading-relaxed text-white/70">
+                    Systems that integrate with existing tools
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Final CTA */}
+        <section className="bg-[#0B1220] py-20 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Not Sure What You Need?
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Start With a Structured Automation Audit
               </h2>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-                Request an automation audit. We'll walk through your workflows and recommend the best approach for your business.
+              <p className="mt-6 text-pretty text-lg leading-relaxed text-white/70">
+                We'll walk through your current workflows and identify where automation can remove bottlenecks and improve operational clarity.
               </p>
-              <div className="mt-10">
-                <Button asChild size="lg">
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8]"
+                >
                   <Link href="/contact">Request an Automation Audit</Link>
+                </Button>
+                <Button 
+                  asChild 
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 bg-transparent text-white hover:bg-white/5"
+                >
+                  <Link href="/case-study">Explore Case Study</Link>
                 </Button>
               </div>
             </div>
