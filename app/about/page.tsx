@@ -182,7 +182,7 @@ export default function AboutPage() {
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Gulfline AI was founded with a focus on operational clarity and structured execution. Our approach combines hands-on system architecture with real-world business understanding.
               </p>
-              
+
               {/* Founders Card */}
               <Card className="mt-10 border border-white/10 bg-white/5 p-8">
                 <div className="text-center">
@@ -191,12 +191,12 @@ export default function AboutPage() {
                   </h3>
                   <div className="mt-6 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-16">
                     <div>
-                      <p className="text-lg font-medium text-white">Jay Joseph</p>
+                      <p className="text-lg font-medium text-black">Jay Joseph</p>
                       <p className="mt-1 text-sm text-muted-foreground">Co-Founder</p>
                     </div>
                     <div className="hidden h-12 w-px bg-white/10 sm:block" />
                     <div>
-                      <p className="text-lg font-medium text-white">Zakk Boullion</p>
+                      <p className="text-lg font-medium text-black">Zakk Boullion</p>
                       <p className="mt-1 text-sm text-muted-foreground">Co-Founder</p>
                     </div>
                   </div>
