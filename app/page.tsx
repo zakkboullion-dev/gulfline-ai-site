@@ -25,11 +25,11 @@ export default function HomePage() {
               {/* Left Column */}
               <div className="flex flex-col justify-center">
                 {/* Logo */}
-                <div className="mb-8 flex justify-center lg:justify-start">
+                <div className="mb-10 flex justify-center lg:justify-start">
                   <img 
                     src="/images/logo-hero-final.png" 
                     alt="Gulfline AI" 
-                    className="h-auto w-[120px] md:w-[160px]"
+                    className="h-auto w-[200px] sm:w-[240px] md:w-[280px] lg:w-[320px]"
                   />
                 </div>
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
