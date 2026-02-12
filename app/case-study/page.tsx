@@ -131,26 +131,54 @@ export default function CaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 5 - Operational Impact */}
+        {/* Section 5 - Operational Improvements After Deployment */}
         <section className="border-b border-white/[0.05] bg-[#0B1220] py-20 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-4xl">
               <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                Operational Impact
+                Operational Improvements After Deployment
               </h2>
-              <div className="mt-8 space-y-4">
-                {[
-                  'Improved response consistency for new inquiries',
-                  'Reduced repetitive manual intake communication',
-                  'Structured project qualification before scheduling',
-                  'Increased visibility into inbound activity',
-                  'Clearer internal routing process',
-                ].map((impact) => (
-                  <div key={impact} className="flex items-start gap-4 rounded-lg border border-white/5 bg-white/[0.02] p-4">
-                    <div className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#22D3EE]" />
-                    <p className="text-base leading-relaxed text-white/70">{impact}</p>
-                  </div>
-                ))}
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <Card className="border-white/10 bg-white/5 transition-all hover:border-[#22D3EE]/30 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold tracking-tight text-white">
+                      Structured Lead Intake
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-white/60">
+                      All website inquiries now follow a consistent intake path, ensuring complete project details before internal review.
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="border-white/10 bg-white/5 transition-all hover:border-[#22D3EE]/30 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold tracking-tight text-white">
+                      Automated Qualification Routing
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-white/60">
+                      Inbound requests are evaluated against predefined project criteria and routed appropriately without manual triage.
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="border-white/10 bg-white/5 transition-all hover:border-[#22D3EE]/30 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold tracking-tight text-white">
+                      Scheduling Coordination Streamlined
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-white/60">
+                      Calendar availability and internal notifications are synchronized automatically, reducing back-and-forth communication.
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="border-white/10 bg-white/5 transition-all hover:border-[#22D3EE]/30 hover:shadow-lg hover:shadow-[#22D3EE]/10">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold tracking-tight text-white">
+                      Centralized Activity Logging
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-white/60">
+                      Every interaction is captured in the CRM, improving visibility, reporting, and operational accountability.
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
