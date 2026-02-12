@@ -169,28 +169,36 @@ export async function POST(req: Request) {
     const sheetsUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
 
     if (sheetsUrl) {
-      fetch(sheetsUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          timestamp,
-          submissionId,
-          name: body.name,
-          email: body.email,
-          phone: body.phone,
-          businessName: body.businessName,
-          location: body.location,
-          industry: body.industry || "",
-          website: body.website,
-          message: body.message || "",
-          source: "website",
-        }),
-      })
-        .then(async (r) => {
-          const t = await r.text().catch(() => "");
-          console.log("SHEETS_LOG_RESULT", { status: r.status, body: t });
-        })
-        .catch((err) => console.log("SHEETS_LOG_ERROR", String(err)));
+      try {
+        const r = await fetch(sheetsUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            timestamp,
+            submissionId,
+            name: body.name,
+            email: body.email,
+            phone: body.phone,
+            businessName: body.businessName,
+            location: body.location,
+            industry: body.industry || "",
+            website: body.website,
+            message: body.message || "",
+            source: "website",
+          }),
+        });
+
+        const t = await r.text().catch(() => "");
+        console.log("SHEETS_LOG_RESULT", { status: r.status, body: t });
+
+        if (!r.ok) {
+          console.warn("Sheets webhook returned non-2xx");
+        }
+      } catch (err) {
+        console.log("SHEETS_LOG_ERROR", String(err));
+      }
+    } else {
+      console.warn("Missing GOOGLE_SHEETS_WEBHOOK_URL (Sheets logging disabled)");
     }
 
     return NextResponse.json({ success: true });
