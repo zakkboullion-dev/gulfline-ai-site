@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         <script
-          src="https://buildmyagent.io/widget/69a5d06d3cab84ae93402421/widget-professional.js?widgetId=69a5d06d3cab84ae93402421"
+          src="https://buildmyagent.io/widget/69a5dec034e0342922b64e49/widget-professional.js?widgetId=69a5dec034e0342922b64e49"
           async
         />
       </body>
