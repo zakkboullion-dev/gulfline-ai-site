@@ -31,10 +31,12 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
-        <script
-          src="https://buildmyagent.io/widget/69a5dec034e0342922b64e49/widget-professional.js?widgetId=69a5dec034e0342922b64e49"
-          async
-        />
+        {process.env.NEXT_PUBLIC_CHATBOT_ENABLED !== 'false' && (
+          <script
+            src="https://buildmyagent.io/widget/69a5dec034e0342922b64e49/widget-professional.js?widgetId=69a5dec034e0342922b64e49"
+            async
+          />
+        )}
       </body>
     </html>
   )
