@@ -29,13 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased">
-        {children}
-        <script
-          src="https://buildmyagent.io/widget/69a50ca9688e85e2d09d7017/widget-professional.js?widgetId=69a50ca9688e85e2d09d7017"
-          async
-        />
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   )
 }
