@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
         <script
           src="https://buildmyagent.io/widget/69a5dec034e0342922b64e49/widget-professional.js?widgetId=69a5dec034e0342922b64e49"
