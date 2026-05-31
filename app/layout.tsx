@@ -17,9 +17,35 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Gulfline AI - AI Agents & Automation for Modern Businesses',
-  description: 'We design and deploy AI-powered systems that automate customer conversations, scheduling, and internal workflows — helping organizations operate more efficiently at scale.',
-  generator: 'v0.app',
+  title: 'Gulfline AI — Websites, Web Apps & AI Automation for Businesses',
+  description: 'Gulfline AI builds professional websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses across every industry. Based in Lake Charles, LA.',
+  metadataBase: new URL('https://gulflineai.com'),
+  openGraph: {
+    title: 'Gulfline AI — Websites, Web Apps & AI Automation',
+    description: 'We build websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes. Lake Charles, LA.',
+    url: 'https://gulflineai.com',
+    siteName: 'Gulfline AI',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/images/logo-hero-final.png',
+        width: 1200,
+        height: 630,
+        alt: 'Gulfline AI',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gulfline AI — Websites, Web Apps & AI Automation',
+    description: 'We build websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes.',
+    images: ['/images/logo-hero-final.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -31,12 +57,6 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
-        {process.env.NEXT_PUBLIC_CHATBOT_ENABLED !== 'false' && (
-          <script
-            src="https://buildmyagent.io/widget/69a5dec034e0342922b64e49/widget-professional.js?widgetId=69a5dec034e0342922b64e49"
-            async
-          />
-        )}
       </body>
     </html>
   )

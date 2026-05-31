@@ -9,8 +9,8 @@ import { Menu, X } from 'lucide-react'
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/solutions', label: 'Solutions' },
-  { href: '/case-study', label: 'Case Study' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Portfolio' },
   { href: '/about', label: 'About' },
 ]
 
@@ -20,12 +20,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.05] bg-[#0B1220] backdrop-blur">
-      <div className="container mx-auto flex h-32 items-center justify-between px-6 md:h-48 lg:px-8">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         <Link href="/" className="flex items-center">
-          <img 
-            src="/images/logo-header-cropped.png" 
-            alt="Gulfline AI" 
-            className="h-28 w-auto md:h-[184px]"
+          <img
+            src="/images/logo-header-cropped.png"
+            alt="Gulfline AI"
+            className="h-10 w-auto"
           />
         </Link>
 
@@ -45,12 +45,12 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button 
-            asChild 
+          <Button
+            asChild
             size="sm"
-            className="h-9 rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8]"
+            className="h-9 rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8] text-white"
           >
-            <Link href="/contact">Request Audit</Link>
+            <Link href="/contact">Get a Quote</Link>
           </Button>
         </nav>
 
@@ -67,14 +67,14 @@ export function Header() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="border-t border-white/[0.05] bg-[#0B1220] md:hidden">
-          <nav className="container mx-auto flex flex-col px-4 py-6">
+          <nav className="container mx-auto flex flex-col px-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
-                  'py-3 text-base font-medium transition-colors hover:text-white',
+                  'py-3 text-sm font-medium transition-colors hover:text-white',
                   pathname === item.href
                     ? 'text-white'
                     : 'text-[#CBD5E1]'
@@ -83,11 +83,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button 
-              asChild 
-              className="mt-4 w-full rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8]"
+            <Button
+              asChild
+              className="mt-3 w-full rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8] text-white"
             >
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Request Audit</Link>
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Get a Quote</Link>
             </Button>
           </nav>
         </div>
