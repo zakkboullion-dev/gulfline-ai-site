@@ -48,6 +48,27 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Gulfline AI',
+  url: 'https://gulflineai.com',
+  logo: 'https://gulflineai.com/images/logo-hero-final.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'gulflineai@gmail.com',
+    contactType: 'customer service',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lake Charles',
+    addressRegion: 'LA',
+    addressCountry: 'US',
+  },
+  sameAs: [],
+  description: 'Gulfline AI builds websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes. Based in Lake Charles, Louisiana.',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,6 +76,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
       </body>

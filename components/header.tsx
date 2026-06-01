@@ -1,9 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Menu, X } from 'lucide-react'
 
@@ -11,21 +10,38 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
+  { href: '/content', label: 'Content' },
   { href: '/about', label: 'About' },
 ]
 
 export function Header() {
   const pathname = usePathname()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.05] bg-[#0B1220] backdrop-blur">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
+    <header
+      className={cn(
+        'sticky top-0 z-50 transition-all duration-300',
+        scrolled
+          ? 'border-b border-white/[0.06] bg-[#060C18]/90 backdrop-blur-xl'
+          : 'bg-transparent'
+      )}
+    >
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 lg:px-8">
+
+        {/* Logo — full size */}
         <Link href="/" className="flex items-center">
           <img
             src="/images/logo-header-cropped.png"
             alt="Gulfline AI"
-            className="h-10 w-auto"
+            className="h-14 w-auto"
           />
         </Link>
 
@@ -36,59 +52,70 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                'text-sm font-medium tracking-wide transition-colors hover:text-white',
+                'font-display text-sm font-500 tracking-wide transition-colors duration-200',
                 pathname === item.href
-                  ? 'text-white'
-                  : 'text-[#CBD5E1]'
+                  ? 'text-[#22D3EE]'
+                  : 'text-white/60 hover:text-white'
               )}
+              style={{ fontFamily: "'Syne', sans-serif", fontWeight: 500 }}
             >
               {item.label}
             </Link>
           ))}
-          <Button
-            asChild
-            size="sm"
-            className="h-9 rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8] text-white"
+          <Link
+            href="/contact"
+            className="relative overflow-hidden rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200"
+            style={{
+              fontFamily: "'Syne', sans-serif",
+              background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
+              boxShadow: '0 0 20px rgba(27,79,216,0.35)',
+            }}
           >
-            <Link href="/contact">Get a Quote</Link>
-          </Button>
+            Get a Quote
+          </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile toggle */}
         <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="text-white md:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="text-white/70 md:hidden hover:text-white"
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="border-t border-white/[0.05] bg-[#0B1220] md:hidden">
-          <nav className="container mx-auto flex flex-col px-4 py-4">
+      {mobileOpen && (
+        <div className="border-t border-white/[0.06] bg-[#060C18]/95 backdrop-blur-xl md:hidden">
+          <nav className="container mx-auto flex flex-col gap-1 px-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => setMobileOpen(false)}
                 className={cn(
-                  'py-3 text-sm font-medium transition-colors hover:text-white',
+                  'rounded-lg px-4 py-3 text-sm font-medium transition-colors',
                   pathname === item.href
-                    ? 'text-white'
-                    : 'text-[#CBD5E1]'
+                    ? 'bg-white/5 text-[#22D3EE]'
+                    : 'text-white/60 hover:bg-white/5 hover:text-white'
                 )}
+                style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 {item.label}
               </Link>
             ))}
-            <Button
-              asChild
-              className="mt-3 w-full rounded-lg bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] hover:from-[#1E40AF] hover:to-[#1D4ED8] text-white"
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 rounded-lg px-4 py-3 text-center text-sm font-semibold text-white"
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
+              }}
             >
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Get a Quote</Link>
-            </Button>
+              Get a Quote
+            </Link>
           </nav>
         </div>
       )}
