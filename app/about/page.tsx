@@ -1,189 +1,256 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Globe, Zap, Users, ShieldCheck } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About — Gulfline AI',
   description: 'Gulfline AI is a Lake Charles, Louisiana web development and AI automation company. We build websites, apps, chatbots, and lead pipelines for businesses of all sizes.',
 }
 
-const differentiators = [
+const pillars = [
   {
-    title: 'We build, we do not consult.',
-    body: 'You get a finished product — not a strategy deck. Every project ends with something live, working, and yours.',
+    icon: Globe,
+    title: 'We build. We do not consult.',
+    body: 'Every engagement ends with something live, working, and yours. No strategy decks, no endless planning. We ship.',
   },
   {
-    title: 'One team, full scope.',
-    body: 'Websites, apps, automations, chatbots, CRM integrations — we handle all of it. No need to coordinate between vendors.',
+    icon: Zap,
+    title: 'One team. Full scope.',
+    body: 'Websites, apps, chatbots, CRM integrations, automations — we handle all of it so you never juggle vendors.',
   },
   {
-    title: 'We work with agencies.',
-    body: 'Marketing agencies bring us in as the technical build team. White-label or collaborative — we are flexible.',
+    icon: Users,
+    title: 'Agency-friendly.',
+    body: 'Marketing agencies bring us in as the technical build team. White-label or collaborative — we fit your workflow.',
   },
   {
-    title: 'We keep it simple.',
-    body: 'No jargon, no surprises, no hidden fees. You know what we are building, what it costs, and when it is done.',
+    icon: ShieldCheck,
+    title: 'No surprises.',
+    body: 'Clear scope, clear price, clear timeline — before we start anything. You always know exactly where things stand.',
   },
 ]
 
 const industries = [
-  'Restaurants & Food Service',
-  'Retail & E-Commerce',
-  'Legal & Political Campaigns',
-  'Construction & Real Estate',
-  'Healthcare & Wellness',
-  'Finance & Insurance',
-  'Marketing & Advertising',
-  'Logistics & Transportation',
-  'Education & Training',
-  'Local Service Businesses',
+  'Restaurants & Food Service', 'Retail & E-Commerce', 'Legal & Political',
+  'Construction & Real Estate', 'Healthcare & Wellness', 'Finance & Insurance',
+  'Marketing & Advertising', 'Logistics & Transportation',
+  'Education & Training', 'Local Service Businesses',
+]
+
+const stats = [
+  { val: '3+', label: 'Live client sites' },
+  { val: '1', label: 'Portal in active development' },
+  { val: '24hr', label: 'Response commitment' },
+  { val: '100%', label: 'Custom builds — no templates' },
 ]
 
 export default function AboutPage() {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ background: 'var(--navy)' }}>
 
         {/* Hero */}
-        <section className="bg-[#0B1220] py-20 lg:py-28">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#22D3EE]">
-                Who We Are
-              </p>
-              <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Built in Lake Charles. Built for Business.
+        <section
+          className="hero-grid relative overflow-hidden"
+          style={{ padding: '7rem 0 5rem' }}
+        >
+          <div className="orb orb-blue" style={{ width: 500, height: 500, top: '-20%', right: '-5%' }} />
+
+          {/* G watermark */}
+          <div
+            className="pointer-events-none absolute"
+            style={{
+              left: '-5%', top: '50%', transform: 'translateY(-50%)',
+              width: 'clamp(280px, 35vw, 500px)',
+              opacity: 0.04, filter: 'blur(1px)',
+            }}
+          >
+            <img src="/images/logo-icon-only.png" alt="" style={{ width: '100%', height: 'auto' }} />
+          </div>
+
+          <div
+            className="pointer-events-none absolute bottom-0 left-0 right-0 h-32"
+            style={{ background: 'linear-gradient(to bottom, transparent, var(--navy))' }}
+          />
+
+          <div className="container relative mx-auto px-4 lg:px-8">
+            <div style={{ maxWidth: '52rem' }}>
+              <div className="badge-cyan mb-6">Who We Are</div>
+              <h1
+                className="glow-text"
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontWeight: 800,
+                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                  lineHeight: 1.05,
+                  letterSpacing: '-0.03em',
+                  color: 'var(--white)',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                Built in Lake Charles.<br />
+                <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>Built for Business.</span>
               </h1>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-white/70 sm:text-xl">
-                Gulfline AI is a web development and automation company based in Lake Charles, Louisiana. We build the digital side of businesses — websites, apps, chatbots, and the systems that keep them running.
+              <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--muted)', lineHeight: 1.75, maxWidth: '38rem' }}>
+                Gulfline AI is a web development and AI automation company based in Lake Charles, Louisiana. We build the digital side of businesses — websites, apps, chatbots, and the automated systems that power them.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Founder */}
-        <section className="bg-[#0F1829] py-20 lg:py-24">
+        {/* Stats bar */}
+        <section style={{ background: 'var(--navy-mid)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '2.5rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-5xl">
-              <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-                <div className="flex items-center justify-center">
-                  <div className="flex h-72 w-72 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-center">
-                    <div>
-                      <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[#1D4ED8]/30">
-                        <span className="text-2xl font-bold text-[#22D3EE]">ZB</span>
-                      </div>
-                      <p className="text-sm text-white/40">Photo coming soon</p>
-                    </div>
-                  </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem', textAlign: 'center' }}>
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: '2rem', color: 'var(--cyan)', lineHeight: 1 }}>{s.val}</p>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.07em' }}>{s.label}</p>
                 </div>
-                <div className="flex flex-col justify-center">
-                  <h2 className="text-3xl font-bold tracking-tight text-white">Zakk Boullion</h2>
-                  <p className="mt-1 text-base text-[#22D3EE]">Founder, Gulfline AI</p>
-                  <div className="mt-6 space-y-4 text-base leading-relaxed text-white/65">
-                    <p>
-                      I started Gulfline AI because I saw a real gap — businesses that needed professional digital work but kept getting handed templates, cookie-cutter solutions, or vendors who disappeared after launch.
-                    </p>
-                    <p>
-                      Every business I have worked with has something specific about how they operate, what they sell, and who they serve. Generic does not cut it. So we build custom — websites, apps, automation systems — designed around how each client actually works.
-                    </p>
-                    <p>
-                      Based in Lake Charles, working with clients across Louisiana and beyond.
-                    </p>
-                  </div>
-                  <div className="mt-8">
-                    <a
-                      href="mailto:gulflineai@gmail.com"
-                      className="text-sm font-medium text-[#22D3EE] transition-colors hover:text-white"
-                    >
-                      gulflineai@gmail.com
-                    </a>
-                  </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Mission */}
+        <section style={{ padding: '6rem 0' }}>
+          <div className="container mx-auto px-4 lg:px-8">
+            <div style={{ maxWidth: '52rem', margin: '0 auto' }}>
+              <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
+                <div className="quote-bar" style={{ minHeight: '7rem' }} />
+                <div>
+                  <p
+                    style={{
+                      fontFamily: "'Syne', sans-serif",
+                      fontWeight: 600,
+                      fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)',
+                      color: 'var(--white)',
+                      lineHeight: 1.6,
+                      fontStyle: 'italic',
+                      marginBottom: '1.5rem',
+                    }}
+                  >
+                    "We exist because businesses deserve digital work that actually gets done — not proposals, not templates, not vendors who disappear. We build custom because generic does not work. Every client gets our full attention and something that ships."
+                  </p>
+                  <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--cyan)' }}>— The Gulfline AI Team</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why Gulfline AI */}
-        <section className="bg-[#0B1220] py-20 lg:py-24">
+        <div className="section-line" />
+
+        {/* Why us — pillars */}
+        <section style={{ padding: '6rem 0', background: 'var(--navy-mid)' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-5xl">
-              <h2 className="mb-12 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Why Gulfline AI
-              </h2>
-              <div className="grid gap-6 sm:grid-cols-2">
-                {differentiators.map((item) => (
-                  <Card
-                    key={item.title}
-                    className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+            <div className="badge-cyan mb-5">Why Gulfline AI</div>
+            <h2
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                fontWeight: 700,
+                fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+                color: 'var(--white)',
+                marginBottom: '3rem',
+                lineHeight: 1.15,
+              }}
+            >
+              How we operate.
+            </h2>
+            <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
+              {pillars.map((p) => {
+                const Icon = p.icon
+                return (
+                  <div key={p.title} className="glass-card" style={{ padding: '1.75rem', transition: 'border-color 0.3s' }}>
+                    <div style={{ width: 44, height: 44, borderRadius: 10, background: 'rgba(27,79,216,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                      <Icon size={20} color="var(--cyan)" />
+                    </div>
+                    <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '1rem', color: 'var(--white)', marginBottom: '0.6rem' }}>{p.title}</h3>
+                    <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.7 }}>{p.body}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Industries */}
+        <section style={{ padding: '6rem 0' }}>
+          <div className="container mx-auto px-4 lg:px-8">
+            <div style={{ display: 'grid', gap: '4rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', alignItems: 'start' }}>
+              <div>
+                <div className="badge-cyan mb-5">Who We Work With</div>
+                <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', lineHeight: 1.15, marginBottom: '1.5rem' }}>
+                  Any industry.<br />Any size.
+                </h2>
+                <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.75, marginBottom: '2rem' }}>
+                  We have worked with seafood businesses, political campaigns, property documentation companies, and more. Industry does not matter — if you need something built and want it done right, we are interested.
+                </p>
+                <Link
+                  href="/contact"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                    background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
+                    color: '#fff', fontFamily: "'Syne', sans-serif", fontWeight: 600,
+                    fontSize: '0.875rem', padding: '0.75rem 1.5rem', borderRadius: '8px',
+                    textDecoration: 'none', boxShadow: '0 0 20px rgba(27,79,216,0.3)',
+                  }}
+                >
+                  Talk to Us <ArrowRight size={15} />
+                </Link>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', alignContent: 'flex-start' }}>
+                {industries.map((ind) => (
+                  <span
+                    key={ind}
+                    style={{
+                      border: '1px solid var(--border-mid)',
+                      background: 'rgba(255,255,255,0.03)',
+                      borderRadius: '999px',
+                      padding: '0.5rem 1.1rem',
+                      fontSize: '0.85rem',
+                      color: 'var(--muted)',
+                    }}
                   >
-                    <h3 className="mb-3 text-lg font-semibold text-white">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-white/60">{item.body}</p>
-                  </Card>
+                    {ind}
+                  </span>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Industries */}
-        <section className="bg-[#0F1829] py-20 lg:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-5xl">
-              <div className="grid gap-12 lg:grid-cols-2">
-                <div>
-                  <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    We Work With Any Industry.
-                  </h2>
-                  <p className="mt-6 text-base leading-relaxed text-white/60">
-                    If your business needs a website, an app, or a smarter way to handle leads and communication — we can help. We have worked with seafood businesses, political campaigns, property documentation companies, and more.
-                  </p>
-                  <p className="mt-4 text-base leading-relaxed text-white/60">
-                    Industry does not matter. What matters is that you need something built and you want it done right.
-                  </p>
-                  <div className="mt-8">
-                    <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white">
-                      <Link href="/contact">Talk to Us <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                    </Button>
-                  </div>
-                </div>
-                <div className="flex flex-wrap content-start gap-3">
-                  {industries.map((industry) => (
-                    <span
-                      key={industry}
-                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/60"
-                    >
-                      {industry}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CTA */}
-        <section className="bg-[#0B1220] py-20 lg:py-24">
+        <section style={{ background: 'var(--navy-mid)', padding: '6rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl rounded-2xl border border-[#1D4ED8]/30 bg-[#1D4ED8]/10 px-8 py-14 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Ready to work together?
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/65">
-                The first call is free. Tell us what you need and we will put together a plan that fits your business and your budget.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white">
-                  <Link href="/contact">Get a Free Quote</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-lg border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                  <Link href="/portfolio">See Our Work</Link>
-                </Button>
+            <div
+              style={{
+                maxWidth: '52rem', margin: '0 auto', textAlign: 'center',
+                border: '1px solid rgba(27,79,216,0.35)', borderRadius: '24px',
+                padding: 'clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem)',
+                background: 'linear-gradient(135deg, rgba(27,79,216,0.1) 0%, rgba(34,211,238,0.05) 100%)',
+                position: 'relative', overflow: 'hidden',
+              }}
+            >
+              <div className="orb orb-cyan" style={{ width: 250, height: 250, bottom: '-40%', right: '-5%', opacity: 0.5 }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>
+                  Ready to work together?
+                </h2>
+                <p style={{ fontSize: '1.05rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '28rem', margin: '0 auto 2rem' }}>
+                  First call is free. Tell us what you need and we will put together a plan that fits your business.
+                </p>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
+                    Get a Free Quote <ArrowRight size={16} />
+                  </Link>
+                  <Link href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
+                    See Our Work
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

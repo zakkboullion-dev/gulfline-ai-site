@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ExternalLink, ArrowRight } from 'lucide-react'
@@ -17,8 +15,8 @@ const projects = [
     url: 'https://dhdoscan.com',
     category: 'Business Website',
     location: 'Lake Charles, Louisiana',
-    tags: ['Website', 'Lead Capture', 'Dark Design'],
-    description: 'Digital Home Documentation Operations (DHDO) needed a professional website to represent their Matterport 3D scanning and property documentation services. We built a clean, dark-themed site focused on credibility, clear service communication, and lead generation.',
+    tags: ['Website', 'Lead Capture'],
+    description: 'Digital Home Documentation Operations needed a professional site to represent their Matterport 3D scanning and property documentation services. We built a dark-themed site focused on credibility, clear service communication, and lead generation.',
     built: ['Custom design from scratch', 'Contact and lead capture form', 'Service pages and pricing layout', 'Mobile-optimized', 'Deployed on Vercel'],
     partner: null,
   },
@@ -27,8 +25,8 @@ const projects = [
     url: 'https://jabsseafood.com',
     category: 'Local Business Website',
     location: 'Hackberry, Louisiana',
-    tags: ['Website', 'Local Business', 'Cajun & Seafood'],
-    description: "Jab's Seafood is a Louisiana seafood business serving the local community. We built their online presence to showcase their offerings, communicate their story, and make it easy for customers to find and contact them.",
+    tags: ['Website', 'Local Business'],
+    description: "Jab's Seafood is a Louisiana seafood business serving the local community. We built their online presence to showcase their offerings and make it easy for customers to find and contact them.",
     built: ['Business website with branding', 'Product and service showcase', 'Contact and location info', 'Mobile-first design', 'Optimized for local SEO'],
     partner: 'Bryant Marketing Services, LLC',
   },
@@ -37,8 +35,8 @@ const projects = [
     url: 'https://joeyforjudge.com',
     category: 'Political Campaign Website',
     location: 'Louisiana',
-    tags: ['Campaign Site', 'Political', 'Fast Turnaround'],
-    description: 'A Louisiana judicial candidate needed a campaign website fast. We delivered a clean, professional site built to drive name recognition, communicate the candidate\'s platform, and reach voters ahead of the election.',
+    tags: ['Campaign Site', 'Fast Turnaround'],
+    description: 'A Louisiana judicial candidate needed a campaign website fast. We delivered a clean, professional site built to drive name recognition, communicate the platform, and reach voters.',
     built: ['Campaign site with clear messaging', 'Candidate bio and platform pages', 'Mobile-first design', 'Fast turnaround delivery', 'Social sharing optimized'],
     partner: 'Bryant Marketing Services, LLC',
   },
@@ -48,134 +46,130 @@ export default function PortfolioPage() {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ background: 'var(--navy)' }}>
 
         {/* Hero */}
-        <section className="bg-[#0B1220] py-20 lg:py-28">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#22D3EE]">
-                Our Work
-              </p>
-              <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Built by Gulfline AI.
+        <section className="hero-grid relative overflow-hidden" style={{ padding: '7rem 0 5rem' }}>
+          <div className="orb orb-blue" style={{ width: 450, height: 450, top: '-15%', right: '5%' }} />
+          <div
+            className="pointer-events-none absolute"
+            style={{ left: '-4%', top: '50%', transform: 'translateY(-50%)', width: 'clamp(260px, 35vw, 480px)', opacity: 0.04, filter: 'blur(1px)' }}
+          >
+            <img src="/images/logo-icon-only.png" alt="" style={{ width: '100%', height: 'auto' }} />
+          </div>
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to bottom, transparent, var(--navy))' }} />
+
+          <div className="container relative mx-auto px-4 lg:px-8">
+            <div style={{ maxWidth: '48rem' }}>
+              <div className="badge-cyan mb-6">Our Work</div>
+              <h1
+                className="glow-text"
+                style={{
+                  fontFamily: "'Syne', sans-serif", fontWeight: 800,
+                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                  lineHeight: 1.05, letterSpacing: '-0.03em',
+                  color: 'var(--white)', marginBottom: '1.5rem',
+                }}
+              >
+                Built by<br />
+                <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>Gulfline AI.</span>
               </h1>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-white/70 sm:text-xl">
-                Real projects for real businesses. We are early and growing — every client gets our full attention.
+              <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--muted)', lineHeight: 1.75, maxWidth: '34rem' }}>
+                Real projects for real businesses. Every client gets our full attention — we are early and growing, and we intend to keep it that way.
               </p>
             </div>
           </div>
         </section>
 
         {/* Projects */}
-        <section className="bg-[#0F1829] py-20 lg:py-24">
+        <section style={{ padding: '5rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-5xl space-y-10">
-              {projects.map((project, i) => (
-                <Card
+            <div style={{ maxWidth: '60rem', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {projects.map((project) => (
+                <div
                   key={project.name}
-                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur"
+                  className="glass-card"
+                  style={{ overflow: 'hidden', transition: 'border-color 0.3s' }}
                 >
-                  {/* Card Header */}
-                  <div className="border-b border-white/[0.07] px-8 py-6">
-                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          {project.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full bg-[#1D4ED8]/20 px-3 py-1 text-xs font-medium text-[#22D3EE]"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <h2 className="text-2xl font-bold text-white">{project.name}</h2>
-                        <p className="mt-1 text-sm text-white/40">
-                          {project.category} &nbsp;·&nbsp; {project.location}
-                        </p>
+                  {/* Card header */}
+                  <div style={{ padding: '1.75rem 2rem', borderBottom: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', gap: '1.25rem', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+                    <div>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                        {project.tags.map((t) => (
+                          <span key={t} className="badge-cyan" style={{ fontSize: '0.65rem' }}>{t}</span>
+                        ))}
                       </div>
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:border-[#22D3EE]/50 hover:text-[#22D3EE]"
-                      >
-                        Visit Site <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
+                      <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: '1.5rem', color: 'var(--white)', marginBottom: '0.25rem' }}>{project.name}</h2>
+                      <p style={{ fontSize: '0.8rem', color: 'rgba(240,244,255,0.35)' }}>{project.category} · {project.location}</p>
                     </div>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid var(--border-mid)', borderRadius: '8px', padding: '0.6rem 1.1rem', fontSize: '0.85rem', fontFamily: "'Syne', sans-serif", fontWeight: 500, color: 'var(--muted)', textDecoration: 'none', transition: 'border-color 0.2s, color 0.2s', flexShrink: 0 }}
+                    >
+                      Visit Site <ExternalLink size={13} />
+                    </a>
                   </div>
 
-                  {/* Card Body */}
-                  <div className="grid gap-8 px-8 py-8 lg:grid-cols-2 lg:gap-12">
+                  {/* Card body */}
+                  <div style={{ padding: '2rem', display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
                     <div>
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
-                        About the Project
-                      </p>
-                      <p className="text-base leading-relaxed text-white/65">
-                        {project.description}
-                      </p>
+                      <p style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)', marginBottom: '0.75rem' }}>About the Project</p>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.75 }}>{project.description}</p>
                       {project.partner && (
-                        <p className="mt-5 text-sm text-white/35">
-                          Built in partnership with{' '}
-                          <span className="text-white/50">{project.partner}</span>
+                        <p style={{ marginTop: '1rem', fontSize: '0.78rem', color: 'rgba(240,244,255,0.25)' }}>
+                          In partnership with <span style={{ color: 'rgba(240,244,255,0.4)' }}>{project.partner}</span>
                         </p>
                       )}
                     </div>
                     <div>
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
-                        What We Built
-                      </p>
-                      <ul className="space-y-2.5">
-                        {project.built.map((item) => (
-                          <li key={item} className="flex items-start gap-3 text-sm text-white/65">
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#22D3EE]" />
-                            {item}
+                      <p style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)', marginBottom: '0.75rem' }}>What We Built</p>
+                      <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                        {project.built.map((b) => (
+                          <li key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.6 }}>
+                            <span style={{ marginTop: '0.45rem', width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', flexShrink: 0, display: 'block' }} />
+                            {b}
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
         {/* More coming */}
-        <section className="bg-[#0B1220] py-16 lg:py-20">
+        <section style={{ background: 'var(--navy-mid)', borderTop: '1px solid var(--border)', padding: '4rem 0', textAlign: 'center' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-widest text-white/40">
-                More Coming Soon
-              </p>
-              <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-                We add new work as projects launch.
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/55">
-                We are actively building client portals, web apps, and additional sites. Check back regularly — or reach out and your project could be next.
-              </p>
-            </div>
+            <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)', marginBottom: '0.75rem' }}>More Coming Soon</p>
+            <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 'clamp(1.4rem, 3vw, 2rem)', color: 'var(--white)', marginBottom: '0.75rem' }}>We add new work as projects launch.</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--muted)', maxWidth: '30rem', margin: '0 auto' }}>
+              Client portals and web apps are in active development. Check back — or reach out and your project could be next.
+            </p>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-[#0F1829] py-16 lg:py-20">
+        <section style={{ padding: '6rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl rounded-2xl border border-[#1D4ED8]/30 bg-[#1D4ED8]/10 px-8 py-12 text-center">
-              <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                Want your project here?
-              </h2>
-              <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/65">
-                We build fast, we build clean, and we build it right. Get in touch and tell us what you need.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white">
-                  <Link href="/contact">Start a Project</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-lg border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                  <Link href="/services">View Services <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
+            <div style={{ maxWidth: '52rem', margin: '0 auto', textAlign: 'center', border: '1px solid rgba(27,79,216,0.35)', borderRadius: '24px', padding: 'clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem)', background: 'linear-gradient(135deg, rgba(27,79,216,0.1) 0%, rgba(34,211,238,0.05) 100%)', position: 'relative', overflow: 'hidden' }}>
+              <div className="orb orb-cyan" style={{ width: 250, height: 250, bottom: '-40%', right: '-5%', opacity: 0.4 }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>Want your project here?</h2>
+                <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '26rem', margin: '0 auto 2rem' }}>
+                  We build fast, clean, and right. Get in touch and tell us what you need.
+                </p>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
+                    Start a Project <ArrowRight size={16} />
+                  </Link>
+                  <Link href="/services" style={{ display: 'inline-flex', alignItems: 'center', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
+                    View Services
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

@@ -67,6 +67,22 @@ export default function HomePage() {
           <div className="orb orb-cyan" style={{ width: 400, height: 400, bottom: '5%', right: '10%' }} />
           <div className="scan-line" />
 
+          {/* G watermark */}
+          <div
+            className="pointer-events-none absolute"
+            style={{
+              right: '-4%',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: 'clamp(320px, 45vw, 620px)',
+              opacity: 0.055,
+              userSelect: 'none',
+              filter: 'blur(1px)',
+            }}
+          >
+            <img src="/images/logo-icon-only.png" alt="" style={{ width: '100%', height: 'auto' }} />
+          </div>
+
           {/* Fade out bottom */}
           <div
             className="pointer-events-none absolute bottom-0 left-0 right-0 h-40"
@@ -85,13 +101,13 @@ export default function HomePage() {
                   fontWeight: 800,
                   fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
                   lineHeight: 1.05,
-                  letterSpacing: '-0.02em',
+                  letterSpacing: '-0.03em',
                   color: 'var(--white)',
                   marginBottom: '1.5rem',
                 }}
               >
                 We Build the Digital Side<br />
-                <span style={{ color: 'var(--cyan)' }}>of Your Business.</span>
+                <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>of Your Business.</span>
               </h1>
 
               <p

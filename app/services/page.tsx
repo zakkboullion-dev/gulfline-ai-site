@@ -1,21 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import {
-  Globe,
-  ShoppingBag,
-  Bot,
-  Workflow,
-  Database,
-  Mail,
-  LayoutDashboard,
-  Users,
-  CheckCircle2,
-  ArrowRight,
-} from 'lucide-react'
+import { Globe, ShoppingBag, Bot, Workflow, Database, Mail, LayoutDashboard, Users, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Services — Gulfline AI',
@@ -26,98 +13,50 @@ const services = [
   {
     icon: Globe,
     title: 'Website Design & Development',
-    description: 'Custom websites built from scratch — not templates. We design for your brand, your audience, and your goals. From single landing pages to full multi-page business sites.',
-    features: [
-      'Mobile-first, fully responsive',
-      'Fast load times optimized for SEO',
-      'Contact forms with lead capture',
-      'Hosting setup and deployment',
-      'Ongoing maintenance available',
-    ],
+    description: 'Custom websites built from scratch — not templates. Designed for your brand, your audience, and your goals. From single landing pages to full multi-page business sites.',
+    features: ['Mobile-first, fully responsive', 'Fast load times optimized for SEO', 'Contact forms with lead capture', 'Hosting setup and deployment', 'Ongoing maintenance available'],
   },
   {
     icon: ShoppingBag,
     title: 'Shopify & E-Commerce Stores',
     description: 'Full Shopify store builds with custom design, product setup, collections, payment integration, and everything you need to start selling on day one.',
-    features: [
-      'Custom Shopify theme design',
-      'Product catalog setup',
-      'Payment & shipping configuration',
-      'Discount codes and promotions',
-      'Analytics and reporting',
-    ],
+    features: ['Custom Shopify theme design', 'Product catalog setup', 'Payment & shipping configuration', 'Discount codes and promotions', 'Analytics and reporting'],
   },
   {
     icon: LayoutDashboard,
     title: 'Web Apps & Client Portals',
-    description: 'Need something more than a website? We build custom web applications — client portals, dashboards, booking systems, and internal tools with databases and user authentication.',
-    features: [
-      'Secure user login & authentication',
-      'Custom database design',
-      'Real-time data and dashboards',
-      'File uploads and document management',
-      'Role-based access control',
-    ],
+    description: 'Custom web applications — client portals, dashboards, booking systems, and internal tools with databases and user authentication.',
+    features: ['Secure user login & authentication', 'Custom database design', 'Real-time data and dashboards', 'File uploads and document management', 'Role-based access control'],
   },
   {
     icon: Bot,
     title: 'AI Chatbots',
-    description: 'Smart chatbots trained on your business that answer questions, capture leads, qualify prospects, and hand off to your team — installed directly on your website.',
-    features: [
-      'Trained on your products and services',
-      'Lead capture and qualification',
-      'Human handoff when needed',
-      'Works 24/7 without staff',
-      'Embedded on any website',
-    ],
+    description: 'Smart chatbots trained on your business that answer questions, capture leads, qualify prospects, and hand off to your team — installed on your website.',
+    features: ['Trained on your products and services', 'Lead capture and qualification', 'Human handoff when needed', 'Works 24/7 without staff', 'Embedded on any website'],
   },
   {
     icon: Workflow,
     title: 'Lead Intake & Automation',
-    description: 'Stop manually handling every inquiry. We build systems that capture leads from your website, qualify them automatically, and route them to the right person or CRM entry.',
-    features: [
-      'Form-to-CRM automation',
-      'Lead scoring and qualification',
-      'Instant notifications to your team',
-      'Duplicate detection and cleanup',
-      'Custom routing rules',
-    ],
+    description: 'Systems that capture leads from your website, qualify them automatically, and route them to the right person or CRM — zero manual work.',
+    features: ['Form-to-CRM automation', 'Lead scoring and qualification', 'Instant notifications to your team', 'Duplicate detection and cleanup', 'Custom routing rules'],
   },
   {
     icon: Database,
     title: 'CRM Integration',
-    description: "Connect your website, forms, and tools to the CRM you already use. We make sure nothing falls through the cracks — every lead and contact lands exactly where it should.",
-    features: [
-      'HubSpot, Salesforce, GoHighLevel',
-      'Google Sheets & Workspace',
-      'Custom API integrations',
-      'Two-way data sync',
-      'Pipeline and deal automation',
-    ],
+    description: "Connect your website, forms, and tools to the CRM you already use. Every lead and contact lands exactly where it should.",
+    features: ['HubSpot, Salesforce, GoHighLevel', 'Google Sheets & Workspace', 'Custom API integrations', 'Two-way data sync', 'Pipeline and deal automation'],
   },
   {
     icon: Mail,
     title: 'SMS & Email Pipelines',
-    description: 'Automated follow-up sequences triggered by what your leads and customers actually do. Right message, right person, right time — without you lifting a finger.',
-    features: [
-      'Welcome and onboarding sequences',
-      'Lead nurture campaigns',
-      'Appointment reminders',
-      'Re-engagement flows',
-      'SMS and email combined',
-    ],
+    description: 'Automated follow-up sequences triggered by what your leads and customers actually do. Right message, right person, right time.',
+    features: ['Welcome and onboarding sequences', 'Lead nurture campaigns', 'Appointment reminders', 'Re-engagement flows', 'SMS and email combined'],
   },
   {
     icon: Users,
     title: 'Agency Partnerships',
-    description: "We work with marketing agencies as the technical build team. You handle strategy and client relationships — we handle the development. Your clients get better results, faster.",
-    features: [
-      'White-label builds available',
-      'Direct or behind-the-scenes collaboration',
-      'Flexible project-based pricing',
-      'Fast turnaround on landing pages',
-      'Ongoing dev support retainers',
-    ],
+    description: "We work with marketing agencies as the technical build team. You handle strategy and client relationships — we handle the development.",
+    features: ['White-label builds available', 'Direct or behind-the-scenes collaboration', 'Flexible project-based pricing', 'Fast turnaround on landing pages', 'Ongoing dev support retainers'],
   },
 ]
 
@@ -131,71 +70,89 @@ export default function ServicesPage() {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ background: 'var(--navy)' }}>
 
         {/* Hero */}
-        <section className="bg-[#0B1220] py-20 lg:py-28">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#22D3EE]">
-                What We Do
-              </p>
-              <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Everything Your Business Needs Online.
+        <section className="hero-grid relative overflow-hidden" style={{ padding: '7rem 0 5rem' }}>
+          <div className="orb orb-blue" style={{ width: 500, height: 500, top: '-20%', right: '-5%' }} />
+          <div className="orb orb-cyan" style={{ width: 300, height: 300, bottom: '-10%', left: '10%' }} />
+          <div
+            className="pointer-events-none absolute"
+            style={{ right: '-4%', top: '50%', transform: 'translateY(-50%)', width: 'clamp(280px, 38vw, 520px)', opacity: 0.045, filter: 'blur(1px)' }}
+          >
+            <img src="/images/logo-icon-only.png" alt="" style={{ width: '100%', height: 'auto' }} />
+          </div>
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to bottom, transparent, var(--navy))' }} />
+
+          <div className="container relative mx-auto px-4 lg:px-8">
+            <div style={{ maxWidth: '48rem' }}>
+              <div className="badge-cyan mb-6">What We Do</div>
+              <h1
+                className="glow-text"
+                style={{
+                  fontFamily: "'Syne', sans-serif", fontWeight: 800,
+                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                  lineHeight: 1.05, letterSpacing: '-0.03em',
+                  color: 'var(--white)', marginBottom: '1.5rem',
+                }}
+              >
+                Everything Your Business<br />
+                <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>Needs Online.</span>
               </h1>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-white/70 sm:text-xl">
+              <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--muted)', lineHeight: 1.75, maxWidth: '36rem', marginBottom: '2.5rem' }}>
                 One team that builds websites, apps, automations, and AI tools — so you never have to juggle multiple vendors again.
               </p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white">
-                  <Link href="/contact">Get a Free Quote</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-lg border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                  <Link href="/portfolio">See Our Work <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', boxShadow: '0 0 25px rgba(27,79,216,0.4)', textDecoration: 'none' }}>
+                  Get a Free Quote <ArrowRight size={16} />
+                </Link>
+                <Link href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
+                  See Our Work
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="bg-[#0F1829] py-20 lg:py-24">
+        {/* Services list */}
+        <section style={{ padding: '5rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-6xl space-y-8">
-              {services.map((service) => {
+            <div style={{ maxWidth: '64rem', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {services.map((service, i) => {
                 const Icon = service.icon
                 return (
-                  <Card
+                  <div
                     key={service.title}
-                    className="rounded-xl border border-white/10 bg-white/5 p-8 backdrop-blur"
+                    className="glass-card"
+                    style={{ padding: '2.5rem', transition: 'border-color 0.3s' }}
                   >
-                    <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+                    <div style={{ display: 'grid', gap: '2.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
                       <div>
-                        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1D4ED8]/20">
-                          <Icon className="h-6 w-6 text-[#22D3EE]" />
+                        <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(27,79,216,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                          <Icon size={22} color="var(--cyan)" />
                         </div>
-                        <h2 className="mb-4 text-2xl font-bold tracking-tight text-white">
+                        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: '1.35rem', color: 'var(--white)', marginBottom: '0.75rem', lineHeight: 1.25 }}>
                           {service.title}
                         </h2>
-                        <p className="text-base leading-relaxed text-white/65">
+                        <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.75 }}>
                           {service.description}
                         </p>
                       </div>
                       <div>
-                        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
+                        <p style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)', marginBottom: '1rem' }}>
                           What&apos;s included
                         </p>
-                        <ul className="space-y-3">
-                          {service.features.map((feature) => (
-                            <li key={feature} className="flex items-start gap-3">
-                              <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#22D3EE]" />
-                              <span className="text-sm text-white/70">{feature}</span>
+                        <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                          {service.features.map((f) => (
+                            <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                              <CheckCircle2 size={15} color="var(--cyan)" style={{ marginTop: '2px', flexShrink: 0 }} />
+                              <span style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.6 }}>{f}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 )
               })}
             </div>
@@ -203,19 +160,16 @@ export default function ServicesPage() {
         </section>
 
         {/* Integrations */}
-        <section className="border-y border-white/[0.05] bg-[#0B1220] py-16">
+        <section style={{ background: 'var(--navy-mid)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '4rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-4xl text-center">
-              <p className="mb-8 text-sm font-semibold uppercase tracking-widest text-white/40">
+            <div style={{ maxWidth: '52rem', margin: '0 auto', textAlign: 'center' }}>
+              <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)', marginBottom: '1.5rem' }}>
                 Integrates With Your Existing Stack
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                {integrations.map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/60"
-                  >
-                    {tool}
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.65rem' }}>
+                {integrations.map((t) => (
+                  <span key={t} style={{ border: '1px solid var(--border-mid)', background: 'rgba(255,255,255,0.03)', borderRadius: '999px', padding: '0.45rem 1rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                    {t}
                   </span>
                 ))}
               </div>
@@ -224,22 +178,25 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-[#0B1220] py-20 lg:py-24">
+        <section style={{ padding: '6rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-3xl rounded-2xl border border-[#1D4ED8]/30 bg-[#1D4ED8]/10 px-8 py-14 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Not sure what you need?
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/65">
-                Tell us about your business and what you are trying to accomplish. We will figure out the right build together — no tech jargon, no pressure.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Button asChild size="lg" className="rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white">
-                  <Link href="/contact">Get a Free Quote</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-lg border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                  <a href="mailto:gulflineai@gmail.com">Email Us Directly</a>
-                </Button>
+            <div style={{ maxWidth: '52rem', margin: '0 auto', textAlign: 'center', border: '1px solid rgba(27,79,216,0.35)', borderRadius: '24px', padding: 'clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem)', background: 'linear-gradient(135deg, rgba(27,79,216,0.1) 0%, rgba(34,211,238,0.05) 100%)', position: 'relative', overflow: 'hidden' }}>
+              <div className="orb orb-blue" style={{ width: 300, height: 300, top: '-50%', left: '-10%', opacity: 0.5 }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>
+                  Not sure what you need?
+                </h2>
+                <p style={{ fontSize: '1.05rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '28rem', margin: '0 auto 2rem' }}>
+                  Tell us about your business. We will figure out the right build together — no jargon, no pressure.
+                </p>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
+                    Get a Free Quote <ArrowRight size={16} />
+                  </Link>
+                  <a href="mailto:gulflineai@gmail.com" style={{ display: 'inline-flex', alignItems: 'center', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
+                    Email Us Directly
+                  </a>
+                </div>
               </div>
             </div>
           </div>
