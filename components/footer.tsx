@@ -8,11 +8,23 @@ export function Footer() {
 
           {/* Brand */}
           <div className="space-y-4 lg:col-span-1">
-            <img
-              src="/images/logo-header-cropped.png"
-              alt="Gulfline AI"
-              className="h-8 w-auto"
-            />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <img
+                src="/images/logo-g-mark.png"
+                alt="Gulfline AI"
+                style={{ height: '36px', width: 'auto' }}
+              />
+              <span style={{
+                fontFamily: "'Syne', sans-serif",
+                fontWeight: 700,
+                fontSize: '1.05rem',
+                letterSpacing: '-0.01em',
+                color: '#F0F4FF',
+                lineHeight: 1,
+              }}>
+                Gulfline<span style={{ color: '#22D3EE' }}>AI</span>
+              </span>
+            </div>
             <p className="text-sm leading-relaxed text-white/50">
               Websites, web apps, and AI automation built for real businesses.
             </p>

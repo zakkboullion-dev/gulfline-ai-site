@@ -37,12 +37,22 @@ export function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 lg:px-8">
 
         {/* Logo — full size */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-3" style={{ textDecoration: 'none' }}>
           <img
-            src="/images/logo-header-cropped.png"
+            src="/images/logo-g-mark.png"
             alt="Gulfline AI"
-            className="h-14 w-auto"
+            style={{ height: '48px', width: 'auto' }}
           />
+          <span style={{
+            fontFamily: "'Syne', sans-serif",
+            fontWeight: 700,
+            fontSize: '1.2rem',
+            letterSpacing: '-0.01em',
+            color: '#F0F4FF',
+            lineHeight: 1,
+          }}>
+            Gulfline<span style={{ color: '#22D3EE' }}>AI</span>
+          </span>
         </Link>
 
         {/* Desktop Nav */}
