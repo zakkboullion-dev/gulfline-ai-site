@@ -5,8 +5,6 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
 
-const SHEET_URL = process.env.NEXT_PUBLIC_SHEETS_URL || ''
-
 const industries = [
   'Restaurants & Food Service',
   'Retail & E-Commerce',
@@ -65,12 +63,14 @@ export default function ContactPage() {
     }
 
     try {
-      const res = await fetch(SHEET_URL, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-        mode: 'no-cors',
       })
+
+      const data = await res.json()
+      if (!data.ok) throw new Error(data.error || 'Submission failed')
       setSubmitted(true)
       form.reset()
       setIndustry('')
