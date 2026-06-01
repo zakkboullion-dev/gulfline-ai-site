@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, Barlow } from 'next/font/google'
 
 import './globals.css'
 
@@ -10,10 +10,12 @@ const inter = Inter({
   display: 'swap',
 })
 
-const jetbrainsMono = JetBrains_Mono({ 
+const barlow = Barlow({ 
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-barlow',
   display: 'swap',
+  weight: ['500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
 })
 
 export const metadata: Metadata = {
@@ -75,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${barlow.variable}`}>
       <head>
         <script
           type="application/ld+json"

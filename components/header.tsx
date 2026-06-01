@@ -44,7 +44,7 @@ export function Header() {
             style={{ height: '48px', width: 'auto' }}
           />
           <span style={{
-            fontFamily: "'Barlow', sans-serif",
+            fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
             fontWeight: 700,
             fontSize: '1.2rem',
             letterSpacing: '-0.01em',
@@ -67,7 +67,7 @@ export function Header() {
                   ? 'text-[#22D3EE]'
                   : 'text-white/60 hover:text-white'
               )}
-              style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 500 }}
+              style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500 }}
             >
               {item.label}
             </Link>
@@ -76,7 +76,7 @@ export function Header() {
             href="/contact"
             className="relative overflow-hidden rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200"
             style={{
-              fontFamily: "'Barlow', sans-serif",
+              fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
               background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
               boxShadow: '0 0 20px rgba(27,79,216,0.35)',
             }}
@@ -110,7 +110,7 @@ export function Header() {
                     ? 'bg-white/5 text-[#22D3EE]'
                     : 'text-white/60 hover:bg-white/5 hover:text-white'
                 )}
-                style={{ fontFamily: "'Barlow', sans-serif" }}
+                style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif" }}
               >
                 {item.label}
               </Link>
@@ -120,7 +120,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg px-4 py-3 text-center text-sm font-semibold text-white"
               style={{
-                fontFamily: "'Barlow', sans-serif",
+                fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
                 background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
               }}
             >

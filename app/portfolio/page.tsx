@@ -65,7 +65,7 @@ export default function PortfolioPage() {
               <h1
                 className="glow-text"
                 style={{
-                  fontFamily: "'Barlow', sans-serif", fontWeight: 800,
+                  fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 800,
                   fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                   lineHeight: 1.05, letterSpacing: '-0.03em',
                   color: 'var(--white)', marginBottom: '1.5rem',
@@ -99,14 +99,14 @@ export default function PortfolioPage() {
                           <span key={t} className="badge-cyan" style={{ fontSize: '0.65rem' }}>{t}</span>
                         ))}
                       </div>
-                      <h2 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: '1.5rem', color: 'var(--white)', marginBottom: '0.25rem' }}>{project.name}</h2>
+                      <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: '1.5rem', color: 'var(--white)', marginBottom: '0.25rem' }}>{project.name}</h2>
                       <p style={{ fontSize: '0.8rem', color: 'rgba(240,244,255,0.35)' }}>{project.category} · {project.location}</p>
                     </div>
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid var(--border-mid)', borderRadius: '8px', padding: '0.6rem 1.1rem', fontSize: '0.85rem', fontFamily: "'Barlow', sans-serif", fontWeight: 500, color: 'var(--muted)', textDecoration: 'none', transition: 'border-color 0.2s, color 0.2s', flexShrink: 0 }}
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid var(--border-mid)', borderRadius: '8px', padding: '0.6rem 1.1rem', fontSize: '0.85rem', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, color: 'var(--muted)', textDecoration: 'none', transition: 'border-color 0.2s, color 0.2s', flexShrink: 0 }}
                     >
                       Visit Site <ExternalLink size={13} />
                     </a>
@@ -145,7 +145,7 @@ export default function PortfolioPage() {
         <section style={{ background: 'var(--navy-mid)', borderTop: '1px solid var(--border)', padding: '4rem 0', textAlign: 'center' }}>
           <div className="container mx-auto px-4 lg:px-8">
             <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)', marginBottom: '0.75rem' }}>More Coming Soon</p>
-            <h2 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.4rem, 3vw, 2rem)', color: 'var(--white)', marginBottom: '0.75rem' }}>We add new work as projects launch.</h2>
+            <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.4rem, 3vw, 2rem)', color: 'var(--white)', marginBottom: '0.75rem' }}>We add new work as projects launch.</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--muted)', maxWidth: '30rem', margin: '0 auto' }}>
               Client portals and web apps are in active development. Check back — or reach out and your project could be next.
             </p>
@@ -158,15 +158,15 @@ export default function PortfolioPage() {
             <div style={{ maxWidth: '52rem', margin: '0 auto', textAlign: 'center', border: '1px solid rgba(27,79,216,0.35)', borderRadius: '24px', padding: 'clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem)', background: 'linear-gradient(135deg, rgba(27,79,216,0.1) 0%, rgba(34,211,238,0.05) 100%)', position: 'relative', overflow: 'hidden' }}>
               <div className="orb orb-cyan" style={{ width: 250, height: 250, bottom: '-40%', right: '-5%', opacity: 0.4 }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <h2 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>Want your project here?</h2>
+                <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>Want your project here?</h2>
                 <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '26rem', margin: '0 auto 2rem' }}>
                   We build fast, clean, and right. Get in touch and tell us what you need.
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
+                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
                     Start a Project <ArrowRight size={16} />
                   </Link>
-                  <Link href="/services" style={{ display: 'inline-flex', alignItems: 'center', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
+                  <Link href="/services" style={{ display: 'inline-flex', alignItems: 'center', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
                     View Services
                   </Link>
                 </div>
