@@ -97,7 +97,7 @@ export default function HomePage() {
               <h1
                 className="glow-text text-balance"
                 style={{
-                  fontFamily: "'Syne', sans-serif",
+                  fontFamily: "'Barlow', sans-serif",
                   fontWeight: 800,
                   fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
                   lineHeight: 1.05,
@@ -132,7 +132,7 @@ export default function HomePage() {
                     gap: '0.5rem',
                     background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
                     color: '#fff',
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Barlow', sans-serif",
                     fontWeight: 600,
                     fontSize: '0.95rem',
                     padding: '0.875rem 2rem',
@@ -152,7 +152,7 @@ export default function HomePage() {
                     gap: '0.5rem',
                     border: '1px solid rgba(240,244,255,0.15)',
                     color: 'rgba(240,244,255,0.7)',
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Barlow', sans-serif",
                     fontWeight: 500,
                     fontSize: '0.95rem',
                     padding: '0.875rem 2rem',
@@ -186,7 +186,7 @@ export default function HomePage() {
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 color: 'rgba(240,244,255,0.35)',
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "'Barlow', sans-serif",
               }}
             >
               {['Websites & Web Apps', 'AI Chatbots', 'Shopify Stores', 'Lead Automation', 'CRM Integration', 'Agency Partnerships'].map((t, i) => (
@@ -208,7 +208,7 @@ export default function HomePage() {
                 <div className="badge-cyan mb-4">What We Build</div>
                 <h2
                   style={{
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Barlow', sans-serif",
                     fontWeight: 700,
                     fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
                     color: 'var(--white)',
@@ -221,7 +221,7 @@ export default function HomePage() {
               <Link
                 href="/services"
                 className="animated-link"
-                style={{ fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.9rem', whiteSpace: 'nowrap' }}
+                style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.9rem', whiteSpace: 'nowrap' }}
               >
                 View All Services →
               </Link>
@@ -262,7 +262,7 @@ export default function HomePage() {
                       </div>
                       <h3
                         style={{
-                          fontFamily: "'Syne', sans-serif",
+                          fontFamily: "'Barlow', sans-serif",
                           fontWeight: 600,
                           fontSize: '1rem',
                           color: 'var(--white)',
@@ -292,7 +292,7 @@ export default function HomePage() {
                 <div className="badge-cyan mb-4">How We Work</div>
                 <h2
                   style={{
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Barlow', sans-serif",
                     fontWeight: 700,
                     fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
                     color: 'var(--white)',
@@ -314,7 +314,7 @@ export default function HomePage() {
                     marginTop: '2rem',
                     background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
                     color: '#fff',
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Barlow', sans-serif",
                     fontWeight: 600,
                     fontSize: '0.875rem',
                     padding: '0.75rem 1.5rem',
@@ -334,7 +334,7 @@ export default function HomePage() {
                     <div style={{ paddingTop: '0.75rem' }}>
                       <h3
                         style={{
-                          fontFamily: "'Syne', sans-serif",
+                          fontFamily: "'Barlow', sans-serif",
                           fontWeight: 600,
                           fontSize: '1.15rem',
                           color: 'var(--white)',
@@ -363,7 +363,7 @@ export default function HomePage() {
               <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
                 <h2
                   style={{
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Barlow', sans-serif",
                     fontWeight: 700,
                     fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
                     color: 'var(--white)',
@@ -375,7 +375,7 @@ export default function HomePage() {
                 <Link
                   href="/portfolio"
                   className="animated-link"
-                  style={{ fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.9rem' }}
+                  style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.9rem' }}
                 >
                   Full Portfolio →
                 </Link>
@@ -391,7 +391,7 @@ export default function HomePage() {
                   </div>
                   <h3
                     style={{
-                      fontFamily: "'Syne', sans-serif",
+                      fontFamily: "'Barlow', sans-serif",
                       fontWeight: 600,
                       fontSize: '1.2rem',
                       color: 'var(--white)',
@@ -413,7 +413,7 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="animated-link"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.875rem', fontFamily: "'Syne', sans-serif", fontWeight: 500 }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.875rem', fontFamily: "'Barlow', sans-serif", fontWeight: 500 }}
                   >
                     Visit Site <ExternalLink size={13} />
                   </a>
@@ -432,7 +432,7 @@ export default function HomePage() {
                 <div>
                   <p
                     style={{
-                      fontFamily: "'Syne', sans-serif",
+                      fontFamily: "'Barlow', sans-serif",
                       fontWeight: 600,
                       fontSize: 'clamp(1.2rem, 3vw, 1.65rem)',
                       color: 'var(--white)',
@@ -445,11 +445,11 @@ export default function HomePage() {
                   </p>
                   <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
                     <div>
-                      <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--white)' }}>Zakk Boullion</p>
+                      <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--white)' }}>Zakk Boullion</p>
                       <p style={{ fontSize: '0.8rem', color: 'var(--cyan)', marginTop: '2px' }}>CEO, Gulfline AI</p>
                     </div>
                     <div>
-                      <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--white)' }}>Jay Joseph</p>
+                      <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--white)' }}>Jay Joseph</p>
                       <p style={{ fontSize: '0.8rem', color: 'var(--cyan)', marginTop: '2px' }}>CFO, Gulfline AI</p>
                     </div>
                   </div>
@@ -466,7 +466,7 @@ export default function HomePage() {
               <div className="badge-cyan mb-4">FAQ</div>
               <h2
                 style={{
-                  fontFamily: "'Syne', sans-serif",
+                  fontFamily: "'Barlow', sans-serif",
                   fontWeight: 700,
                   fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
                   color: 'var(--white)',
@@ -488,7 +488,7 @@ export default function HomePage() {
                   >
                     <h3
                       style={{
-                        fontFamily: "'Syne', sans-serif",
+                        fontFamily: "'Barlow', sans-serif",
                         fontWeight: 600,
                         fontSize: '1rem',
                         color: 'var(--white)',
@@ -525,7 +525,7 @@ export default function HomePage() {
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <h2
                   style={{
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Barlow', sans-serif",
                     fontWeight: 800,
                     fontSize: 'clamp(1.75rem, 5vw, 3rem)',
                     color: 'var(--white)',
@@ -546,7 +546,7 @@ export default function HomePage() {
                       display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                       background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
                       color: '#fff',
-                      fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.95rem',
+                      fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem',
                       padding: '0.875rem 2rem', borderRadius: '10px',
                       boxShadow: '0 0 30px rgba(27,79,216,0.45)',
                       textDecoration: 'none',
@@ -560,7 +560,7 @@ export default function HomePage() {
                       display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                       border: '1px solid rgba(240,244,255,0.15)',
                       color: 'rgba(240,244,255,0.7)',
-                      fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.95rem',
+                      fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.95rem',
                       padding: '0.875rem 2rem', borderRadius: '10px',
                       background: 'rgba(255,255,255,0.04)',
                       textDecoration: 'none',

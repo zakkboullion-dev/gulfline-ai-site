@@ -99,7 +99,7 @@ export default function ContactPage() {
             >
               <CheckCircle2 size={32} color="var(--cyan)" />
             </div>
-            <h1 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: '2.5rem', color: 'var(--white)', marginBottom: '1rem' }}>
+            <h1 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: '2.5rem', color: 'var(--white)', marginBottom: '1rem' }}>
               We got it.
             </h1>
             <p style={{ fontSize: '1.05rem', color: 'var(--muted)', maxWidth: '30rem', margin: '0 auto' }}>
@@ -124,7 +124,7 @@ export default function ContactPage() {
               <div className="badge-cyan mb-5">Free Consultation</div>
               <h1
                 style={{
-                  fontFamily: "'Syne', sans-serif",
+                  fontFamily: "'Barlow', sans-serif",
                   fontWeight: 800,
                   fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
                   color: 'var(--white)',

@@ -82,7 +82,7 @@ export default function AboutPage() {
               <h1
                 className="glow-text"
                 style={{
-                  fontFamily: "'Syne', sans-serif",
+                  fontFamily: "'Barlow', sans-serif",
                   fontWeight: 800,
                   fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                   lineHeight: 1.05,
@@ -107,7 +107,7 @@ export default function AboutPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem', textAlign: 'center' }}>
               {stats.map((s) => (
                 <div key={s.label}>
-                  <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: '2rem', color: 'var(--cyan)', lineHeight: 1 }}>{s.val}</p>
+                  <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 800, fontSize: '2rem', color: 'var(--cyan)', lineHeight: 1 }}>{s.val}</p>
                   <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.07em' }}>{s.label}</p>
                 </div>
               ))}
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 <div>
                   <p
                     style={{
-                      fontFamily: "'Syne', sans-serif",
+                      fontFamily: "'Barlow', sans-serif",
                       fontWeight: 600,
                       fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)',
                       color: 'var(--white)',
@@ -135,7 +135,7 @@ export default function AboutPage() {
                   >
                     "We exist because businesses deserve digital work that actually gets done — not proposals, not templates, not vendors who disappear. We build custom because generic does not work. Every client gets our full attention and something that ships."
                   </p>
-                  <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--cyan)' }}>— The Gulfline AI Team</p>
+                  <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--cyan)' }}>— The Gulfline AI Team</p>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function AboutPage() {
             <div className="badge-cyan mb-5">Why Gulfline AI</div>
             <h2
               style={{
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "'Barlow', sans-serif",
                 fontWeight: 700,
                 fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
                 color: 'var(--white)',
@@ -168,7 +168,7 @@ export default function AboutPage() {
                     <div style={{ width: 44, height: 44, borderRadius: 10, background: 'rgba(27,79,216,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                       <Icon size={20} color="var(--cyan)" />
                     </div>
-                    <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '1rem', color: 'var(--white)', marginBottom: '0.6rem' }}>{p.title}</h3>
+                    <h3 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '1rem', color: 'var(--white)', marginBottom: '0.6rem' }}>{p.title}</h3>
                     <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.7 }}>{p.body}</p>
                   </div>
                 )
@@ -183,7 +183,7 @@ export default function AboutPage() {
             <div style={{ display: 'grid', gap: '4rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', alignItems: 'start' }}>
               <div>
                 <div className="badge-cyan mb-5">Who We Work With</div>
-                <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', lineHeight: 1.15, marginBottom: '1.5rem' }}>
+                <h2 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', lineHeight: 1.15, marginBottom: '1.5rem' }}>
                   Any industry.<br />Any size.
                 </h2>
                 <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.75, marginBottom: '2rem' }}>
@@ -194,7 +194,7 @@ export default function AboutPage() {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                     background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
-                    color: '#fff', fontFamily: "'Syne', sans-serif", fontWeight: 600,
+                    color: '#fff', fontFamily: "'Barlow', sans-serif", fontWeight: 600,
                     fontSize: '0.875rem', padding: '0.75rem 1.5rem', borderRadius: '8px',
                     textDecoration: 'none', boxShadow: '0 0 20px rgba(27,79,216,0.3)',
                   }}
@@ -237,17 +237,17 @@ export default function AboutPage() {
             >
               <div className="orb orb-cyan" style={{ width: 250, height: 250, bottom: '-40%', right: '-5%', opacity: 0.5 }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>
+                <h2 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>
                   Ready to work together?
                 </h2>
                 <p style={{ fontSize: '1.05rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '28rem', margin: '0 auto 2rem' }}>
                   First call is free. Tell us what you need and we will put together a plan that fits your business.
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
+                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
                     Get a Free Quote <ArrowRight size={16} />
                   </Link>
-                  <Link href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "'Syne', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
+                  <Link href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
                     See Our Work
                   </Link>
                 </div>

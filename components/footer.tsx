@@ -15,7 +15,7 @@ export function Footer() {
                 style={{ height: '36px', width: 'auto' }}
               />
               <span style={{
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "'Barlow', sans-serif",
                 fontWeight: 700,
                 fontSize: '1.05rem',
                 letterSpacing: '-0.01em',
