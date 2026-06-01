@@ -56,7 +56,7 @@ const services = [
   {
     icon: Users,
     title: 'Partnership Builds',
-    description: 'We partner with marketing agencies as the technical build team. Your client's vision, our execution.',
+    description: "We partner with marketing agencies as the technical build team. Your client's vision, our execution.",
   },
 ]
 
