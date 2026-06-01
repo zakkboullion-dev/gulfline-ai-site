@@ -76,7 +76,7 @@ export default function ContactPage() {
       setIndustry('')
       setService('')
     } catch (err: any) {
-      setError('Something went wrong. Please email us directly at gulflineai@gmail.com')
+      setError(err.message || 'Something went wrong. Please email us directly at gulflineai@gmail.com')
     } finally {
       setSubmitting(false)
     }
