@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ExternalLink, ArrowRight } from 'lucide-react'
+import { SitePreview } from '@/components/site-preview'
 
 export const metadata: Metadata = {
   title: 'Portfolio — Gulfline AI',
@@ -96,29 +97,9 @@ export default function PortfolioPage() {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ display: 'block', overflow: 'hidden', borderBottom: '1px solid var(--border)', position: 'relative', background: 'var(--navy)' }}
+                    style={{ display: 'block', overflow: 'hidden', borderBottom: '1px solid var(--border)' }}
                   >
-                    <img
-                      src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url`}
-                      alt={`${project.name} website preview`}
-                      style={{
-                        width: '100%',
-                        height: '200px',
-                        objectFit: 'cover',
-                        objectPosition: 'top',
-                        display: 'block',
-                        opacity: 0.85,
-                        transition: 'opacity 0.3s',
-                      }}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none'
-                      }}
-                    />
-                    <div style={{
-                      position: 'absolute', inset: 0,
-                      background: 'linear-gradient(to bottom, transparent 60%, rgba(11,21,37,0.8) 100%)',
-                      pointerEvents: 'none',
-                    }} />
+                    <SitePreview url={project.url} name={project.name} />
                   </a>
                   {/* Card header */}
                   <div style={{ padding: '1.75rem 2rem', borderBottom: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', gap: '1.25rem', alignItems: 'flex-start', justifyContent: 'space-between' }}>
