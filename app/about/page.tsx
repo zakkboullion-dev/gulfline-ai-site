@@ -6,7 +6,7 @@ import { ArrowRight, Globe, Zap, Users, ShieldCheck } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About — Gulfline AI',
-  description: 'Gulfline AI is a Lake Charles, Louisiana web development and AI automation company. We build websites, apps, chatbots, and lead pipelines for businesses of all sizes.',
+  description: 'Gulfline AI is a Lake Charles, Louisiana web development company. We build custom websites, web apps, AI chatbots, and automated lead systems for businesses of any size, any industry.',
 }
 
 const pillars = [

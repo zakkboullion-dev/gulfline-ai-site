@@ -20,12 +20,12 @@ const barlow = Barlow({
 })
 
 export const metadata: Metadata = {
-  title: 'Gulfline AI — Websites, Web Apps & AI Automation for Businesses',
-  description: 'Gulfline AI builds professional websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses across every industry. Based in Lake Charles, LA.',
+  title: 'Gulfline AI — Web Development & AI Automation | Lake Charles, Louisiana',
+  description: 'Gulfline AI — Lake Charles web development company building custom websites, web apps, Shopify stores, AI chatbots, and lead automation for businesses across Louisiana and beyond.',
   metadataBase: new URL('https://gulflineai.com'),
   openGraph: {
-    title: 'Gulfline AI — Websites, Web Apps & AI Automation',
-    description: 'We build websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes. Lake Charles, LA.',
+    title: 'Gulfline AI — Web Development & AI Automation | Lake Charles, LA',
+    description: 'Lake Charles web development — custom websites, Shopify stores, web apps, AI chatbots, and lead automation for Louisiana businesses and beyond. Get a free quote.',
     url: 'https://gulflineai.com',
     siteName: 'Gulfline AI',
     locale: 'en_US',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gulfline AI — Websites, Web Apps & AI Automation',
+    title: 'Gulfline AI — Web Development & AI Automation | Lake Charles, LA',
     description: 'We build websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes.',
     images: ['/images/logo-hero-final.png'],
   },
@@ -53,23 +53,50 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'LocalBusiness',
   name: 'Gulfline AI',
   url: 'https://gulflineai.com',
   logo: 'https://gulflineai.com/images/logo-hero-final.png',
+  image: 'https://gulflineai.com/images/logo-hero-final.png',
+  email: 'gulflineai@gmail.com',
   contactPoint: {
     '@type': 'ContactPoint',
     email: 'gulflineai@gmail.com',
     contactType: 'customer service',
+    areaServed: 'US',
+    availableLanguage: 'English',
   },
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Lake Charles',
     addressRegion: 'LA',
     addressCountry: 'US',
+    postalCode: '70601',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 30.2266,
+    longitude: -93.2174,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Lake Charles' },
+    { '@type': 'State', name: 'Louisiana' },
+    { '@type': 'Country', name: 'United States' },
+  ],
+  priceRange: '$$',
+  openingHours: 'Mo-Fr 09:00-18:00',
   sameAs: [],
-  description: 'Gulfline AI builds websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes. Based in Lake Charles, Louisiana.',
+  description: 'Gulfline AI is a Lake Charles, Louisiana web development and AI automation company. We build custom websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes.',
+  knowsAbout: [
+    'Web Development',
+    'Website Design',
+    'Shopify Development',
+    'AI Chatbots',
+    'Lead Automation',
+    'CRM Integration',
+    'Web Applications',
+    'Client Portals',
+  ],
 }
 
 export default function RootLayout({

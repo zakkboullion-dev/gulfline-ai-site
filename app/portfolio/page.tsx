@@ -6,7 +6,7 @@ import { ExternalLink, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Portfolio — Gulfline AI',
-  description: 'Real websites and web projects built by Gulfline AI. See our work across local business, e-commerce, political campaigns, and more.',
+  description: 'Web projects built by Gulfline AI in Lake Charles, Louisiana — local business sites, political campaign pages, seafood companies, and more. Real work for real clients.',
 }
 
 const projects = [
@@ -91,6 +91,35 @@ export default function PortfolioPage() {
                   className="glass-card"
                   style={{ overflow: 'hidden', transition: 'border-color 0.3s' }}
                 >
+                  {/* Site preview image */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'block', overflow: 'hidden', borderBottom: '1px solid var(--border)', position: 'relative', background: 'var(--navy)' }}
+                  >
+                    <img
+                      src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url`}
+                      alt={`${project.name} website preview`}
+                      style={{
+                        width: '100%',
+                        height: '200px',
+                        objectFit: 'cover',
+                        objectPosition: 'top',
+                        display: 'block',
+                        opacity: 0.85,
+                        transition: 'opacity 0.3s',
+                      }}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none'
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute', inset: 0,
+                      background: 'linear-gradient(to bottom, transparent 60%, rgba(11,21,37,0.8) 100%)',
+                      pointerEvents: 'none',
+                    }} />
+                  </a>
                   {/* Card header */}
                   <div style={{ padding: '1.75rem 2rem', borderBottom: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', gap: '1.25rem', alignItems: 'flex-start', justifyContent: 'space-between' }}>
                     <div>

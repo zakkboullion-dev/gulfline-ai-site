@@ -6,7 +6,7 @@ import { Globe, ShoppingBag, Bot, Workflow, Database, Mail, LayoutDashboard, Use
 
 export const metadata: Metadata = {
   title: 'Services — Gulfline AI',
-  description: 'Websites, web apps, Shopify stores, AI chatbots, CRM integration, SMS & email pipelines, and lead automation. One team for everything your business needs online.',
+  description: 'Web development services in Lake Charles, LA — custom websites, Shopify stores, web apps, AI chatbots, CRM integration, and lead automation. One team for everything your business needs online.',
 }
 
 const services = [

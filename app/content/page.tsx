@@ -6,7 +6,7 @@ import { Instagram, ExternalLink, ArrowRight, BookOpen } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Content — Gulfline AI',
-  description: 'Tips, tutorials, and resources on web development, AI automation, and building a digital business. Follow along on Instagram, TikTok, and Facebook.',
+  description: 'Web development tips, tutorials, and resources from Gulfline AI in Lake Charles, LA. Follow our content on Instagram, TikTok, and YouTube — and get notified when our Skool course launches.',
 }
 
 const socials = [
