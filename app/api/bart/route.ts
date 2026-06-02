@@ -64,33 +64,35 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json()
 
-    const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY
-    if (!ANTHROPIC_KEY) {
-      return NextResponse.json({ error: 'API key not configured' }, { status: 500 })
+    const GROQ_KEY = process.env.GROQ_API_KEY
+    if (!GROQ_KEY) {
+      return NextResponse.json({ error: 'GROQ_API_KEY not configured' }, { status: 500 })
     }
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': ANTHROPIC_KEY,
-        'anthropic-version': '2023-06-01',
+        'Authorization': `Bearer ${GROQ_KEY}`,
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        model: 'llama-3.1-8b-instant',
         max_tokens: 512,
-        system: SYSTEM_PROMPT,
-        messages,
+        temperature: 0.65,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          ...messages,
+        ],
       }),
     })
 
     const data = await response.json()
 
     if (!response.ok) {
-      return NextResponse.json({ error: data.error?.message || 'API error' }, { status: 500 })
+      return NextResponse.json({ error: data.error?.message || 'Groq API error' }, { status: 500 })
     }
 
-    const rawText = data.content?.[0]?.text || ''
+    const rawText = data.choices?.[0]?.message?.content || ''
 
     // Parse lead capture
     let lead = null
