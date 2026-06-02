@@ -1,41 +1,107 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { rateLimit, getIP } from '@/lib/rate-limit'
+
+// Allowed fields — whitelist only, nothing else passes through
+const ALLOWED_FIELDS = ['timestamp', 'submissionId', 'name', 'email', 'phone', 'businessName', 'location', 'industry', 'service', 'message', 'source']
+const MAX_FIELD_LENGTH = 1000
+
+function sanitizeString(val: unknown, maxLen = MAX_FIELD_LENGTH): string {
+  if (typeof val !== 'string') return ''
+  return val
+    .replace(/<[^>]*>/g, '')        // strip HTML tags
+    .replace(/[<>'"]/g, '')          // strip dangerous chars
+    .trim()
+    .slice(0, maxLen)
+}
+
+function validateEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
 
 export async function POST(req: NextRequest) {
+  // ── Rate limit: 5 submissions per IP per 10 minutes ──
+  const ip = getIP(req)
+  const { allowed } = rateLimit(ip, { limit: 5, windowMs: 10 * 60 * 1000 })
+
+  if (!allowed) {
+    return NextResponse.json(
+      { ok: false, error: 'Too many submissions. Please wait before trying again.' },
+      { status: 429, headers: { 'Retry-After': '600' } }
+    )
+  }
+
+  // ── Origin check ──
+  const origin = req.headers.get('origin') || ''
+  const referer = req.headers.get('referer') || ''
+  const isValidOrigin =
+    origin.includes('gulflineai.com') ||
+    referer.includes('gulflineai.com') ||
+    process.env.NODE_ENV === 'development'
+
+  if (!isValidOrigin) {
+    return NextResponse.json({ ok: false, error: 'Forbidden' }, { status: 403 })
+  }
+
+  // ── Parse body ──
+  let body: any
   try {
-    const body = await req.json()
+    body = await req.json()
+  } catch {
+    return NextResponse.json({ ok: false, error: 'Invalid request' }, { status: 400 })
+  }
 
-    const SHEET_URL = process.env.SHEETS_URL
-
-    if (!SHEET_URL) {
-      return NextResponse.json({ ok: false, error: 'SHEETS_URL env var is missing — check Vercel environment variables' }, { status: 500 })
-    }
-
-    let res: Response
-    try {
-      res = await fetch(SHEET_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-        redirect: 'follow',
-      })
-    } catch (fetchErr: any) {
-      return NextResponse.json({ ok: false, error: `Failed to reach Apps Script: ${fetchErr.message}` }, { status: 500 })
-    }
-
-    // Read the Apps Script response
-    const text = await res.text()
-
-    let parsed: any = {}
-    try { parsed = JSON.parse(text) } catch {}
-
-    if (parsed.ok === false) {
-      return NextResponse.json({ ok: false, error: `Apps Script error: ${parsed.error}` }, { status: 500 })
-    }
-
+  // ── Honeypot check ──
+  if (body.website_url) {
+    // Bot filled the honeypot — silently accept but don't forward
     return NextResponse.json({ ok: true })
+  }
 
+  // ── Validate required fields ──
+  const name = sanitizeString(body.name)
+  const email = sanitizeString(body.email, 200)
+  const phone = sanitizeString(body.phone, 30)
+
+  if (!name || name.length < 2) {
+    return NextResponse.json({ ok: false, error: 'Name is required' }, { status: 400 })
+  }
+  if (!email || !validateEmail(email)) {
+    return NextResponse.json({ ok: false, error: 'Valid email is required' }, { status: 400 })
+  }
+
+  // ── Build clean whitelist-only payload ──
+  const cleanPayload = {
+    timestamp: new Date().toISOString(),
+    submissionId: Math.random().toString(36).slice(2, 10).toUpperCase(),
+    name,
+    email,
+    phone,
+    businessName: sanitizeString(body.businessName),
+    location: sanitizeString(body.location, 200),
+    industry: sanitizeString(body.industry, 100),
+    service: sanitizeString(body.service, 200),
+    message: sanitizeString(body.message, 2000),
+    source: 'gulflineai.com/contact',
+  }
+
+  // ── Check env ──
+  const SHEET_URL = process.env.SHEETS_URL
+  if (!SHEET_URL) {
+    console.error('SHEETS_URL not configured')
+    return NextResponse.json({ ok: false, error: 'Service temporarily unavailable' }, { status: 500 })
+  }
+
+  // ── Forward to Google Sheet ──
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(cleanPayload),
+      redirect: 'follow',
+    })
+    return NextResponse.json({ ok: true })
   } catch (err: any) {
-    console.error('Contact form error:', err)
-    return NextResponse.json({ ok: false, error: err.message }, { status: 500 })
+    console.error('Sheet forward error:', err)
+    // Don't expose internal error details
+    return NextResponse.json({ ok: false, error: 'Submission failed. Please email gulflineai@gmail.com directly.' }, { status: 500 })
   }
 }
