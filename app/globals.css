@@ -47,6 +47,18 @@
 
 html { scroll-behavior: smooth; }
 
+/* ── Mobile: prevent horizontal overflow ── */
+body { overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── Mobile: improve tap targets ── */
+@media (max-width: 640px) {
+  .service-card { width: 240px; }
+  .timeline-item { grid-template-columns: 44px 1fr; gap: 1.25rem; }
+  .timeline-num { width: 44px; height: 44px; font-size: 0.95rem; }
+  .timeline-item:not(:last-child)::before { left: 21px; }
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--navy);

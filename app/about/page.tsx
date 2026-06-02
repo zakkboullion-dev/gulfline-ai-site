@@ -160,7 +160,7 @@ export default function AboutPage() {
             >
               How we operate.
             </h2>
-            <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
+            <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
               {pillars.map((p) => {
                 const Icon = p.icon
                 return (
@@ -180,7 +180,7 @@ export default function AboutPage() {
         {/* Industries */}
         <section style={{ padding: '6rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div style={{ display: 'grid', gap: '4rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', alignItems: 'start' }}>
+            <div style={{ display: 'grid', gap: '4rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', alignItems: 'start' }}>
               <div>
                 <div className="badge-cyan mb-5">Who We Work With</div>
                 <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: 'var(--white)', lineHeight: 1.15, marginBottom: '1.5rem' }}>

@@ -91,10 +91,10 @@ export function BartWidget() {
         <div
           style={{
             position: 'fixed',
-            bottom: '5.5rem',
-            right: '1.5rem',
+            bottom: 'calc(4rem + env(safe-area-inset-bottom, 0px))',
+            right: '1rem',
             width: 'min(380px, calc(100vw - 2rem))',
-            height: 'min(560px, calc(100vh - 8rem))',
+            height: 'min(560px, calc(100dvh - 8rem))',
             background: '#0B1525',
             border: '1px solid rgba(34,211,238,0.2)',
             borderRadius: '20px',
@@ -289,8 +289,8 @@ export function BartWidget() {
         aria-label="Chat with Bart"
         style={{
           position: 'fixed',
-          bottom: '1.5rem',
-          right: '1.5rem',
+          bottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))',
+          right: '1.25rem',
           width: 56, height: 56,
           borderRadius: '50%',
           border: '1px solid rgba(34,211,238,0.3)',

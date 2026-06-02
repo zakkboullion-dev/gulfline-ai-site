@@ -126,7 +126,7 @@ export default function ServicesPage() {
                     className="glass-card"
                     style={{ padding: '2.5rem', transition: 'border-color 0.3s' }}
                   >
-                    <div style={{ display: 'grid', gap: '2.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+                    <div style={{ display: 'grid', gap: '2.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
                       <div>
                         <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(27,79,216,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                           <Icon size={22} color="var(--cyan)" />

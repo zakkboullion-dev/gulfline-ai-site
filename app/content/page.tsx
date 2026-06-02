@@ -83,7 +83,7 @@ export default function ContentPage() {
                 background: 'linear-gradient(135deg, rgba(34,211,238,0.04) 0%, rgba(27,79,216,0.06) 100%)',
               }}
             >
-              <div style={{ padding: 'clamp(2rem, 5vw, 3.5rem)', display: 'grid', gap: '3rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', alignItems: 'start' }}>
+              <div style={{ padding: 'clamp(2rem, 5vw, 3.5rem)', display: 'grid', gap: '3rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', alignItems: 'start' }}>
                 <div>
                   <span className="badge-cyan" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>Coming Soon</span>
                   <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', color: 'var(--white)', lineHeight: 1.15, marginBottom: '1.25rem' }}>
@@ -132,7 +132,7 @@ export default function ContentPage() {
               <p style={{ fontSize: '0.95rem', color: 'var(--muted)', marginBottom: '3rem' }}>
                 Follow wherever you spend time online — web dev, AI, and building in public.
               </p>
-              <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
+              <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
                 {socials.map((s) => {
                   const Icon = s.icon
                   return (

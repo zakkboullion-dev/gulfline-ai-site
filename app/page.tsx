@@ -89,7 +89,7 @@ export default function HomePage() {
             style={{ background: 'linear-gradient(to bottom, transparent, var(--navy))' }}
           />
 
-          <div className="container relative mx-auto px-4 py-28 lg:px-8">
+          <div className="container relative mx-auto px-4 lg:px-8" style={{ paddingTop: "clamp(4rem, 12vw, 7rem)", paddingBottom: "clamp(4rem, 12vw, 7rem)" }}>
             <div className="mx-auto max-w-5xl text-center">
 
               <div className="badge-cyan mb-8">Lake Charles, Louisiana</div>
@@ -180,8 +180,8 @@ export default function HomePage() {
                 flexWrap: 'wrap',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.5rem 2rem',
-                fontSize: '0.8rem',
+                gap: '0.4rem 1.5rem',
+                fontSize: '0.75rem',
                 fontWeight: 500,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -285,10 +285,10 @@ export default function HomePage() {
         {/* ── HOW WE WORK — Vertical Timeline ── */}
         <section style={{ background: 'var(--navy-mid)', padding: '6rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
-            <div style={{ display: 'grid', gap: '4rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'start' }}>
+            <div style={{ display: 'grid', gap: '3rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', alignItems: 'start' }}>
 
               {/* Left — sticky heading */}
-              <div style={{ position: 'sticky', top: '6rem' }}>
+              <div style={{ position: 'relative' }}>
                 <div className="badge-cyan mb-4">How We Work</div>
                 <h2
                   style={{
@@ -381,7 +381,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+            <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
               {portfolio.map((p) => (
                 <div key={p.name} className="glass-card" style={{ padding: '1.75rem', transition: 'border-color 0.3s' }}>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
