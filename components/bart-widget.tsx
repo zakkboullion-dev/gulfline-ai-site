@@ -69,7 +69,7 @@ export function BartWidget() {
 
       setMessages(prev => [...prev, bartMsg])
       if (!open) setUnread(true)
-    } catch {
+    } catch (e: any) {
       setMessages(prev => [...prev, {
         role: 'assistant',
         content: "Connection issue — try emailing gulflineai@gmail.com directly.",

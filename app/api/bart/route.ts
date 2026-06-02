@@ -48,7 +48,7 @@ Then output this exact tag on its own line so the system can parse it:
 LEAD_CAPTURE:{"name":"[name]","email":"[email]","phone":"[phone or empty string]","service":"[what they need]"}
 
 QUICK LINKS:
-When relevant, suggest pages using these exact tags — the UI renders them as clickable buttons that open in the same tab without closing the chat:
+When relevant, suggest pages using these exact tags — the UI renders them as clickable buttons:
 LINK:/services|View All Services
 LINK:/portfolio|See Our Work
 LINK:/contact|Get a Free Quote
@@ -65,8 +65,14 @@ export async function POST(req: NextRequest) {
     const { messages } = await req.json()
 
     const GROQ_KEY = process.env.GROQ_API_KEY
+
     if (!GROQ_KEY) {
-      return NextResponse.json({ error: 'GROQ_API_KEY not configured' }, { status: 500 })
+      console.error('GROQ_API_KEY is not set')
+      return NextResponse.json({ 
+        text: 'Configuration error — the team has been notified. Email gulflineai@gmail.com directly.',
+        links: [], 
+        _debug: 'GROQ_API_KEY missing' 
+      })
     }
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -89,7 +95,13 @@ export async function POST(req: NextRequest) {
     const data = await response.json()
 
     if (!response.ok) {
-      return NextResponse.json({ error: data.error?.message || 'Groq API error' }, { status: 500 })
+      const errMsg = data.error?.message || JSON.stringify(data.error) || 'Unknown Groq error'
+      console.error('Groq API error:', errMsg)
+      return NextResponse.json({ 
+        text: `Bart is having trouble connecting right now. Email gulflineai@gmail.com directly.`,
+        links: [],
+        _debug: errMsg
+      })
     }
 
     const rawText = data.choices?.[0]?.message?.content || ''
@@ -140,7 +152,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ text: cleanText, links, lead })
 
   } catch (err: any) {
-    console.error('Bart error:', err)
-    return NextResponse.json({ error: err.message }, { status: 500 })
+    console.error('Bart route error:', err)
+    return NextResponse.json({ 
+      text: 'Something went wrong on my end. Email gulflineai@gmail.com directly.',
+      links: [],
+      _debug: err.message
+    })
   }
 }
