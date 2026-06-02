@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter, Barlow } from 'next/font/google'
 
 import './globals.css'
+import { BartWidget } from '@/components/bart-widget'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -86,6 +87,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
+        <BartWidget />
       </body>
     </html>
   )
