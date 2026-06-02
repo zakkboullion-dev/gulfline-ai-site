@@ -2,18 +2,31 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // Block common attack patterns at the edge — before any route runs
 const BLOCKED_PATTERNS = [
-  /\.\.\//,                    // path traversal
-  /<script/i,                  // XSS attempts in URL
-  /javascript:/i,              // JS injection
-  /union\s+select/i,           // SQL injection
-  /exec\s*\(/i,                // code execution
-  /eval\s*\(/i,                // eval injection
-  /\bwp-admin\b/i,             // WordPress scanning
-  /\bphpmyadmin\b/i,           // phpMyAdmin scanning
-  /\.env/i,                    // env file probing
-  /\.git\//,                   // git directory probing
-  /\/etc\/passwd/,             // Linux file probing
-  /base64_decode/i,            // PHP exploit patterns
+  /\.\.\//,                      // path traversal
+  /%2e%2e/i,                    // URL-encoded path traversal
+  /<script/i,                   // XSS in URL
+  /javascript:/i,               // JS injection
+  /union\s+select/i,            // SQL injection
+  /insert\s+into/i,             // SQL injection
+  /drop\s+table/i,              // SQL injection
+  /exec\s*\(/i,                 // code execution
+  /eval\s*\(/i,                 // eval injection
+  /system\s*\(/i,               // system call injection
+  /\bwp-admin\b/i,              // WordPress scanning
+  /\bwp-login/i,                // WordPress scanning
+  /\bphpmyadmin\b/i,            // phpMyAdmin scanning
+  /\.env(\.local|\.prod)?/i,   // env file probing
+  /\.git\//,                    // git directory probing
+  /\/etc\/passwd/,              // Linux file probing
+  /\/proc\/self/,               // Linux proc probing
+  /base64_decode/i,             // PHP exploit patterns
+  /\bshellexec\b/i,             // shell execution
+  /\bpassthru\b/i,              // PHP passthru
+  /__proto__/,                  // prototype pollution
+  /constructor\[/,              // prototype pollution variant
+  /\$where/,                    // MongoDB injection
+  /\{\{.*\}\}/,                 // template injection (Jinja/Handlebars/etc)
+  /\$\{.*\}/,                   // JS template injection
 ]
 
 // Block known bad user agents
@@ -29,6 +42,12 @@ const BLOCKED_USER_AGENTS = [
 ]
 
 export function middleware(req: NextRequest) {
+  // Block absurdly large URLs (buffer overflow attempts)
+  const url = req.nextUrl.toString()
+  if (url.length > 2048) {
+    return new NextResponse('URI Too Long', { status: 414 })
+  }
+
   const { pathname, search } = req.nextUrl
   const fullPath = pathname + search
   const ua = req.headers.get('user-agent') || ''

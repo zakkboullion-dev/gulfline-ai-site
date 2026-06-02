@@ -42,10 +42,21 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'Forbidden' }, { status: 403 })
   }
 
+  // ── Check content type ──
+  const contentType = req.headers.get('content-type') || ''
+  if (!contentType.includes('application/json')) {
+    return NextResponse.json({ ok: false, error: 'Invalid request' }, { status: 400 })
+  }
+
   // ── Parse body ──
   let body: any
   try {
-    body = await req.json()
+    const rawBody = await req.text()
+    // Reject oversized payloads (50KB max)
+    if (rawBody.length > 50000) {
+      return NextResponse.json({ ok: false, error: 'Request too large' }, { status: 413 })
+    }
+    body = JSON.parse(rawBody)
   } catch {
     return NextResponse.json({ ok: false, error: 'Invalid request' }, { status: 400 })
   }

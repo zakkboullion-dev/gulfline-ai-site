@@ -126,10 +126,20 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
 
-    // ── Parse + validate body ──
+    // ── Content-type check ──
+    const contentType = req.headers.get('content-type') || ''
+    if (!contentType.includes('application/json')) {
+      return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
+    }
+
+    // ── Parse + validate body (20KB max) ──
     let body: any
     try {
-      body = await req.json()
+      const rawBody = await req.text()
+      if (rawBody.length > 20000) {
+        return NextResponse.json({ text: 'Message too large.', links: [] }, { status: 413 })
+      }
+      body = JSON.parse(rawBody)
     } catch {
       return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
     }

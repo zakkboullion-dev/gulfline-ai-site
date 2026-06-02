@@ -1,2 +1,11 @@
 pnpm-lock.yaml
 .pnpm-store
+.env
+.env.local
+.env.production
+.env.development
+*.log
+.DS_Store
+node_modules
+.git
+README.md
