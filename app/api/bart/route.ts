@@ -193,7 +193,7 @@ export async function POST(req: NextRequest) {
 
     // ── Parse lead capture ──
     let lead = null
-    const leadMatch = rawText.match(/LEAD_CAPTURE:(\{.*?\})/s)
+    const leadMatch = rawText.match(/LEAD_CAPTURE:(\{[\s\S]*?\})/)
     if (leadMatch) {
       try { lead = JSON.parse(leadMatch[1]) } catch {}
       // Validate lead fields
@@ -238,7 +238,7 @@ export async function POST(req: NextRequest) {
 
     // ── Clean display text ──
     const cleanText = rawText
-      .replace(/LEAD_CAPTURE:\{.*?\}/s, '')
+      .replace(/LEAD_CAPTURE:\{[\s\S]*?\}/, '')
       .replace(/LINK:[^\n]*/g, '')
       .replace(/\n{3,}/g, '\n\n')
       .trim()

@@ -94,25 +94,69 @@ export async function POST(req: NextRequest) {
     source: 'gulflineai.com/contact',
   }
 
-  // ── Check env ──
-  const SHEET_URL = process.env.SHEETS_URL
-  if (!SHEET_URL) {
-    console.error('SHEETS_URL not configured')
-    return NextResponse.json({ ok: false, error: 'Service temporarily unavailable' }, { status: 500 })
+  // ── Deliver to the client portal (primary destination) ──
+  // Leads land in call_requests and show up in the portal's admin queue at
+  // portal.gulflineai.com/admin/call-requests, where the organizer agent also
+  // flags any lead left unanswered past 24h. Server-to-server, so no CORS.
+  const PORTAL_INTAKE_URL =
+    process.env.PORTAL_INTAKE_URL || 'https://portal.gulflineai.com/api/public/call-request'
+
+  const contextBits = [
+    cleanPayload.service && `Service: ${cleanPayload.service}`,
+    cleanPayload.businessName && `Business: ${cleanPayload.businessName}`,
+    cleanPayload.location && `Location: ${cleanPayload.location}`,
+    cleanPayload.industry && `Industry: ${cleanPayload.industry}`,
+  ]
+    .filter(Boolean)
+    .join(' · ')
+  const topic = [
+    `[gulflineai.com contact]${contextBits ? ' ' + contextBits : ''}`,
+    cleanPayload.message || '(no message)',
+  ]
+    .join('\n\n')
+    .slice(0, 2000) // portal-side cap (call_requests.topic CHECK)
+
+  let portalOk = false
+  try {
+    const portalRes = await fetch(PORTAL_INTAKE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Pass the visitor's IP through so the portal rate-limits real clients,
+        // not this server's egress IP.
+        'x-forwarded-for': ip,
+      },
+      body: JSON.stringify({ name, email, phone, topic, companyWebsite: '' }),
+    })
+    portalOk = portalRes.ok
+    if (!portalOk) console.error('Portal intake failed:', portalRes.status)
+  } catch (err) {
+    console.error('Portal intake error:', err)
   }
 
-  // ── Forward to Google Sheet ──
-  try {
-    await fetch(SHEET_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(cleanPayload),
-      redirect: 'follow',
-    })
-    return NextResponse.json({ ok: true })
-  } catch (err: any) {
-    console.error('Sheet forward error:', err)
-    // Don't expose internal error details
-    return NextResponse.json({ ok: false, error: 'Submission failed. Please email gulflineai@gmail.com directly.' }, { status: 500 })
+  // ── Forward to Google Sheet (best-effort secondary copy, only if configured) ──
+  const SHEET_URL = process.env.SHEETS_URL
+  let sheetOk = false
+  if (SHEET_URL) {
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(cleanPayload),
+        redirect: 'follow',
+      })
+      sheetOk = true
+    } catch (err) {
+      console.error('Sheet forward error:', err)
+    }
   }
+
+  if (portalOk || sheetOk) {
+    return NextResponse.json({ ok: true })
+  }
+  // Don't expose internal error details
+  return NextResponse.json(
+    { ok: false, error: 'Submission failed. Please email gulflineai@gmail.com directly.' },
+    { status: 500 }
+  )
 }
