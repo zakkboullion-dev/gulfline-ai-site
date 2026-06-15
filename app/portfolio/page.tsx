@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { ExternalLink, ArrowRight } from 'lucide-react'
+import { ExternalLink, ArrowRight, Lock } from 'lucide-react'
 import { SitePreview } from '@/components/site-preview'
 
 export const metadata: Metadata = {
@@ -11,6 +11,24 @@ export const metadata: Metadata = {
 }
 
 const projects = [
+  {
+    name: 'DHDO Client Portal',
+    url: null,
+    category: 'Client Portal / Web App',
+    location: 'Lake Charles, Louisiana',
+    tags: ['Client Portal', 'Web App', 'Secure Login'],
+    description:
+      'Beyond their marketing site, DHDO needed a secure place for property-documentation clients to access everything we capture for them. We built a client portal that brings each property’s 3D Matterport model, floor plans, photos, and tagged asset inventory together behind a private login — so a homeowner or adjuster can pull up a full digital record in seconds and share it with a single link.',
+    built: [
+      'Secure per-client login and access control',
+      'Hosted 3D model and floor-plan viewer',
+      'Asset inventory tagged with make, model, serial & replacement value',
+      'One-click shareable property links',
+      'Built for insurance and pre-loss documentation',
+      'Responsive across phone, tablet, and desktop',
+    ],
+    partner: null,
+  },
   {
     name: 'DHDO Scan',
     url: 'https://dhdoscan.com',
@@ -92,15 +110,53 @@ export default function PortfolioPage() {
                   className="glass-card"
                   style={{ overflow: 'hidden', transition: 'border-color 0.3s' }}
                 >
-                  {/* Site preview image */}
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ display: 'block', overflow: 'hidden', borderBottom: '1px solid var(--border)' }}
-                  >
-                    <SitePreview url={project.url} name={project.name} />
-                  </a>
+                  {/* Live site preview, or a private-portal placeholder when there's no public URL */}
+                  {project.url ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'block', overflow: 'hidden', borderBottom: '1px solid var(--border)' }}
+                    >
+                      <SitePreview url={project.url} name={project.name} />
+                    </a>
+                  ) : (
+                    <div
+                      style={{
+                        borderBottom: '1px solid var(--border)',
+                        padding: '3.5rem 2rem',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.85rem',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, var(--navy-mid) 0%, rgba(27,79,216,0.18) 100%)',
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: 52,
+                          height: 52,
+                          borderRadius: '14px',
+                          border: '1px solid var(--border-mid)',
+                          background: 'rgba(34,211,238,0.1)',
+                          color: 'var(--cyan)',
+                        }}
+                      >
+                        <Lock size={22} />
+                      </span>
+                      <span style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: '1.15rem', color: 'var(--white)' }}>
+                        {project.name}
+                      </span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>
+                        Secure client portal — private by design
+                      </span>
+                    </div>
+                  )}
                   {/* Card header */}
                   <div style={{ padding: '1.75rem 2rem', borderBottom: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', gap: '1.25rem', alignItems: 'flex-start', justifyContent: 'space-between' }}>
                     <div>
@@ -112,14 +168,22 @@ export default function PortfolioPage() {
                       <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: '1.5rem', color: 'var(--white)', marginBottom: '0.25rem' }}>{project.name}</h2>
                       <p style={{ fontSize: '0.8rem', color: 'rgba(240,244,255,0.35)' }}>{project.category} · {project.location}</p>
                     </div>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid var(--border-mid)', borderRadius: '8px', padding: '0.6rem 1.1rem', fontSize: '0.85rem', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, color: 'var(--muted)', textDecoration: 'none', transition: 'border-color 0.2s, color 0.2s', flexShrink: 0 }}
-                    >
-                      Visit Site <ExternalLink size={13} />
-                    </a>
+                    {project.url ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid var(--border-mid)', borderRadius: '8px', padding: '0.6rem 1.1rem', fontSize: '0.85rem', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, color: 'var(--muted)', textDecoration: 'none', transition: 'border-color 0.2s, color 0.2s', flexShrink: 0 }}
+                      >
+                        Visit Site <ExternalLink size={13} />
+                      </a>
+                    ) : (
+                      <span
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid var(--border-mid)', borderRadius: '8px', padding: '0.6rem 1.1rem', fontSize: '0.85rem', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, color: 'rgba(240,244,255,0.4)', flexShrink: 0 }}
+                      >
+                        <Lock size={13} /> Private Portal
+                      </span>
+                    )}
                   </div>
 
                   {/* Card body */}
