@@ -12,6 +12,24 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    name: 'Zion Travelers Baptist Church',
+    url: 'https://zion-travelers-website.vercel.app/',
+    category: 'Nonprofit / Church Website',
+    location: 'Iowa, Louisiana',
+    tags: ['Nonprofit', 'Website', 'Pro Bono'],
+    description:
+      'A historic Southwest Louisiana congregation needed a real home online. We designed, built, and host a clean single-page site — worship times, the pastor’s welcome, community outreach, and a photo story of the church — completely free, as part of our commitment to giving back to the local community.',
+    built: [
+      'Custom single-page design built from scratch',
+      'Worship schedule, pastor’s welcome, and outreach sections',
+      'Photo gallery showcasing the congregation and events',
+      'Address, map, and Facebook links wired up',
+      'Mobile-first and fast-loading',
+      'Designed and hosted at no cost',
+    ],
+    partner: null,
+  },
+  {
     name: 'DHDO Client Portal',
     url: null,
     category: 'Client Portal / Web App',
