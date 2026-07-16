@@ -32,12 +32,12 @@ const partners = [
     status: 'live' as const,
   },
   {
-    name: 'Second Congregation',
-    url: null,
-    location: 'Southwest Louisiana',
+    name: 'First Christian Church (Disciples of Christ)',
+    url: 'https://first-christian-sulphur-website.vercel.app/',
+    location: 'Sulphur, Louisiana',
     blurb:
-      'We’re in conversation with the leadership and board of a second local church. Their site is next in line — same care, same cost: free.',
-    status: 'coming' as const,
+      'A welcoming Disciples of Christ congregation serving Sulphur since 1919. We designed and host a warm, red-and-white single-page site — worship times, their story and faith, ministries, community life, and a photo gallery — carrying their heritage and their open-table spirit online, free of charge.',
+    status: 'live' as const,
   },
 ]
 

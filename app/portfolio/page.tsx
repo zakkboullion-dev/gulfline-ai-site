@@ -30,6 +30,24 @@ const projects = [
     partner: null,
   },
   {
+    name: 'First Christian Church (Disciples of Christ)',
+    url: 'https://first-christian-sulphur-website.vercel.app/',
+    category: 'Nonprofit / Church Website',
+    location: 'Sulphur, Louisiana',
+    tags: ['Nonprofit', 'Website', 'Pro Bono'],
+    description:
+      'A Disciples of Christ congregation serving Sulphur since 1919 needed a modern home online. We designed, built, and host a warm red-and-white single-page site — worship times, their heritage and faith, ministries, community life, and a photo gallery — built around the denomination’s chalice symbol and their open-table welcome, completely free.',
+    built: [
+      'Custom single-page design built from scratch',
+      'Disciples of Christ chalice emblem and branding',
+      'Worship times, story/heritage, and ministries sections',
+      'Photo gallery with lightbox',
+      'Address, map, phone, email, and Facebook wired up',
+      'Mobile-first, fast-loading, and hosted at no cost',
+    ],
+    partner: null,
+  },
+  {
     name: 'DHDO Client Portal',
     url: null,
     category: 'Client Portal / Web App',
