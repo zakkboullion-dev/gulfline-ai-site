@@ -200,6 +200,93 @@ export default function HomePage() {
         </section>
         <div className="section-line" />
 
+        {/* ── PROMO BANNER ── */}
+        <section style={{ background: 'var(--navy)', padding: '5rem 0' }}>
+          <div className="container mx-auto px-4 lg:px-8">
+            <div
+              style={{
+                maxWidth: '60rem', margin: '0 auto', position: 'relative', overflow: 'hidden',
+                border: '1px solid rgba(34,211,238,0.4)', borderRadius: '24px',
+                padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3.5rem)',
+                background: 'linear-gradient(135deg, rgba(27,79,216,0.18) 0%, rgba(34,211,238,0.07) 100%)',
+                textAlign: 'center',
+              }}
+            >
+              <div className="orb orb-cyan" style={{ width: 300, height: 300, top: '-45%', right: '-8%', opacity: 0.5 }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div
+                  className="badge-cyan mb-6"
+                  style={{ background: 'rgba(34,211,238,0.16)', color: 'var(--cyan)', fontWeight: 700 }}
+                >
+                  ★ Limited-Time Special
+                </div>
+                <h2
+                  style={{
+                    fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
+                    fontWeight: 800,
+                    fontSize: 'clamp(1.9rem, 5vw, 3rem)',
+                    color: 'var(--white)',
+                    lineHeight: 1.1,
+                    marginBottom: '0.85rem',
+                  }}
+                >
+                  Full-Service Websites
+                </h2>
+                <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '34rem', margin: '0 auto 2rem' }}>
+                  We design it, build it, host it, and maintain it — everything, every month.
+                  You run your business; we do it all.
+                </p>
+
+                {/* Price — struck-through original next to the promo price */}
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1.1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+                  <span
+                    style={{
+                      textDecoration: 'line-through',
+                      textDecorationColor: 'rgba(240,90,100,0.85)',
+                      textDecorationThickness: '2px',
+                      color: 'rgba(240,244,255,0.45)',
+                      fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
+                      fontWeight: 600,
+                      fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
+                    }}
+                  >
+                    $200<span style={{ fontSize: '0.85rem' }}>/mo</span>
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
+                      fontWeight: 800,
+                      color: 'var(--cyan)',
+                      fontSize: 'clamp(3rem, 9vw, 5rem)',
+                      lineHeight: 1,
+                    }}
+                  >
+                    $134<span style={{ fontSize: 'clamp(1rem, 2.5vw, 1.6rem)', color: 'var(--white)', fontWeight: 700 }}>/mo</span>
+                  </span>
+                </div>
+
+                <Link
+                  href="/contact"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                    background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)',
+                    color: '#fff',
+                    fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem',
+                    padding: '0.875rem 2.25rem', borderRadius: '10px',
+                    boxShadow: '0 0 30px rgba(27,79,216,0.45)',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Claim This Deal <ArrowRight size={16} />
+                </Link>
+                <p style={{ marginTop: '1.1rem', fontSize: '0.8rem', color: 'rgba(240,244,255,0.4)', letterSpacing: '0.02em' }}>
+                  Design · Hosting · Updates · Support — all included, every month.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── WHAT WE BUILD — Horizontal Scroll ── */}
         <section style={{ background: 'var(--navy)', padding: '6rem 0', overflow: 'hidden' }}>
           <div className="container mx-auto px-4 lg:px-8 mb-10">
@@ -446,7 +533,7 @@ export default function HomePage() {
                   <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
                     <div>
                       <p style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--white)' }}>Zakk Boullion</p>
-                      <p style={{ fontSize: '0.8rem', color: 'var(--cyan)', marginTop: '2px' }}>CEO, Gulfline AI</p>
+                      <p style={{ fontSize: '0.8rem', color: 'var(--cyan)', marginTop: '2px' }}>CTO, Gulfline AI</p>
                     </div>
                     <div>
                       <p style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: 'var(--white)' }}>Jay Joseph</p>
