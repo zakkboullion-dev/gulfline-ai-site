@@ -218,7 +218,7 @@ export default function HomePage() {
                   className="badge-cyan mb-6"
                   style={{ background: 'rgba(34,211,238,0.16)', color: 'var(--cyan)', fontWeight: 700 }}
                 >
-                  ★ Limited-Time Special
+                  ★ First 50 Businesses
                 </div>
                 <h2
                   style={{
@@ -230,15 +230,16 @@ export default function HomePage() {
                     marginBottom: '0.85rem',
                   }}
                 >
-                  Full-Service Websites
+                  Your Website, Built Free.
                 </h2>
-                <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '34rem', margin: '0 auto 2rem' }}>
-                  We design it, build it, host it, and maintain it — everything, every month.
-                  You run your business; we do it all.
+                <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '36rem', margin: '0 auto 2rem' }}>
+                  Most agencies charge $1,500–$3,000 just to build. For the first 50 businesses
+                  who reach out, we&apos;re waiving that entirely — $0 upfront. Then $150/mo covers
+                  hosting, edits, updates &amp; support. We do it all.
                 </p>
 
-                {/* Price — struck-through original next to the promo price */}
-                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1.1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+                {/* Price — free build (was $1,500+), then the monthly retainer */}
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1.1rem', flexWrap: 'wrap', marginBottom: '0.6rem' }}>
                   <span
                     style={{
                       textDecoration: 'line-through',
@@ -250,7 +251,7 @@ export default function HomePage() {
                       fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
                     }}
                   >
-                    $200<span style={{ fontSize: '0.85rem' }}>/mo</span>
+                    $1,500+ build
                   </span>
                   <span
                     style={{
@@ -259,11 +260,15 @@ export default function HomePage() {
                       color: 'var(--cyan)',
                       fontSize: 'clamp(3rem, 9vw, 5rem)',
                       lineHeight: 1,
+                      letterSpacing: '-0.01em',
                     }}
                   >
-                    $134<span style={{ fontSize: 'clamp(1rem, 2.5vw, 1.6rem)', color: 'var(--white)', fontWeight: 700 }}>/mo</span>
+                    FREE
                   </span>
                 </div>
+                <p style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: 'var(--white)', marginBottom: '2rem' }}>
+                  then just <span style={{ color: 'var(--cyan)' }}>$150/mo</span> — hosting, edits &amp; support
+                </p>
 
                 <Link
                   href="/contact"
@@ -277,10 +282,10 @@ export default function HomePage() {
                     textDecoration: 'none',
                   }}
                 >
-                  Claim This Deal <ArrowRight size={16} />
+                  Claim a Free Build <ArrowRight size={16} />
                 </Link>
                 <p style={{ marginTop: '1.1rem', fontSize: '0.8rem', color: 'rgba(240,244,255,0.4)', letterSpacing: '0.02em' }}>
-                  Design · Hosting · Updates · Support — all included, every month.
+                  Only 50 spots — first come, first served. Hosting · Edits · Updates · Support included.
                 </p>
               </div>
             </div>
