@@ -12,20 +12,37 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    name: "Mazen's",
+    url: 'https://mazens.com',
+    category: 'Restaurant Website',
+    location: 'Lake Charles, Louisiana',
+    tags: ['Website', 'Restaurant'],
+    description:
+      'A beloved Lake Charles restaurant needed a website as inviting as their food. We built a warm, appetizing site that showcases the menu and atmosphere and makes it effortless for locals and visitors to find them, check the menu, and come hungry.',
+    built: [
+      'Custom restaurant website design',
+      'Menu and offerings front and center',
+      'Location, hours, and contact info',
+      'Mobile-first and fast-loading',
+      'Built to drive local foot traffic',
+    ],
+    partner: null,
+  },
+  {
     name: 'Zion Travelers Baptist Church',
     url: 'https://zion-travelers-website.vercel.app/',
     category: 'Nonprofit / Church Website',
     location: 'Iowa, Louisiana',
     tags: ['Nonprofit', 'Website', 'Pro Bono'],
     description:
-      'A historic Southwest Louisiana congregation needed a real home online. We designed, built, and host a clean single-page site — worship times, the pastor’s welcome, community outreach, and a photo story of the church — completely free, as part of our commitment to giving back to the local community.',
+      'A historic Calcasieu Parish congregation needed a real home online. We designed and built a clean single-page site — worship times, the pastor’s welcome, community outreach, and a photo story of the church — with our design and build donated in full, as part of our commitment to giving back to the local community.',
     built: [
       'Custom single-page design built from scratch',
       'Worship schedule, pastor’s welcome, and outreach sections',
       'Photo gallery showcasing the congregation and events',
       'Address, map, and Facebook links wired up',
       'Mobile-first and fast-loading',
-      'Designed and hosted at no cost',
+      'Design and build donated in full',
     ],
     partner: null,
   },
@@ -36,14 +53,14 @@ const projects = [
     location: 'Sulphur, Louisiana',
     tags: ['Nonprofit', 'Website', 'Pro Bono'],
     description:
-      'A Disciples of Christ congregation serving Sulphur since 1919 needed a modern home online. We designed, built, and host a warm red-and-white single-page site — worship times, their heritage and faith, ministries, community life, and a photo gallery — built around the denomination’s chalice symbol and their open-table welcome, completely free.',
+      'A Disciples of Christ congregation serving Sulphur since 1919 needed a modern home online. We designed and built a warm red-and-white single-page site — worship times, their heritage and faith, ministries, community life, and a photo gallery — built around the denomination’s chalice symbol and their open-table welcome, with our design and build donated in full.',
     built: [
       'Custom single-page design built from scratch',
       'Disciples of Christ chalice emblem and branding',
       'Worship times, story/heritage, and ministries sections',
       'Photo gallery with lightbox',
       'Address, map, phone, email, and Facebook wired up',
-      'Mobile-first, fast-loading, and hosted at no cost',
+      'Mobile-first and fast-loading; design and build donated in full',
     ],
     partner: null,
   },

@@ -8,17 +8,18 @@ import { SitePreview } from '@/components/site-preview'
 export const metadata: Metadata = {
   title: 'Nonprofits — Gulfline AI',
   description:
-    'Gulfline AI designs, builds, and hosts websites free for churches and nonprofits in Southwest Louisiana. Real, professional web presence at no cost — our way of giving back to the community.',
+    'Gulfline AI donates website design and development to small churches and nonprofits in Calcasieu Parish, Louisiana. A professional web presence for the organizations that hold our community together.',
 }
 
-// What a nonprofit gets, at no cost
+// What the donated build includes
 const included = [
-  'Custom-designed website — built from scratch, not a template',
-  'Free hosting, forever — we cover it',
+  'Custom-designed single-page website — built from scratch, not a template',
+  'Built, deployed, and configured on hosting the organization owns',
   'Mobile-first, fast, and accessible on every device',
   'Service times, events, and contact info front and center',
-  'Photo galleries and story pages that reflect your community',
-  'Updates as your needs change — just reach out',
+  'Photo galleries and story sections that reflect your community',
+  'One round of content revisions within 30 days of launch',
+  'Additional pages, features, or ongoing updates available at our nonprofit rate',
 ]
 
 // The churches / nonprofits we've built for (and slots in progress)
@@ -28,7 +29,7 @@ const partners = [
     url: 'https://zion-travelers-website.vercel.app/',
     location: 'Iowa, Louisiana',
     blurb:
-      'A single-page home for a historic Southwest Louisiana congregation — worship times, the pastor’s welcome, community outreach, and a photo story of the church, all in one clean, fast site we designed and host at no cost.',
+      'A single-page home for a historic Calcasieu Parish congregation — worship times, the pastor’s welcome, community outreach, and a photo story of the church, all in one clean, fast site we designed and built at no cost.',
     status: 'live' as const,
   },
   {
@@ -36,10 +37,49 @@ const partners = [
     url: 'https://first-christian-sulphur-website.vercel.app/',
     location: 'Sulphur, Louisiana',
     blurb:
-      'A welcoming Disciples of Christ congregation serving Sulphur since 1919. We designed and host a warm, red-and-white single-page site — worship times, their story and faith, ministries, community life, and a photo gallery — carrying their heritage and their open-table spirit online, free of charge.',
+      'A welcoming Disciples of Christ congregation serving Sulphur since 1919. We designed and built a warm, red-and-white single-page site — worship times, their story and faith, ministries, community life, and a photo gallery — carrying their heritage and their open-table spirit online, with the design and build donated in full.',
     status: 'live' as const,
   },
 ]
+
+// Program Guidelines
+const eligibility = [
+  'A registered 501(c)(3) nonprofit or an established house of worship',
+  'A physical location in Calcasieu Parish, Louisiana, serving the local community',
+  'An annual operating budget under $250,000',
+  'Not currently conducting a capital campaign or building fund of $100,000 or more',
+  'Primarily volunteer-run, with no in-house marketing, development, or web staff',
+]
+const scope = [
+  'The program covers one custom single-page website per organization. We accept up to four projects per year and review requests as capacity allows — submitting a request does not guarantee acceptance.',
+  'The organization purchases and maintains its own domain name and hosting. We recommend options and handle the technical setup, but the accounts and billing stay in the organization’s name.',
+  'The organization provides written content, photos, and a single point of contact. Projects without these on hand may be placed on hold.',
+  'Timelines are scheduled around our paid client work.',
+]
+const notIncluded = [
+  'Online donation or payment processing, e-commerce, ticketing, membership or giving portals, and login-protected areas',
+  'Multi-page builds, blogs, calendars, and content management systems',
+  'Logo or brand identity design, copywriting, and photography',
+  'Ongoing content updates, SEO retainers, and marketing campaigns',
+]
+
+const eyebrowStyle = { fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--cyan)', marginBottom: '0.75rem' } as const
+
+function GuidelineList({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div style={{ marginTop: '2rem' }}>
+      <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, letterSpacing: '0.06em', fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--cyan)', marginBottom: '0.9rem' }}>{title}</h3>
+      <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem', listStyle: 'none', margin: 0, padding: 0 }}>
+        {items.map((item) => (
+          <li key={item} style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start', color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+            <span style={{ marginTop: '0.55rem', width: 5, height: 5, borderRadius: '50%', background: 'var(--cyan)', opacity: 0.75, flexShrink: 0, display: 'block' }} />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 export default function NonprofitPage() {
   return (
@@ -68,9 +108,9 @@ export default function NonprofitPage() {
                 <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>On us.</span>
               </h1>
               <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--muted)', lineHeight: 1.75, maxWidth: '36rem' }}>
-                Gulfline AI designs, builds, and hosts websites for churches and nonprofits in
-                Southwest Louisiana — completely free. The organizations that hold our community
-                together deserve a professional web presence, and cost should never stand in the way.
+                Gulfline AI donates website design and development to small, locally rooted churches
+                and nonprofits in Calcasieu Parish. The organizations that hold our community together
+                deserve a professional web presence, and cost should never stand in the way of one.
               </p>
             </div>
           </div>
@@ -82,8 +122,8 @@ export default function NonprofitPage() {
             <div style={{ maxWidth: '60rem', margin: '0 auto', display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
               {[
                 { icon: Heart, title: 'Because it matters', body: 'Churches, food pantries, and community groups do the quiet work that keeps our region strong. A great website helps them reach more people — so we build it for them.' },
-                { icon: HandHeart, title: 'No cost, no catch', body: 'Design, build, and hosting are on us. There’s no invoice, no monthly bill, and no fine print. It’s our way of investing in the place we call home.' },
-                { icon: Church, title: 'Rooted in Louisiana', body: 'We’re a Lake Charles company. The nonprofits we serve are our neighbors, and the impact stays right here in Southwest Louisiana.' },
+                { icon: HandHeart, title: 'No invoice for our work', body: 'We donate the design and the build — there’s no bill for our time. The organization owns and pays for its own domain and hosting, which keeps the site fully yours from day one.' },
+                { icon: Church, title: 'Rooted in Louisiana', body: 'We’re a Lake Charles company. The organizations we serve are our neighbors here in Calcasieu Parish, and the impact stays right here at home.' },
               ].map(({ icon: Icon, title, body }) => (
                 <div key={title} className="glass-card" style={{ padding: '2rem' }}>
                   <span
@@ -154,7 +194,7 @@ export default function NonprofitPage() {
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
                           <span className="badge-cyan" style={{ fontSize: '0.65rem' }}>Nonprofit</span>
                           <span className="badge-cyan" style={{ fontSize: '0.65rem' }}>{p.status === 'live' ? 'Live' : 'Coming Soon'}</span>
-                          <span className="badge-cyan" style={{ fontSize: '0.65rem' }}>Free</span>
+                          <span className="badge-cyan" style={{ fontSize: '0.65rem' }}>Donated Build</span>
                         </div>
                         <h3 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: '1.5rem', color: 'var(--white)', marginBottom: '0.25rem' }}>{p.name}</h3>
                         <p style={{ fontSize: '0.8rem', color: 'rgba(240,244,255,0.35)' }}>Church Website · {p.location}</p>
@@ -194,11 +234,11 @@ export default function NonprofitPage() {
               <div>
                 <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)', marginBottom: '0.75rem' }}>What&apos;s Included</p>
                 <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>
-                  Everything a real website needs — nothing to pay.
+                  Everything a real website needs — with our work donated.
                 </h2>
                 <p style={{ fontSize: '0.95rem', color: 'var(--muted)', lineHeight: 1.75 }}>
                   We treat pro bono work like every other project: designed with care, built to last,
-                  and supported after launch.
+                  and supported through launch.
                 </p>
               </div>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
@@ -213,22 +253,52 @@ export default function NonprofitPage() {
           </div>
         </section>
 
+        {/* Program Guidelines */}
+        <section style={{ padding: '5rem 0' }}>
+          <div className="container mx-auto px-4 lg:px-8">
+            <div style={{ maxWidth: '60rem', margin: '0 auto', border: '1px solid var(--border-mid)', borderRadius: '16px', background: 'rgba(255,255,255,0.02)', padding: 'clamp(1.75rem, 5vw, 2.5rem)' }}>
+              <p style={eyebrowStyle}>Program Guidelines</p>
+              <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.5rem, 3vw, 1.9rem)', color: 'var(--white)' }}>
+                Who the program is for.
+              </h2>
+              <p style={{ color: 'var(--muted)', fontSize: '0.95rem', lineHeight: 1.7, marginTop: '0.9rem', maxWidth: '40rem' }}>
+                We fund this out of our own pocket, so we keep it small and focused on the organizations
+                that need it most. To be considered, an organization must meet all of the following:
+              </p>
+
+              <GuidelineList title="Eligibility" items={eligibility} />
+              <GuidelineList title="Scope & Responsibilities" items={scope} />
+              <GuidelineList title="Not Included" items={notIncluded} />
+
+              <div style={{ height: 1, background: 'var(--border)', margin: '2rem 0 0' }} />
+              <p style={{ color: 'rgba(240,244,255,0.4)', fontSize: '0.84rem', lineHeight: 1.7, marginTop: '1rem' }}>
+                Organizations outside these guidelines — including larger nonprofits, regional and
+                national organizations, and those running active capital campaigns — are still very
+                welcome here. We serve them at a reduced nonprofit rate.{' '}
+                <Link href="/contact" style={{ color: 'var(--cyan)', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Request a quote</Link>{' '}
+                and we&apos;ll put something together. Guidelines are current as of July 2026 and may
+                change as our capacity does.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
-        <section style={{ padding: '6rem 0' }}>
+        <section style={{ background: 'var(--navy-mid)', borderTop: '1px solid var(--border)', padding: '6rem 0' }}>
           <div className="container mx-auto px-4 lg:px-8">
             <div style={{ maxWidth: '52rem', margin: '0 auto', textAlign: 'center', border: '1px solid rgba(27,79,216,0.35)', borderRadius: '24px', padding: 'clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem)', background: 'linear-gradient(135deg, rgba(27,79,216,0.1) 0%, rgba(34,211,238,0.05) 100%)', position: 'relative', overflow: 'hidden' }}>
               <div className="orb orb-cyan" style={{ width: 250, height: 250, bottom: '-40%', right: '-5%', opacity: 0.4 }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <h2 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 800, fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: 'var(--white)', marginBottom: '1rem', lineHeight: 1.1 }}>
-                  Run a church or nonprofit?
+                  Run a small church or nonprofit?
                 </h2>
-                <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '30rem', margin: '0 auto 2rem' }}>
-                  If you serve the Southwest Louisiana community, we&apos;d love to build your website —
-                  free. Tell us about your organization and let&apos;s get started.
+                <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '32rem', margin: '0 auto 2rem' }}>
+                  If your organization meets the guidelines above, we&apos;d love to hear from you. Tell us
+                  about your mission and we&apos;ll let you know whether we can take it on this year.
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                   <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 0 25px rgba(27,79,216,0.4)' }}>
-                    Get in Touch <ArrowRight size={16} />
+                    Apply Now <ArrowRight size={16} />
                   </Link>
                   <Link href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', border: '1px solid rgba(240,244,255,0.15)', color: 'rgba(240,244,255,0.7)', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', textDecoration: 'none' }}>
                     See Our Work
