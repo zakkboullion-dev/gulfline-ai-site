@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Globe, ShoppingBag, Bot, Workflow, Database, Mail, LayoutDashboard, Users, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Globe, ShoppingBag, Bot, PhoneCall, Workflow, Database, Mail, LayoutDashboard, Users, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Services — Gulfline AI',
@@ -33,6 +33,12 @@ const services = [
     title: 'AI Chatbots',
     description: 'Smart chatbots trained on your business that answer questions, capture leads, qualify prospects, and hand off to your team — installed on your website.',
     features: ['Trained on your products and services', 'Lead capture and qualification', 'Human handoff when needed', 'Works 24/7 without staff', 'Embedded on any website'],
+  },
+  {
+    icon: PhoneCall,
+    title: 'AI Voice Agents',
+    description: 'An AI voice agent that answers your phone in a natural voice, handles common questions, books appointments, and captures every caller’s details when you can’t pick up — so no lead ever slips through.',
+    features: ['Answers your calls 24/7 in a natural voice', 'Captures caller name, number & details', 'Books and schedules appointments', 'Answers your most common questions', 'Texts or emails you every lead instantly'],
   },
   {
     icon: Workflow,

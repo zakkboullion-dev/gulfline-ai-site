@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer'
 import {
   Globe, ShoppingBag, Bot, Workflow,
   Database, Mail, LayoutDashboard, Users,
-  ArrowRight, ExternalLink,
+  ArrowRight, ExternalLink, PhoneCall,
 } from 'lucide-react'
 
 const services = [
@@ -12,6 +12,7 @@ const services = [
   { icon: ShoppingBag,    title: 'Shopify & E-Commerce',        desc: 'Full store builds — design, products, payments, launch-ready.' },
   { icon: LayoutDashboard,title: 'Web Apps & Client Portals',   desc: 'Dashboards, portals, databases, auth — built to your workflow.' },
   { icon: Bot,            title: 'AI Chatbots',                 desc: '24/7 chatbots trained on your business, embedded on your site.' },
+  { icon: PhoneCall,      title: 'AI Voice Agents',             desc: 'A voice agent that answers your phone, books jobs, and captures leads 24/7.' },
   { icon: Workflow,       title: 'Lead Intake & Automation',    desc: 'Capture, qualify, and route leads automatically — zero manual work.' },
   { icon: Database,       title: 'CRM Integration',             desc: 'HubSpot, Salesforce, GoHighLevel — your data, where it needs to be.' },
   { icon: Mail,           title: 'SMS & Email Pipelines',       desc: 'Automated follow-ups triggered by real customer behavior.' },
@@ -21,6 +22,7 @@ const services = [
   { icon: ShoppingBag,    title: 'Shopify & E-Commerce',        desc: 'Full store builds — design, products, payments, launch-ready.' },
   { icon: LayoutDashboard,title: 'Web Apps & Client Portals',   desc: 'Dashboards, portals, databases, auth — built to your workflow.' },
   { icon: Bot,            title: 'AI Chatbots',                 desc: '24/7 chatbots trained on your business, embedded on your site.' },
+  { icon: PhoneCall,      title: 'AI Voice Agents',             desc: 'A voice agent that answers your phone, books jobs, and captures leads 24/7.' },
   { icon: Workflow,       title: 'Lead Intake & Automation',    desc: 'Capture, qualify, and route leads automatically — zero manual work.' },
   { icon: Database,       title: 'CRM Integration',             desc: 'HubSpot, Salesforce, GoHighLevel — your data, where it needs to be.' },
   { icon: Mail,           title: 'SMS & Email Pipelines',       desc: 'Automated follow-ups triggered by real customer behavior.' },
@@ -189,7 +191,7 @@ export default function HomePage() {
                 fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
               }}
             >
-              {['Websites & Web Apps', 'AI Chatbots', 'Shopify Stores', 'Lead Automation', 'CRM Integration', 'Agency Partnerships'].map((t, i) => (
+              {['Websites & Web Apps', 'AI Chatbots', 'AI Voice Agents', 'Shopify Stores', 'Lead Automation', 'CRM Integration', 'Agency Partnerships'].map((t, i) => (
                 <span key={t} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
                   {i > 0 && <span style={{ color: 'rgba(34,211,238,0.3)' }}>·</span>}
                   {t}

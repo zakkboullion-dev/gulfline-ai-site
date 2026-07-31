@@ -66,6 +66,7 @@ export function Footer() {
                 'Web Apps & Portals',
                 'Shopify Stores',
                 'AI Chatbots',
+                'AI Voice Agents',
                 'Lead Automation',
                 'CRM Integration',
                 'SMS & Email Pipelines',
