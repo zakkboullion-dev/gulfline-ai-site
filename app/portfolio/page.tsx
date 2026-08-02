@@ -71,12 +71,12 @@ const projects = [
     location: 'Lake Charles, Louisiana',
     tags: ['Client Portal', 'Web App', 'Secure Login'],
     description:
-      'Beyond their marketing site, DHDO needed a secure place for property-documentation clients to access everything we capture for them. We built a client portal that brings each property’s 3D Matterport model, floor plans, photos, and tagged asset inventory together behind a private login — so a homeowner or adjuster can pull up a full digital record in seconds and share it with a single link.',
+      'DHDO launched as a startup with no system at all — and a company selling property documentation needs somewhere for that documentation to live. A 3D scan is worth nothing if the homeowner can’t find it two years later, mid-claim, on a phone. So we built the platform their whole service runs on: every property’s Matterport model, floor plans, photos, and tagged asset inventory behind a private per-client login, shareable with an adjuster in one link. It works as both a sales tool and a retention tool for them.',
     built: [
       'Secure per-client login and access control',
       'Hosted 3D model and floor-plan viewer',
       'Asset inventory tagged with make, model, serial & replacement value',
-      'One-click shareable property links',
+      'One-click shareable property links — homeowner to adjuster in seconds',
       'Built for insurance and pre-loss documentation',
       'Responsive across phone, tablet, and desktop',
     ],
@@ -88,8 +88,8 @@ const projects = [
     category: 'Business Website',
     location: 'Lake Charles, Louisiana',
     tags: ['Website', 'Lead Capture'],
-    description: 'Digital Home Documentation Operations needed a professional site to represent their Matterport 3D scanning and property documentation services. We built a dark-themed site focused on credibility, clear service communication, and lead generation.',
-    built: ['Custom design from scratch', 'Contact and lead capture form', 'Service pages and pricing layout', 'Mobile-optimized', 'Deployed on Vercel'],
+    description: 'The front door for a Lake Charles startup selling something most people have never bought before: professional Matterport 3D scanning and pre-loss property documentation — scan your home before a storm, so you are not arguing with an insurer from memory afterwards. The site had to explain the idea and earn trust fast, then turn that into a booked scan.',
+    built: ['Custom dark-themed design built from scratch', 'Explains an unfamiliar service in plain terms', 'Contact and lead capture form', 'Service pages and pricing layout', 'Mobile-optimized', 'Deployed on Vercel'],
     partner: null,
   },
   {
