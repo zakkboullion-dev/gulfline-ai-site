@@ -12,7 +12,6 @@
 - ✅ Homepage (`/app/page.tsx`) - Working with WorkflowVisualEnhanced
 - ✅ About Page (`/app/about/page.tsx`) - Complete with founder quote and card
 - ✅ Solutions Page (`/app/solutions/page.tsx`) - 6 sections implemented
-- ✅ Case Study (`/app/case-study/page.tsx`) - Bradberry Construction with dashboard mockup
 - ✅ Contact Page (`/app/contact/page.tsx`) - Form with validation
 - ✅ Privacy Policy (`/app/privacy/page.tsx`) - Complete legal content
 - ✅ Terms of Service (`/app/terms/page.tsx`) - Complete legal content

@@ -296,13 +296,13 @@ export default function SolutionsPage() {
                 >
                   <Link href="/contact">Request an Automation Audit</Link>
                 </Button>
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="border-white/20 bg-transparent text-white hover:bg-white/5"
                 >
-                  <Link href="/case-study">Explore Case Study</Link>
+                  <Link href="/portfolio">See Our Work</Link>
                 </Button>
               </div>
             </div>
