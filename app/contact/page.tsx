@@ -60,6 +60,7 @@ export default function ContactPage() {
       service,
       message: String(fd.get('message') || ''),
       source: 'gulflineai.com/contact',
+      marketingOptIn: fd.get('marketingOptIn') === 'on',
     }
 
     try {
@@ -227,6 +228,39 @@ export default function ContactPage() {
                     style={{ resize: 'vertical' }}
                   />
                 </div>
+
+                {/* Marketing opt-in. UNCHECKED by default and always will be —
+                    a pre-ticked box isn't consent, it's how you collect spam
+                    complaints from people who only asked a question. */}
+                <label
+                  htmlFor="marketingOptIn"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '0.65rem',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.5,
+                    color: 'rgba(240,244,255,0.6)',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    id="marketingOptIn"
+                    name="marketingOptIn"
+                    style={{
+                      marginTop: '0.2rem',
+                      width: '1rem',
+                      height: '1rem',
+                      accentColor: 'var(--cyan)',
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span>
+                    Send me occasional tips on using AI in a small business. Once a month
+                    at most, and you can unsubscribe from any email.
+                  </span>
+                </label>
 
                 <button type="submit" className="btn-primary" disabled={submitting}>
                   {submitting ? 'Sending...' : 'Submit — We\'ll Reach Out Within 24 Hours'}

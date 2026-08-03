@@ -126,7 +126,16 @@ export async function POST(req: NextRequest) {
         // not this server's egress IP.
         'x-forwarded-for': ip,
       },
-      body: JSON.stringify({ name, email, phone, topic, companyWebsite: '' }),
+      body: JSON.stringify({
+          name,
+          email,
+          phone,
+          topic,
+          companyWebsite: '',
+          // Explicit marketing consent, passed straight through. The portal
+          // defaults this to false — a missing field is never a yes.
+          marketingOptIn: cleanPayload.marketingOptIn === true,
+        }),
     })
     portalOk = portalRes.ok
     if (!portalOk) console.error('Portal intake failed:', portalRes.status)

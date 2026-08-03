@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { NewsletterSignup } from '@/components/newsletter-signup'
 
 export function Footer() {
   return (
@@ -103,7 +104,16 @@ export function Footer() {
 
         </div>
 
-        <div className="mt-12 border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 border-t border-white/[0.05] pt-8">
+          <div style={{ maxWidth: '30rem' }}>
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-white/40">
+              Stay in the loop
+            </h4>
+            <NewsletterSignup />
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/30">
             &copy; {new Date().getFullYear()} Gulfline AI LLC. All rights reserved.
           </p>
