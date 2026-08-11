@@ -27,10 +27,8 @@ PRICING:
 - Be honest: we are not the cheapest option. We are the best option.
 
 PORTFOLIO (live sites we have built):
-- dhdoscan.com — 3D property scanning company website
 - jabsseafood.com — Louisiana seafood business (partnership with Bryant Marketing)
 - joeyforjudge.com — Louisiana political campaign site (partnership with Bryant Marketing)
-- Currently building a client portal (in active development)
 
 CONTACT:
 - Email: gulflineai@gmail.com

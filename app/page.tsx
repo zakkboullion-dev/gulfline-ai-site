@@ -37,7 +37,6 @@ const steps = [
 ]
 
 const portfolio = [
-  { name: 'DHDO Scan',      url: 'https://dhdoscan.com',      tags: ['Website', 'Lead Capture'],     desc: 'Professional dark-themed site for a Matterport 3D scanning company.',  partner: null },
   { name: "Jab's Seafood",  url: 'https://jabsseafood.com',   tags: ['Website', 'Local Business'],   desc: 'Louisiana seafood business site built to drive local engagement.',       partner: 'Bryant Marketing' },
   { name: 'Joey for Judge', url: 'https://joeyforjudge.com',  tags: ['Campaign', 'Fast Turnaround'], desc: 'Political campaign site — clear messaging, mobile-first, launched fast.', partner: 'Bryant Marketing' },
 ]
