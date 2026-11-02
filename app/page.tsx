@@ -219,7 +219,7 @@ export default function HomePage() {
                   className="badge-cyan mb-6"
                   style={{ background: 'rgba(34,211,238,0.16)', color: 'var(--cyan)', fontWeight: 700 }}
                 >
-                  ★ First 50 Businesses
+                  ★ Simple Pricing
                 </div>
                 <h2
                   style={{
@@ -234,12 +234,12 @@ export default function HomePage() {
                   Your Website, Built Free.
                 </h2>
                 <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '36rem', margin: '0 auto 2rem' }}>
-                  Most agencies charge $1,500–$3,000 just to build. For the first 50 businesses
-                  who reach out, we&apos;re waiving that entirely — $0 upfront. Then $150/mo covers
-                  hosting, edits, updates &amp; support. We do it all.
+                  Most agencies charge $1,500–$3,000 just to build. We build yours for free.
+                  Then $29.99/mo keeps it online — fast, secure hosting with SSL. Need changes
+                  later? Edits are quoted separately, so you only pay for what you ask for.
                 </p>
 
-                {/* Price — free build (was $1,500+), then the monthly retainer */}
+                {/* Price — free build (was $1,500+), then hosting only. Edits are billed separately. */}
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1.1rem', flexWrap: 'wrap', marginBottom: '0.6rem' }}>
                   <span
                     style={{
@@ -268,7 +268,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <p style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: 'var(--white)', marginBottom: '2rem' }}>
-                  then just <span style={{ color: 'var(--cyan)' }}>$150/mo</span> — hosting, edits &amp; support
+                  then just <span style={{ color: 'var(--cyan)' }}>$29.99/mo</span> for hosting
                 </p>
 
                 <Link
@@ -286,7 +286,7 @@ export default function HomePage() {
                   Claim a Free Build <ArrowRight size={16} />
                 </Link>
                 <p style={{ marginTop: '1.1rem', fontSize: '0.8rem', color: 'rgba(240,244,255,0.4)', letterSpacing: '0.02em' }}>
-                  Only 50 spots — first come, first served. Hosting · Edits · Updates · Support included.
+                  Free build · $29.99/mo hosting · Cancel anytime · Edits quoted separately
                 </p>
               </div>
             </div>

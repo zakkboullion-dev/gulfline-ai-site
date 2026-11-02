@@ -40,8 +40,8 @@ const industries = [
 ]
 
 const stats = [
-  { val: '3+', label: 'Live client sites' },
-  { val: '1', label: 'Portal in active development' },
+  { val: '5+', label: 'Live client sites' },
+  { val: 'Free', label: 'Website builds' },
   { val: '24hr', label: 'Response commitment' },
   { val: '100%', label: 'Custom builds — no templates' },
 ]

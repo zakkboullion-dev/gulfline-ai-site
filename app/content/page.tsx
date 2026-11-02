@@ -26,7 +26,7 @@ const courseTopics = [
 ]
 
 const upcoming = [
-  { title: 'How to Build a Professional Landing Page in 2025', type: 'Tutorial' },
+  { title: 'How to Build a Professional Landing Page', type: 'Tutorial' },
   { title: 'What Every Small Business Website Needs (and Most are Missing)', type: 'Article' },
   { title: 'How We Set Up Lead Automation for a Local Business', type: 'Case Study' },
   { title: 'AI Chatbots Explained: What They Are and When You Need One', type: 'Guide' },

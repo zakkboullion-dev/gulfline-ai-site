@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { emailLead } from '@/lib/lead-email'
 import { rateLimit, getIP } from '@/lib/rate-limit'
 
 // Allowed fields — whitelist only, nothing else passes through
@@ -92,12 +93,34 @@ export async function POST(req: NextRequest) {
     service: sanitizeString(body.service, 200),
     message: sanitizeString(body.message, 2000),
     source: 'gulflineai.com/contact',
+    // Explicit opt-in only: anything but a literal true is a no.
+    marketingOptIn: body.marketingOptIn === true,
   }
 
-  // ── Deliver to the client portal (primary destination) ──
-  // Leads land in call_requests and show up in the portal's admin queue at
-  // portal.gulflineai.com/admin/call-requests, where the organizer agent also
-  // flags any lead left unanswered past 24h. Server-to-server, so no CORS.
+  // ── 1. Email it to us — the primary destination ──
+  // The portal used to be primary, but it's no longer checked day to day, so a
+  // lead could land there successfully and never be seen. Email is where we look.
+  const emailOk = await emailLead(
+    `New lead: ${name}${cleanPayload.businessName ? ` (${cleanPayload.businessName})` : ''}`,
+    [
+      ['Name', name],
+      ['Email', email],
+      ['Phone', phone],
+      ['Business', cleanPayload.businessName],
+      ['Location', cleanPayload.location],
+      ['Industry', cleanPayload.industry],
+      ['Service', cleanPayload.service],
+      ['Message', cleanPayload.message],
+      ['Marketing opt-in', cleanPayload.marketingOptIn ? 'yes' : 'no'],
+      ['Source', cleanPayload.source],
+      ['Submission', cleanPayload.submissionId],
+    ],
+    email,
+  )
+
+  // ── 2. The client portal (backup) ──
+  // Leads land in call_requests at portal.gulflineai.com/admin/call-requests.
+  // Server-to-server, so no CORS.
   const PORTAL_INTAKE_URL =
     process.env.PORTAL_INTAKE_URL || 'https://portal.gulflineai.com/api/public/call-request'
 
@@ -143,24 +166,26 @@ export async function POST(req: NextRequest) {
     console.error('Portal intake error:', err)
   }
 
-  // ── Forward to Google Sheet (best-effort secondary copy, only if configured) ──
+  // ── 3. Google Sheet (backup, only if configured) ──
   const SHEET_URL = process.env.SHEETS_URL
   let sheetOk = false
   if (SHEET_URL) {
     try {
-      await fetch(SHEET_URL, {
+      const sheetRes = await fetch(SHEET_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cleanPayload),
         redirect: 'follow',
       })
-      sheetOk = true
+      // A sheet that answers with an error must not count as delivered.
+      sheetOk = sheetRes.ok
+      if (!sheetOk) console.error('Sheet forward failed:', sheetRes.status)
     } catch (err) {
       console.error('Sheet forward error:', err)
     }
   }
 
-  if (portalOk || sheetOk) {
+  if (emailOk || portalOk || sheetOk) {
     return NextResponse.json({ ok: true })
   }
   // Don't expose internal error details

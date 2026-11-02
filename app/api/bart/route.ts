@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { rateLimit, getIP } from '@/lib/rate-limit'
+import { emailLead } from '@/lib/lead-email'
 
 const SYSTEM_PROMPT = `You are Bart, the AI assistant for Gulfline AI — a web development and automation company based in Lake Charles, Louisiana.
 
@@ -21,14 +22,19 @@ WHAT GULFLINE AI DOES:
 - Agency Partnerships — white-label builds for marketing agencies
 
 PRICING:
-- All projects are custom-quoted. No fixed pricing.
-- Landing pages start at an accessible price point. Complex apps and portals scale up.
+- Websites: the build is free. Hosting is $29.99 a month. That covers hosting only.
+- Edits and changes to a website after launch are quoted separately - only pay for what you ask for.
+- No contract and no minimum: cancel anytime. The site stays online for the rest of the paid month.
+- If they ask who owns the site or domain, keep it short: the build is free because we keep the site; details are in the service agreement, and Zakk can walk them through it on a call.
+- Everything else (Shopify stores, web apps, AI chatbots, voice agents, CRMs, automation) is custom-quoted after a free call.
+- Never invent a price for anything not listed here. If you don't know, say it gets quoted on the call.
 - First call is always free. No commitment required.
-- Be honest: we are not the cheapest option. We are the best option.
 
 PORTFOLIO (live sites we have built):
 - jabsseafood.com — Louisiana seafood business (partnership with Bryant Marketing)
 - joeyforjudge.com — Louisiana political campaign site (partnership with Bryant Marketing)
+- mazens.com — restaurant website
+- Two Sulphur, LA church websites, built free through our nonprofit program (see /nonprofit)
 
 CONTACT:
 - Email: gulflineai@gmail.com
@@ -203,10 +209,26 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // ── Forward lead to Google Sheet ──
+    // ── Deliver the lead ──
+    // Bart tells the visitor "someone will be in touch", so the lead has to reach
+    // someone. Email first; the Google Sheet as a backup copy.
+    let leadDelivered = false
+    if (lead?.email) {
+      leadDelivered = await emailLead(
+        `New lead from Bart: ${lead.name || lead.email}`,
+        [
+          ['Name', lead.name],
+          ['Email', lead.email],
+          ['Phone', lead.phone],
+          ['Needs', lead.service],
+          ['Source', 'Bart chatbot on gulflineai.com'],
+        ],
+        lead.email,
+      )
+    }
     if (lead?.email && process.env.SHEETS_URL) {
       try {
-        await fetch(process.env.SHEETS_URL, {
+        const sheetRes = await fetch(process.env.SHEETS_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -223,9 +245,15 @@ export async function POST(req: NextRequest) {
             source: 'bart-chatbot',
           }),
         })
+        if (sheetRes.ok) leadDelivered = true
+        else console.error('Lead sheet failed:', sheetRes.status)
       } catch (e) {
         console.error('Lead sheet error:', e)
       }
+    }
+    if (lead?.email && !leadDelivered && !process.env.SHEETS_URL) {
+      // Nowhere to send it. Shout in the logs rather than lose it silently.
+      console.error('Bart captured a lead but no delivery is configured:', lead.email)
     }
 
     // ── Parse quick links ──
