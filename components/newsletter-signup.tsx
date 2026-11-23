@@ -5,8 +5,7 @@ import { useState } from 'react'
 // Standalone list signup for the footer — for people who want the writing but
 // aren't ready to fill in a five-field contact form.
 //
-// Posts to this site's own /api/subscribe, which emails the signup to us and then
-// forwards it to the portal as a backup. The response is deliberately uniform, so
+// Posts to this site's own /api/subscribe, which emails the signup to us. The response is deliberately uniform, so
 // this component can't tell "added" from "already on the list" — and it shouldn't,
 // since that would leak list membership.
 export function NewsletterSignup() {

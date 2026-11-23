@@ -2,12 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { emailLead } from '@/lib/lead-email'
 import { rateLimit, getIP } from '@/lib/rate-limit'
 
-// Newsletter signup. Emails the address to us first, because the portal's database
-// pauses when idle and a signup sent only there is lost. The portal is still tried
-// afterwards as a backup, with a short timeout so a paused database can't hang the form.
-
-const PORTAL_SUBSCRIBE_URL =
-  process.env.PORTAL_SUBSCRIBE_URL || 'https://portal.gulflineai.com/api/public/subscribe'
+// Newsletter signup. Emails the address to us and nothing else. It used to forward to
+// the portal as well, but the portal's database pauses when idle, which made every
+// signup wait out a timeout. The email is the record.
 
 export async function POST(req: NextRequest) {
   const ip = getIP(req)
@@ -40,20 +37,6 @@ export async function POST(req: NextRequest) {
     ['When', new Date().toISOString()],
   ])
 
-  let portalOk = false
-  try {
-    const res = await fetch(PORTAL_SUBSCRIBE_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-forwarded-for': ip },
-      body: JSON.stringify({ email, companyWebsite: '' }),
-      signal: AbortSignal.timeout(5000),
-    })
-    portalOk = res.ok
-    if (!portalOk) console.error('Portal subscribe failed:', res.status)
-  } catch (err) {
-    console.error('Portal subscribe error:', err)
-  }
-
-  if (emailOk || portalOk) return NextResponse.json({ ok: true })
+  if (emailOk) return NextResponse.json({ ok: true })
   return NextResponse.json({ ok: false }, { status: 500 })
 }
