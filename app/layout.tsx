@@ -74,9 +74,11 @@ const jsonLd = {
   logo: 'https://gulflineai.com/images/logo-hero-final.png',
   image: 'https://gulflineai.com/images/logo-hero-final.png',
   email: 'gulflineai@gmail.com',
+  telephone: '+1-337-287-0105',
   contactPoint: {
     '@type': 'ContactPoint',
     email: 'gulflineai@gmail.com',
+    telephone: '+1-337-287-0105',
     contactType: 'customer service',
     areaServed: 'US',
     availableLanguage: 'English',
@@ -99,7 +101,7 @@ const jsonLd = {
     { '@type': 'Country', name: 'United States' },
   ],
   priceRange: '$$',
-  openingHours: 'Mo-Fr 09:00-18:00',
+  openingHours: 'Mo-Fr 09:00-17:00',
   sameAs: liveSocials.map((s) => s.url),
   description: 'Gulfline AI is a Lake Charles, Louisiana web development and AI automation company. We build and host business websites, integrate CRMs, build analytics dashboards, and connect the programs a business already uses.',
   knowsAbout: [
