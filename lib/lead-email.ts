@@ -15,6 +15,10 @@ import { Resend } from 'resend'
 //                    the Resend account owner's own address, so every lead sent to
 //                    any other inbox was rejected.
 
+// TEMPORARY diagnostic: why the last send failed. No secrets, only the provider's
+// error name and message. Remove once delivery is confirmed stable.
+export let lastLeadEmailError = ''
+
 const esc = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
 
@@ -24,7 +28,10 @@ export async function emailLead(
   replyTo?: string,
 ): Promise<boolean> {
   const key = process.env.RESEND_API_KEY
-  if (!key) return false
+  if (!key) {
+    lastLeadEmailError = 'no_api_key'
+    return false
+  }
 
   const rows = fields.filter(([, v]) => v && String(v).trim())
   const text = rows.map(([k, v]) => `${k}: ${v}`).join('\n')
@@ -50,11 +57,13 @@ export async function emailLead(
     })
     if (error) {
       console.error('Lead email rejected:', error)
+      lastLeadEmailError = `${error.name}: ${String(error.message).slice(0, 160)}`
       return false
     }
     return true
   } catch (err) {
     console.error('Lead email error:', err)
+    lastLeadEmailError = 'threw: ' + String(err).slice(0, 160)
     return false
   }
 }
