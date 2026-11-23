@@ -18,7 +18,14 @@ import { Resend } from 'resend'
 // use belongs to an account without the domain, leads still reach the owner's inbox.
 const SENDERS = process.env.LEAD_EMAIL_FROM
   ? [process.env.LEAD_EMAIL_FROM]
-  : ['Gulfline AI Leads <notifications@gulflineai.com>', 'Gulfline AI Leads <onboarding@resend.dev>']
+  : [
+      // mail.gulflineai.com is the sending domain verified in Gulfline's own Resend
+      // account. The root domain belongs to an older Resend account, so it stays as
+      // a second try in case that account's key is ever used here again.
+      'Gulfline AI Leads <notifications@mail.gulflineai.com>',
+      'Gulfline AI Leads <notifications@gulflineai.com>',
+      'Gulfline AI Leads <onboarding@resend.dev>',
+    ]
 
 const esc = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
