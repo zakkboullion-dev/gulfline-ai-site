@@ -5,16 +5,14 @@ import { useState } from 'react'
 // Standalone list signup for the footer — for people who want the writing but
 // aren't ready to fill in a five-field contact form.
 //
-// Posts straight to the portal's public subscribe endpoint, which is rate
-// limited, honeypotted, and pins the consent record server-side. The response is
-// deliberately uniform, so this component can't tell "added" from "already on
-// the list" — and it shouldn't, since that would leak list membership.
+// Posts to this site's own /api/subscribe, which emails the signup to us and then
+// forwards it to the portal as a backup. The response is deliberately uniform, so
+// this component can't tell "added" from "already on the list" — and it shouldn't,
+// since that would leak list membership.
 export function NewsletterSignup() {
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
 
-  const endpoint =
-    process.env.NEXT_PUBLIC_SUBSCRIBE_URL ||
-    'https://portal.gulflineai.com/api/public/subscribe'
+  const endpoint = process.env.NEXT_PUBLIC_SUBSCRIBE_URL || '/api/subscribe'
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()

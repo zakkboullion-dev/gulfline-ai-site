@@ -159,6 +159,8 @@ export async function POST(req: NextRequest) {
           // defaults this to false — a missing field is never a yes.
           marketingOptIn: cleanPayload.marketingOptIn === true,
         }),
+      // The portal's database pauses when idle. Don't let that hang the form.
+      signal: AbortSignal.timeout(5000),
     })
     portalOk = portalRes.ok
     if (!portalOk) console.error('Portal intake failed:', portalRes.status)

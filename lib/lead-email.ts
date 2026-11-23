@@ -9,10 +9,11 @@ import { Resend } from 'resend'
 //
 //   RESEND_API_KEY   GulflineAI's own Resend account. Never DHDO's.
 //   LEAD_EMAIL_TO    defaults to gulflineai@gmail.com
-//   LEAD_EMAIL_FROM  defaults to Resend's shared test sender, which can only deliver
-//                    to the Resend account owner's own address. Fine while that is
-//                    gulflineai@gmail.com; verify gulflineai.com in Resend before
-//                    sending anywhere else.
+//   LEAD_EMAIL_FROM  defaults to notifications@gulflineai.com, a sender on the
+//                    gulflineai.com domain verified in Gulfline's Resend account.
+//                    The old default, Resend's shared test sender, only delivers to
+//                    the Resend account owner's own address, so every lead sent to
+//                    any other inbox was rejected.
 
 const esc = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
@@ -40,7 +41,7 @@ export async function emailLead(
 
   try {
     const { error } = await new Resend(key).emails.send({
-      from: process.env.LEAD_EMAIL_FROM || 'Gulfline AI Leads <onboarding@resend.dev>',
+      from: process.env.LEAD_EMAIL_FROM || 'Gulfline AI Leads <notifications@gulflineai.com>',
       to: process.env.LEAD_EMAIL_TO || 'gulflineai@gmail.com',
       subject,
       text,
