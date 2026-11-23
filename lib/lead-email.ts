@@ -9,15 +9,16 @@ import { Resend } from 'resend'
 //
 //   RESEND_API_KEY   GulflineAI's own Resend account. Never DHDO's.
 //   LEAD_EMAIL_TO    defaults to gulflineai@gmail.com
-//   LEAD_EMAIL_FROM  defaults to notifications@gulflineai.com, a sender on the
-//                    gulflineai.com domain verified in Gulfline's Resend account.
-//                    The old default, Resend's shared test sender, only delivers to
-//                    the Resend account owner's own address, so every lead sent to
-//                    any other inbox was rejected.
+//   LEAD_EMAIL_FROM  optional. When unset, notifications@gulflineai.com is tried
+//                    first and Resend's shared test sender second (see SENDERS).
 
-// TEMPORARY diagnostic: why the last send failed. No secrets, only the provider's
-// error name and message. Remove once delivery is confirmed stable.
-export let lastLeadEmailError = ''
+// Senders to try, in order. The domain sender only works on a Resend account that has
+// verified gulflineai.com. Resend's shared test sender works on any account but only
+// delivers to that account owner's own address, so it is the fallback: if the key in
+// use belongs to an account without the domain, leads still reach the owner's inbox.
+const SENDERS = process.env.LEAD_EMAIL_FROM
+  ? [process.env.LEAD_EMAIL_FROM]
+  : ['Gulfline AI Leads <notifications@gulflineai.com>', 'Gulfline AI Leads <onboarding@resend.dev>']
 
 const esc = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
@@ -28,10 +29,7 @@ export async function emailLead(
   replyTo?: string,
 ): Promise<boolean> {
   const key = process.env.RESEND_API_KEY
-  if (!key) {
-    lastLeadEmailError = 'no_api_key'
-    return false
-  }
+  if (!key) return false
 
   const rows = fields.filter(([, v]) => v && String(v).trim())
   const text = rows.map(([k, v]) => `${k}: ${v}`).join('\n')
@@ -47,23 +45,22 @@ export async function emailLead(
     `</table>`
 
   try {
-    const { error } = await new Resend(key).emails.send({
-      from: process.env.LEAD_EMAIL_FROM || 'Gulfline AI Leads <notifications@gulflineai.com>',
+    const resend = new Resend(key)
+    for (const from of SENDERS) {
+      const { error } = await resend.emails.send({
+      from,
       to: process.env.LEAD_EMAIL_TO || 'gulflineai@gmail.com',
       subject,
       text,
       html,
       ...(replyTo ? { replyTo } : {}),
-    })
-    if (error) {
-      console.error('Lead email rejected:', error)
-      lastLeadEmailError = `${error.name}: ${String(error.message).slice(0, 160)}`
-      return false
+      })
+      if (!error) return true
+      console.error(`Lead email rejected from ${from}:`, error)
     }
-    return true
+    return false
   } catch (err) {
     console.error('Lead email error:', err)
-    lastLeadEmailError = 'threw: ' + String(err).slice(0, 160)
     return false
   }
 }

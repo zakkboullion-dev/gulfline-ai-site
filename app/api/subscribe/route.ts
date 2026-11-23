@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { emailLead, lastLeadEmailError } from '@/lib/lead-email'
+import { emailLead } from '@/lib/lead-email'
 import { rateLimit, getIP } from '@/lib/rate-limit'
 
 // Newsletter signup. Emails the address to us and nothing else. It used to forward to
@@ -38,5 +38,5 @@ export async function POST(req: NextRequest) {
   ])
 
   if (emailOk) return NextResponse.json({ ok: true })
-  return NextResponse.json({ ok: false, diag: lastLeadEmailError }, { status: 500 })
+  return NextResponse.json({ ok: false }, { status: 500 })
 }
