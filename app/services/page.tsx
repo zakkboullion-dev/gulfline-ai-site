@@ -2,19 +2,45 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Globe, ShoppingBag, Bot, PhoneCall, Workflow, Database, Mail, LayoutDashboard, Users, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Globe, ShoppingBag, Bot, PhoneCall, Workflow, Database, Mail, LayoutDashboard, Users, CheckCircle2, ArrowRight, BarChart3, Cable } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Services — Gulfline AI',
-  description: 'Web development services in Lake Charles, LA — custom websites, Shopify stores, web apps, AI chatbots, CRM integration, and lead automation. One team for everything your business needs online.',
+  description: 'Gulfline AI services in Lake Charles, LA — free website builds with $29.99/mo hosting, CRM integration, data analytics dashboards, and custom integrations between the programs your business already uses.',
 }
 
-const services = [
+type Service = { id?: string; icon: typeof Globe; title: string; description: string; features: string[] }
+
+// The first four are the core offer and carry anchors (#websites, #crm, #analytics,
+// #integrations) that the homepage and ads link straight to.
+const services: Service[] = [
   {
+    id: 'websites',
     icon: Globe,
-    title: 'Website Design & Development',
-    description: 'Custom websites built from scratch — not templates. Designed for your brand, your audience, and your goals. From single landing pages to full multi-page business sites.',
-    features: ['Mobile-first, fully responsive', 'Fast load times optimized for SEO', 'Contact forms with lead capture', 'Hosting setup and deployment', 'Ongoing maintenance available'],
+    title: 'Websites & Hosting',
+    description: 'A custom website for your business, built free. Then $29.99/mo keeps it online with hosting and SSL. Edits after launch are quoted separately, so you only pay for what you ask for.',
+    features: ['Custom design built from scratch, not a template', 'Mobile-first, fully responsive', 'Fast load times set up for search', 'Contact forms with lead capture', 'Hosting and SSL included in the monthly', 'Cancel anytime'],
+  },
+  {
+    id: 'crm',
+    icon: Database,
+    title: 'CRM Integration',
+    description: 'Connect your website, forms, and tools to the CRM you already use. Every lead and contact lands exactly where it should.',
+    features: ['HubSpot, Salesforce, GoHighLevel', 'Google Sheets & Workspace', 'Website forms wired straight into the CRM', 'Two-way data sync', 'Pipeline and deal automation'],
+  },
+  {
+    id: 'analytics',
+    icon: BarChart3,
+    title: 'Data Analytics & Dashboards',
+    description: 'Your numbers are spread across your website, your CRM, and your sales tools. We pull them onto one screen so you can see where leads and sales come from and what is working.',
+    features: ['Website and lead tracking set up correctly', 'One dashboard across your tools', 'Lead source and ad performance reporting', 'Reports written in plain English', 'Built on the tools you already pay for where possible'],
+  },
+  {
+    id: 'integrations',
+    icon: Cable,
+    title: 'Custom Integrations',
+    description: 'If two of your programs should talk to each other and don’t, we build the connection. Scheduling, invoicing, CRM, email, inventory: data entered once shows up everywhere it is needed.',
+    features: ['Connect scheduling, invoicing, CRM, and email tools', 'Custom API work for software without a plug-in', 'Zapier and Make workflows where they fit', 'Copy-and-paste steps taken off your staff', 'Tested end to end before handoff'],
   },
   {
     icon: ShoppingBag,
@@ -45,12 +71,6 @@ const services = [
     title: 'Lead Intake & Automation',
     description: 'Systems that capture leads from your website, qualify them automatically, and route them to the right person or CRM — zero manual work.',
     features: ['Form-to-CRM automation', 'Lead scoring and qualification', 'Instant notifications to your team', 'Duplicate detection and cleanup', 'Custom routing rules'],
-  },
-  {
-    icon: Database,
-    title: 'CRM Integration',
-    description: "Connect your website, forms, and tools to the CRM you already use. Every lead and contact lands exactly where it should.",
-    features: ['HubSpot, Salesforce, GoHighLevel', 'Google Sheets & Workspace', 'Custom API integrations', 'Two-way data sync', 'Pipeline and deal automation'],
   },
   {
     icon: Mail,
@@ -106,7 +126,7 @@ export default function ServicesPage() {
                 <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>Needs Online.</span>
               </h1>
               <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--muted)', lineHeight: 1.75, maxWidth: '36rem', marginBottom: '2.5rem' }}>
-                One team that builds websites, apps, automations, and AI tools — so you never have to juggle multiple vendors again.
+                We build your website free and host it for $29.99/mo. Then we connect it to your CRM, your numbers, and the programs you already run.
               </p>
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #1B4FD8 0%, #2563EB 100%)', color: '#fff', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', padding: '0.875rem 2rem', borderRadius: '10px', boxShadow: '0 0 25px rgba(27,79,216,0.4)', textDecoration: 'none' }}>
@@ -129,8 +149,9 @@ export default function ServicesPage() {
                 return (
                   <div
                     key={service.title}
+                    id={service.id}
                     className="glass-card"
-                    style={{ padding: '2.5rem', transition: 'border-color 0.3s' }}
+                    style={{ padding: '2.5rem', transition: 'border-color 0.3s', scrollMarginTop: '6rem' }}
                   >
                     <div style={{ display: 'grid', gap: '2.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
                       <div>

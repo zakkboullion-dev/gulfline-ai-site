@@ -4,6 +4,8 @@ import { Inter, Barlow } from 'next/font/google'
 
 import './globals.css'
 import { BartWidget } from '@/components/bart-widget'
+import { Tracking } from '@/components/tracking'
+import { liveSocials } from '@/lib/site'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -20,12 +22,12 @@ const barlow = Barlow({
 })
 
 export const metadata: Metadata = {
-  title: 'Gulfline AI — Web Development & AI Automation | Lake Charles, Louisiana',
-  description: 'Gulfline AI — Lake Charles web development company building custom websites, web apps, Shopify stores, AI chatbots, and lead automation for businesses across Louisiana and beyond.',
+  title: 'Gulfline AI — Free Website Builds, CRM Integration & Analytics | Lake Charles, Louisiana',
+  description: 'Gulfline AI builds your business website free, then hosts it for $29.99/mo. Lake Charles team for websites, CRM integration, data analytics, and custom integrations between the programs you already use.',
   metadataBase: new URL('https://gulflineai.com'),
   openGraph: {
-    title: 'Gulfline AI — Web Development & AI Automation | Lake Charles, LA',
-    description: 'Lake Charles web development — custom websites, Shopify stores, web apps, AI chatbots, and lead automation for Louisiana businesses and beyond. Get a free quote.',
+    title: 'Your Website, Built Free — Gulfline AI | Lake Charles, LA',
+    description: 'We build your business website free, then $29.99/mo keeps it online. CRM integration, data analytics, and custom integrations when you are ready for more.',
     url: 'https://gulflineai.com',
     siteName: 'Gulfline AI',
     locale: 'en_US',
@@ -41,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gulfline AI — Web Development & AI Automation | Lake Charles, LA',
-    description: 'We build websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes.',
+    title: 'Your Website, Built Free — Gulfline AI | Lake Charles, LA',
+    description: 'We build your business website free, then $29.99/mo keeps it online. CRM integration, data analytics, and custom integrations when you are ready for more.',
     images: ['/images/logo-hero-final.png'],
   },
   robots: {
@@ -98,8 +100,8 @@ const jsonLd = {
   ],
   priceRange: '$$',
   openingHours: 'Mo-Fr 09:00-18:00',
-  sameAs: [],
-  description: 'Gulfline AI is a Lake Charles, Louisiana web development and AI automation company. We build custom websites, web apps, Shopify stores, AI chatbots, and automated lead pipelines for businesses of all sizes.',
+  sameAs: liveSocials.map((s) => s.url),
+  description: 'Gulfline AI is a Lake Charles, Louisiana web development and AI automation company. We build and host business websites, integrate CRMs, build analytics dashboards, and connect the programs a business already uses.',
   knowsAbout: [
     'Web Development',
     'Website Design',
@@ -107,6 +109,9 @@ const jsonLd = {
     'AI Chatbots',
     'Lead Automation',
     'CRM Integration',
+    'Website Hosting',
+    'Data Analytics',
+    'Custom Software Integrations',
     'Web Applications',
     'Client Portals',
   ],
@@ -129,6 +134,7 @@ export default function RootLayout({
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
         <BartWidget />
+        <Tracking />
       </body>
     </html>
   )

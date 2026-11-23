@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { NewsletterSignup } from '@/components/newsletter-signup'
+import { liveSocials } from '@/lib/site'
 
 export function Footer() {
   return (
@@ -27,7 +28,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed text-white/50">
-              Websites, web apps, and AI automation built for real businesses.
+              Websites and hosting, CRM integration, analytics, and custom integrations for real businesses.
             </p>
             <p className="text-sm text-white/40">Lake Charles, Louisiana</p>
             <a
@@ -63,14 +64,14 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white/40">Services</h4>
             <ul className="space-y-3 text-sm">
               {[
-                'Website Design & Dev',
-                'Web Apps & Portals',
+                'Websites & Hosting',
+                'CRM Integration',
+                'Data Analytics',
+                'Custom Integrations',
                 'Shopify Stores',
+                'Web Apps & Portals',
                 'AI Chatbots',
                 'AI Voice Agents',
-                'Lead Automation',
-                'CRM Integration',
-                'SMS & Email Pipelines',
               ].map((s) => (
                 <li key={s} className="text-white/60">{s}</li>
               ))}
@@ -79,21 +80,21 @@ export function Footer() {
 
           {/* Social + Legal */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/40">Follow Us</h4>
-            <ul className="space-y-3 text-sm">
-              {[
-                { label: 'Instagram', href: '#' },
-                { label: 'TikTok', href: '#' },
-                { label: 'Facebook', href: '#' },
-              ].map((s) => (
-                <li key={s.label}>
-                  <a href={s.href} className="text-white/60 transition-colors hover:text-white">
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="pt-4 space-y-3">
+            {liveSocials.length > 0 && (
+              <>
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-white/40">Follow Us</h4>
+                <ul className="space-y-3 text-sm">
+                  {liveSocials.map((s) => (
+                    <li key={s.label}>
+                      <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-white/60 transition-colors hover:text-white">
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            <div className={liveSocials.length > 0 ? 'pt-4 space-y-3' : 'space-y-3'}>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-white/40">Legal</h4>
               <ul className="space-y-3 text-sm">
                 <li><Link href="/privacy" className="text-white/60 transition-colors hover:text-white">Privacy Policy</Link></li>

@@ -3,16 +3,20 @@ import Link from 'next/link'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Instagram, ExternalLink, ArrowRight, BookOpen } from 'lucide-react'
+import { socials as socialLinks } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Content — Gulfline AI',
   description: 'Web development tips, tutorials, and resources from Gulfline AI in Lake Charles, LA. Follow our content on Instagram, TikTok, and YouTube — and get notified when our Skool course launches.',
 }
 
+// URLs live in lib/site.ts. A platform with no URL yet shows "Coming soon" instead of a link.
+const urlFor = (platform: string) => socialLinks.find((s) => s.label === platform)?.url || ''
+
 const socials = [
-  { platform: 'Instagram', handle: '@gulflineai', desc: 'Reels, tips, and behind-the-scenes on websites and automation.', url: '#', icon: Instagram },
-  { platform: 'TikTok', handle: '@gulflineai', desc: 'Short-form content on building websites, AI tools, and running a digital agency.', url: '#', icon: ExternalLink },
-  { platform: 'Facebook', handle: 'Gulfline AI', desc: 'Updates, project launches, and local business content.', url: '#', icon: ExternalLink },
+  { platform: 'Instagram', handle: '@gulflineai', desc: 'Reels, tips, and behind-the-scenes on websites and automation.', url: urlFor('Instagram'), icon: Instagram },
+  { platform: 'TikTok', handle: '@gulflineai', desc: 'Short-form content on building websites, AI tools, and running a digital agency.', url: urlFor('TikTok'), icon: ExternalLink },
+  { platform: 'Facebook', handle: 'Gulfline AI', desc: 'Updates, project launches, and local business content.', url: urlFor('Facebook'), icon: ExternalLink },
 ]
 
 const courseTopics = [
@@ -143,9 +147,13 @@ export default function ContentPage() {
                       <h3 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 600, fontSize: '1rem', color: 'var(--white)', marginBottom: '0.25rem' }}>{s.platform}</h3>
                       <p style={{ fontSize: '0.8rem', color: 'var(--cyan)', marginBottom: '0.75rem' }}>{s.handle}</p>
                       <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.65, marginBottom: '1.25rem' }}>{s.desc}</p>
-                      <a href={s.url} className="animated-link" style={{ fontSize: '0.85rem', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                        Follow <ExternalLink size={12} />
-                      </a>
+                      {s.url ? (
+                        <a href={s.url} target="_blank" rel="noopener noreferrer" className="animated-link" style={{ fontSize: '0.85rem', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                          Follow <ExternalLink size={12} />
+                        </a>
+                      ) : (
+                        <span style={{ fontSize: '0.8rem', color: 'rgba(240,244,255,0.35)' }}>Coming soon</span>
+                      )}
                     </div>
                   )
                 })}

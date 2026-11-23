@@ -6,7 +6,7 @@ import { ArrowRight, Globe, Zap, Users, ShieldCheck } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About — Gulfline AI',
-  description: 'Gulfline AI is a Lake Charles, Louisiana web development company. We build custom websites, web apps, AI chatbots, and automated lead systems for businesses of any size, any industry.',
+  description: 'Gulfline AI is a Lake Charles, Louisiana web development company. We build and host business websites, integrate CRMs, build analytics dashboards, and connect the programs a business already uses.',
 }
 
 const pillars = [
@@ -18,7 +18,7 @@ const pillars = [
   {
     icon: Zap,
     title: 'One team. Full scope.',
-    body: 'Websites, apps, chatbots, CRM integrations, automations — we handle all of it so you never juggle vendors.',
+    body: 'Your website, your CRM, your reporting, and the connections between your programs — one team handles all of it so you never juggle vendors.',
   },
   {
     icon: Users,
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>Built for Business.</span>
               </h1>
               <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--muted)', lineHeight: 1.75, maxWidth: '38rem' }}>
-                Gulfline AI is a web development and AI automation company based in Lake Charles, Louisiana. We build the digital side of businesses — websites, apps, chatbots, and the automated systems that power them.
+                Gulfline AI is a web development and AI automation company based in Lake Charles, Louisiana. We build and host business websites, then connect them to the CRM, the reporting, and the other programs a business already runs.
               </p>
             </div>
           </div>

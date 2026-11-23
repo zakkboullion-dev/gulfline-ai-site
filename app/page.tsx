@@ -4,30 +4,43 @@ import { Footer } from '@/components/footer'
 import {
   Globe, ShoppingBag, Bot, Workflow,
   Database, Mail, LayoutDashboard, Users,
-  ArrowRight, ExternalLink, PhoneCall,
+  ArrowRight, ExternalLink, PhoneCall, BarChart3, Cable, CheckCircle2,
 } from 'lucide-react'
 
-const services = [
-  { icon: Globe,          title: 'Website Design & Dev',       desc: 'Custom sites that convert. Landing pages to full business websites.' },
+const pillars = [
+  {
+    icon: Globe, anchor: 'websites', title: 'Websites & Hosting',
+    desc: 'A custom site for your business, built free. Then $29.99/mo keeps it online with hosting and SSL. Changes after launch are quoted before we touch anything.',
+    points: ['Designed for your business, not a template', 'Built for phones first and fast to load', 'Hosting and SSL handled for you'],
+  },
+  {
+    icon: Database, anchor: 'crm', title: 'CRM Integration',
+    desc: 'Every form, call, and lead lands in the CRM you already use, so nothing sits in one person’s inbox.',
+    points: ['HubSpot, Salesforce, GoHighLevel', 'Website forms wired straight in', 'Instant alerts to your team'],
+  },
+  {
+    icon: BarChart3, anchor: 'analytics', title: 'Data Analytics',
+    desc: 'See where your leads and sales come from on one screen instead of five separate logins.',
+    points: ['Website and lead tracking set up correctly', 'One dashboard across your tools', 'Reports written in plain English'],
+  },
+  {
+    icon: Cable, anchor: 'integrations', title: 'Custom Integrations',
+    desc: 'If two of your programs should talk to each other and don’t, we build the connection.',
+    points: ['Scheduling, invoicing, CRM, and email tools connected', 'Custom API work for software without a plug-in', 'Copy-and-paste steps taken off your staff'],
+  },
+]
+
+const baseServices = [
   { icon: ShoppingBag,    title: 'Shopify & E-Commerce',        desc: 'Full store builds — design, products, payments, launch-ready.' },
   { icon: LayoutDashboard,title: 'Web Apps & Client Portals',   desc: 'Dashboards, portals, databases, auth — built to your workflow.' },
   { icon: Bot,            title: 'AI Chatbots',                 desc: '24/7 chatbots trained on your business, embedded on your site.' },
   { icon: PhoneCall,      title: 'AI Voice Agents',             desc: 'A voice agent that answers your phone, books jobs, and captures leads 24/7.' },
   { icon: Workflow,       title: 'Lead Intake & Automation',    desc: 'Capture, qualify, and route leads automatically — zero manual work.' },
-  { icon: Database,       title: 'CRM Integration',             desc: 'HubSpot, Salesforce, GoHighLevel — your data, where it needs to be.' },
-  { icon: Mail,           title: 'SMS & Email Pipelines',       desc: 'Automated follow-ups triggered by real customer behavior.' },
-  { icon: Users,          title: 'Agency Partnerships',         desc: 'You handle the strategy. We handle the build. White-label friendly.' },
-  // duplicate set for seamless loop
-  { icon: Globe,          title: 'Website Design & Dev',       desc: 'Custom sites that convert. Landing pages to full business websites.' },
-  { icon: ShoppingBag,    title: 'Shopify & E-Commerce',        desc: 'Full store builds — design, products, payments, launch-ready.' },
-  { icon: LayoutDashboard,title: 'Web Apps & Client Portals',   desc: 'Dashboards, portals, databases, auth — built to your workflow.' },
-  { icon: Bot,            title: 'AI Chatbots',                 desc: '24/7 chatbots trained on your business, embedded on your site.' },
-  { icon: PhoneCall,      title: 'AI Voice Agents',             desc: 'A voice agent that answers your phone, books jobs, and captures leads 24/7.' },
-  { icon: Workflow,       title: 'Lead Intake & Automation',    desc: 'Capture, qualify, and route leads automatically — zero manual work.' },
-  { icon: Database,       title: 'CRM Integration',             desc: 'HubSpot, Salesforce, GoHighLevel — your data, where it needs to be.' },
   { icon: Mail,           title: 'SMS & Email Pipelines',       desc: 'Automated follow-ups triggered by real customer behavior.' },
   { icon: Users,          title: 'Agency Partnerships',         desc: 'You handle the strategy. We handle the build. White-label friendly.' },
 ]
+// Doubled so the horizontal scroll loops without a visible seam.
+const services = [...baseServices, ...baseServices]
 
 const steps = [
   { num: '01', title: 'Discovery Call',   body: 'We learn about your business, goals, and pain points. Free, no pitch, just a real conversation.' },
@@ -36,19 +49,20 @@ const steps = [
   { num: '04', title: 'Launch & Support', body: 'We go live and stay available. Updates, fixes, and new features as you grow.' },
 ]
 
-const portfolio = [
-  { name: "Jab's Seafood",  url: 'https://jabsseafood.com',   tags: ['Website', 'Local Business'],   desc: 'Louisiana seafood business site built to drive local engagement.',       partner: 'Bryant Marketing' },
-  { name: 'Joey for Judge', url: 'https://joeyforjudge.com',  tags: ['Campaign', 'Fast Turnaround'], desc: 'Political campaign site — clear messaging, mobile-first, launched fast.', partner: 'Bryant Marketing' },
+const portfolio: { name: string; url: string; tags: string[]; desc: string; partner: string | null }[] = [
+  { name: "Mazen's", url: 'https://mazens.com', tags: ['Website', 'Restaurant'], desc: 'A Lake Charles restaurant site that puts the menu, hours, and location up front.', partner: null },
+  { name: 'First Christian Church', url: 'https://first-christian-sulphur-website.vercel.app/', tags: ['Website', 'Nonprofit'], desc: 'A Sulphur congregation serving since 1919, now with a modern home online. Design and build donated.', partner: null },
+  { name: "Jab's Seafood", url: 'https://jabsseafood.com', tags: ['Website', 'Local Business'], desc: 'Louisiana seafood business site built to drive local engagement.', partner: 'Bryant Marketing' },
 ]
 
 const faqs = [
-  { q: 'What does Gulfline AI build?',             a: 'Websites, web apps, Shopify stores, AI chatbots, CRM integrations, lead automation, and SMS/email pipelines.' },
+  { q: 'What does Gulfline AI build?',             a: 'Websites and hosting, CRM integrations, analytics dashboards, and custom connections between the programs you already use. We also build Shopify stores, web apps, AI chatbots, and AI voice agents.' },
+  { q: 'What does it cost?',                        a: 'A standard business website is built free, then $29.99/mo for hosting. Edits after launch and everything else (stores, apps, CRM, analytics, integrations) are quoted before we start, so you see the number first.' },
+  { q: 'What happens if I cancel hosting?',         a: 'You can cancel anytime. The site comes down at the end of your last paid month. Your logo, photos, and text are always yours, and you can buy the site outright if you want to keep it.' },
+  { q: 'Can you connect my existing tools?',        a: 'Yes. HubSpot, Salesforce, GoHighLevel, Google Workspace, Zapier, Make, and custom APIs. If a program has an API or an export, we can usually connect it.' },
   { q: 'How long does a project take?',             a: 'Landing pages in 2–5 days. Full sites and web apps typically 2–4 weeks depending on scope.' },
-  { q: 'What does it cost?',                        a: 'Every project is scoped individually. You get a clear number before we start — no surprises.' },
-  { q: 'Can you integrate with my existing tools?', a: 'Yes. HubSpot, Salesforce, GoHighLevel, Google Workspace, Zapier, Make, and custom APIs.' },
   { q: 'Do you work with marketing agencies?',      a: 'Yes. We partner as the technical build team — white-label or collaborative, your call.' },
   { q: 'Where are you based?',                      a: 'Lake Charles, Louisiana. We work locally and remotely with clients everywhere.' },
-  { q: 'Is the first call really free?',            a: 'Always. No pitch, no pressure. We just want to understand your business first.' },
   { q: 'What if I already have a site?',            a: 'Send us the link. We do redesigns and rebuilds too.' },
 ]
 
@@ -107,8 +121,8 @@ export default function HomePage() {
                   marginBottom: '1.5rem',
                 }}
               >
-                We Build the Digital Side<br />
-                <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>of Your Business.</span>
+                Your Website, Built Free.<br />
+                <span style={{ color: 'var(--cyan)', fontStyle: 'italic' }}>$29.99/mo Keeps It Online.</span>
               </h1>
 
               <p
@@ -120,8 +134,9 @@ export default function HomePage() {
                   margin: '0 auto 2.5rem',
                 }}
               >
-                Websites. Web apps. Shopify stores. AI chatbots. Automated lead pipelines.
-                One team. Built clean, built fast, built to work.
+                We design and build your business a custom website at no charge, then host it
+                for $29.99 a month. When you want more, we connect it to your CRM, put your
+                numbers on one dashboard, and get your programs talking to each other.
               </p>
 
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -143,7 +158,7 @@ export default function HomePage() {
                     textDecoration: 'none',
                   }}
                 >
-                  Get a Free Quote <ArrowRight size={16} />
+                  Claim a Free Build <ArrowRight size={16} />
                 </Link>
                 <Link
                   href="/portfolio"
@@ -166,6 +181,9 @@ export default function HomePage() {
                   See Our Work
                 </Link>
               </div>
+              <p style={{ marginTop: '1.25rem', fontSize: '0.8rem', color: 'rgba(240,244,255,0.4)', letterSpacing: '0.02em' }}>
+                Cancel anytime · Edits quoted separately · First call is free
+              </p>
 
             </div>
           </div>
@@ -190,7 +208,7 @@ export default function HomePage() {
                 fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
               }}
             >
-              {['Websites & Web Apps', 'AI Chatbots', 'AI Voice Agents', 'Shopify Stores', 'Lead Automation', 'CRM Integration', 'Agency Partnerships'].map((t, i) => (
+              {['Websites & Hosting', 'CRM Integration', 'Data Analytics', 'Custom Integrations', 'AI Voice Agents', 'Shopify Stores'].map((t, i) => (
                 <span key={t} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
                   {i > 0 && <span style={{ color: 'rgba(34,211,238,0.3)' }}>·</span>}
                   {t}
@@ -200,6 +218,76 @@ export default function HomePage() {
           </div>
         </section>
         <div className="section-line" />
+
+        {/* ── FOUR PILLARS ── */}
+        <section style={{ background: 'var(--navy)', padding: '6rem 0 1rem' }}>
+          <div className="container mx-auto px-4 lg:px-8">
+            <div style={{ maxWidth: '68rem', margin: '0 auto' }}>
+              <div className="badge-cyan mb-4">What We Do Best</div>
+              <h2
+                style={{
+                  fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+                  color: 'var(--white)',
+                  lineHeight: 1.15,
+                  marginBottom: '1rem',
+                }}
+              >
+                Start with a website.<br />Grow into a connected business.
+              </h2>
+              <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '40rem', marginBottom: '3rem' }}>
+                Most of our clients start with the free website. The other three are what we add
+                once it&apos;s live and you can see what the business needs next.
+              </p>
+              {/* 24rem minimum keeps this a 2x2 grid on desktop, never a 3+1 orphan */}
+              <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 24rem), 1fr))' }}>
+                {pillars.map((p) => {
+                  const Icon = p.icon
+                  return (
+                    <Link
+                      key={p.anchor}
+                      href={`/services#${p.anchor}`}
+                      className="glass-card"
+                      style={{ padding: '2rem', textDecoration: 'none', display: 'flex', flexDirection: 'column', transition: 'border-color 0.3s' }}
+                    >
+                      <div
+                        style={{
+                          width: 48, height: 48, borderRadius: 12,
+                          background: 'rgba(27,79,216,0.2)',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          marginBottom: '1.25rem',
+                        }}
+                      >
+                        <Icon size={22} color="var(--cyan)" />
+                      </div>
+                      <h3 style={{ fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 700, fontSize: '1.3rem', color: 'var(--white)', marginBottom: '0.6rem' }}>
+                        {p.title}
+                      </h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.7, marginBottom: '1.25rem' }}>
+                        {p.desc}
+                      </p>
+                      <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.5rem' }}>
+                        {p.points.map((pt) => (
+                          <li key={pt} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                            <CheckCircle2 size={15} color="var(--cyan)" style={{ marginTop: '3px', flexShrink: 0 }} />
+                            <span style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.55 }}>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <span
+                        className="animated-link"
+                        style={{ marginTop: 'auto', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontFamily: "var(--font-barlow), 'Barlow', sans-serif", fontWeight: 500, fontSize: '0.875rem' }}
+                      >
+                        How it works <ArrowRight size={14} />
+                      </span>
+                    </Link>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ── PROMO BANNER ── */}
         <section style={{ background: 'var(--navy)', padding: '5rem 0' }}>
@@ -219,7 +307,7 @@ export default function HomePage() {
                   className="badge-cyan mb-6"
                   style={{ background: 'rgba(34,211,238,0.16)', color: 'var(--cyan)', fontWeight: 700 }}
                 >
-                  ★ Simple Pricing
+                  ★ How the Pricing Works
                 </div>
                 <h2
                   style={{
@@ -231,7 +319,7 @@ export default function HomePage() {
                     marginBottom: '0.85rem',
                   }}
                 >
-                  Your Website, Built Free.
+                  Why the Build Is Free.
                 </h2>
                 <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '36rem', margin: '0 auto 2rem' }}>
                   Most agencies charge $1,500–$3,000 just to build. We build yours for free.
@@ -298,7 +386,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 lg:px-8 mb-10">
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
               <div>
-                <div className="badge-cyan mb-4">What We Build</div>
+                <div className="badge-cyan mb-4">Also In Our Shop</div>
                 <h2
                   style={{
                     fontFamily: "var(--font-barlow), 'Barlow', sans-serif",
@@ -308,7 +396,7 @@ export default function HomePage() {
                     lineHeight: 1.15,
                   }}
                 >
-                  One team.<br />Everything your business needs online.
+                  One team.<br />Everything else your business needs online.
                 </h2>
               </div>
               <Link

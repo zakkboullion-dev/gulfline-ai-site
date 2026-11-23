@@ -44,14 +44,21 @@ We retain your information for as long as necessary to fulfill the purposes outl
 - Google Sheets — for storing contact form submissions
 - Vercel — for website hosting and deployment
 - Groq — for powering our AI chat assistant (Bart)
+- Google Analytics — for measuring website traffic
+- Meta (Facebook and Instagram) — for measuring the results of our advertising
 
 These providers have their own privacy policies and we encourage you to review them. We do not sell your personal information to any third party.`
   },
   {
     title: 'Cookies & Analytics',
-    content: `Our website may use cookies and similar technologies to understand how visitors use the site. This data is used solely to improve the website experience and is not linked to personally identifiable information.
+    content: `Our website uses cookies and similar technologies to understand how visitors use the site and to measure our advertising.
 
-You can disable cookies in your browser settings at any time.`
+- Google Analytics records pages visited, approximate location, device type, and how you arrived at the site.
+- The Meta Pixel records visits and contact form submissions so we can measure our Facebook and Instagram ads and show our ads to people who have visited the site. Meta may connect this activity to your Facebook or Instagram account.
+
+When you submit the contact form, these services receive only the type of service you asked about. They never receive your name, contact details, or message.
+
+You can disable cookies in your browser settings at any time, and you can control ad personalization in your Facebook and Instagram ad settings.`
   },
   {
     title: 'Your Rights',
@@ -106,7 +113,7 @@ export default function PrivacyPage() {
                 Privacy Policy
               </h1>
               <p style={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
-                Last updated: June 1, 2026
+                Last updated: November 22, 2026
               </p>
               <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.75, marginTop: '1rem', maxWidth: '36rem' }}>
                 Gulfline AI is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights regarding that information.

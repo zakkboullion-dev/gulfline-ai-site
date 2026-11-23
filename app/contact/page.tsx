@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
+import { trackLead } from '@/lib/track'
 
 const industries = [
   'Restaurants & Food Service',
@@ -20,12 +21,15 @@ const industries = [
 ]
 
 const services = [
-  'Website Design & Development',
+  'Free Website Build + Hosting',
+  'CRM Integration',
+  'Data Analytics & Dashboards',
+  'Custom Integration (connect my programs)',
   'Shopify / E-Commerce Store',
   'Web App or Client Portal',
   'AI Chatbot',
+  'AI Voice Agent',
   'Lead Intake & Automation',
-  'CRM Integration',
   'SMS & Email Pipeline',
   'Not sure — need advice',
 ]
@@ -73,6 +77,7 @@ export default function ContactPage() {
       const data = await res.json()
       if (!data.ok) throw new Error(data.error || 'Submission failed')
       setSubmitted(true)
+      trackLead(payload.service)
       form.reset()
       setIndustry('')
       setService('')
